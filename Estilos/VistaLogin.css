@@ -1,14 +1,58 @@
 body {
-      height: 100vh; /* 100% de la altura de la pantalla */
-      display: flex;
-      justify-content: center; /* Centra horizontalmente */
-      align-items: center;    /* Centra verticalmente */
-      background: #f0f0f0;
-    }
+  min-height: 100vh; /* que siempre ocupe el alto completo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f0f0;
+  margin: 0;
+}
 
-    form {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+.formulario {
+  background-color: #4492F5;
+  border-radius: 1.5em;
+  padding: 2em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  width: 90%;          /* ocupa casi toda la pantalla */
+  max-width: 400px;    /* nunca más de 400px */
+}
+
+.campos {
+  display: flex;
+  margin-bottom: 3em;
+}
+
+.campos label {
+  width: 7rem;          
+  text-align: left;
+  font-size: 1.3rem;       
+  margin-top: 0.5em;
+  align-items: center;
+
+}
+
+.campos input {
+  flex: 1;
+  padding: 0.6em;
+  font-size: 1rem;
+  border-radius: 0.3em;
+  border: 1px solid #ccc;
+}
+
+.campos button {
+  cursor: grab;
+  margin-top: 1em;
+  padding: 0.6em 1.2em;
+  font-size: 1rem;
+  border: 0.1em solid black;
+  background-color: #4492F5;
+  color: white;
+  border-radius: 0.5em;
+  width: 100%;           /* botón ocupa todo el ancho */
+}
+
+button:active {
+  cursor: grabbing;
+  background: darkblue;
+  transform: scale(0.98);
+}
