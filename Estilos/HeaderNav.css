@@ -1,0 +1,92 @@
+/* Header */
+header {
+  background: #4492F5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo img{
+  width: 80px;
+  height: auto;
+}
+
+ .logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.search-bar {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 5px;
+}
+
+.cart {
+  font-size: 20px;
+}
+
+/* Navbar */
+nav {
+  background: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px; /* más espacio entre links */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* Botones de acción */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-buttons button {
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-login {
+  background: #555;
+  color: white;
+}
+
+.btn-login:hover {
+  background: #777;
+}
+
+.btn-register {
+  background: #ffcc00;
+  color: #333;
+}
+
+.btn-register:hover {
+  background: #e6b800;
+}
