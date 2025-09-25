@@ -1,0 +1,30 @@
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-around;
+  background: #444;
+  color: white;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+footer div {
+  flex: 1;
+  text-align: center;
+}
+
+.redes-sociales ul{
+    list-style: none;
+}
+
+
+.redes-sociales li{
+    margin: 10px;
+}
+
+.redes-sociales a{
+    text-decoration: none;
+    color: #f0f0f0;
+    display: block;
+
+}
