@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.logo img{
+  width: 80px;
+  height: auto;
+}
+
+.search-bar {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 5px;
+}
+
+.cart {
+  font-size: 20px;
+}
+
+/* Menu */
+nav {
+  background: #999;
+  text-align: center;
+  padding: 10px;
+  color:#fff;
+}
+
+.titulo-descripcion{
+  margin-left: 50px;
+  margin-top: 80px;
+}
+
+.contenedor-inputs{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /*Que se repita 3 columnas */
+    gap: 10px;
+    max-width: 850px;
+    margin: 50px;
+}
+
+.contenedor-inputs input{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.add-person{
+  display: flex;
+  margin-left: 50px;
+  gap: 10px;
+}
+
+.add-person img{
+  margin-top: 5px;
+  width: 45px;
+  height: 45px;
+}
+
+
+.inscribirse{
+  margin-left: 50px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.inscribirse h4{
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.inscribirse button{
+    background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px; /* bordes redondeados opcionales */
+       
+}
+
+
+
+
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-around;
+  background: #444;
+  color: white;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+footer div {
+  flex: 1;
+  text-align: center;
+}
+
+.redes-sociales ul{
+    list-style: none;
+}
+
+
+.redes-sociales li{
+    margin: 10px;
+}
+
+.redes-sociales a{
+    text-decoration: none;
+    color: #f0f0f0;
+    display: block;
+    
+}
