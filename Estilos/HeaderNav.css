@@ -47,64 +47,57 @@ header {
 
 /* Navbar */
 nav {
-    background: #3D6FA5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 30px;
+  background: #3D6FA5;
+  display: grid;
+  grid-template-columns: 1fr auto; /* menú ocupa, botones a la derecha */
+  align-items: center;
+  padding: 12px 30px;
 }
 
+/* Menú centrado */
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    /* más espacio entre links */
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center; /* centrado */
+  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
-
 .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
-
 .nav-links a:hover {
-    color: #00C9A7;
+  color: #00C9A7;
 }
 
-/* Botones de acción */
-.nav-buttons {
-    display: flex;
-    gap: 12px;
+/* Botones de acción (derecha) */
+.botones-index {
+  display: flex;
+  gap: 12px;
+  justify-self: end; /* los pega a la derecha */
 }
 
-.nav-buttons button {
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: bold;
+.btn {
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
 }
-
 .btn-login {
-    background: #555;
-    color: white;
+  background: #555;
+  color: white;
 }
-
-.btn-login:hover {
-    background: #777;
-}
+.btn-login:hover { background: #777; }
 
 .btn-register {
-    background: #ffcc00;
-    color: #333;
+  background: #ffcc00;
+  color: #333;
 }
-
-.btn-register:hover {
-    background: #e6b800;
-}
+.btn-register:hover { background: #e6b800; }
 
 
 
