@@ -1,0 +1,245 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #6A9CF4;
+  color: #333;
+}
+
+/* Slider */
+.slider {
+  height: 400px;
+  background: #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.slider img{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.slider button {
+  position: absolute;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.4); /* translúcido */
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.slider button:hover {
+  color: rgba(0, 0, 0, 0.7); /* un poco más fuerte al pasar el mouse */
+}
+
+.slider .prev {
+  left: 15px;
+}
+
+.slider .next {
+  right: 15px;
+}
+
+/* Sección Profesional */
+.profesional {
+  padding: 50px 20px;
+  background: #6A9CF4;
+  text-align: center;
+}
+
+.profesional h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.profesional-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.profesional .card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 280px;
+  flex: 1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profesional .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.profesional .card h3 {
+  margin-bottom: 10px;
+  color: #007bff;
+  font-size: 20px;
+}
+
+.profesional .card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Cursos Destacados */
+.cursos-destacados {
+  padding: 40px 20px;
+  background-color: #007bff; /* fondo opcional */
+  text-align: center;
+}
+
+.cursos-destacados h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+.curso {
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: relative;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.curso .precio {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: black;
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.curso img {
+  width: 100%;
+  background: #eee;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.curso h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+}
+
+.curso p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.curso button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: auto; /* 🔑 Empuja el botón hacia abajo */
+  border-radius: 6px;
+}
+
+/* Medios de pago */
+.medios {
+  padding: 20px;
+  text-align: center;
+}
+
+.medios h2 {
+  margin-bottom: 20px;
+}
+
+.medios-slider {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 50px;
+  align-items: center;
+}
+
+.medios img {
+  width: 100px;   /* Ajustá según lo que te guste */
+  height: 60px;   /* Todas iguales en alto */
+  object-fit: contain;  /* Mantiene la proporción dentro del recuadro */
+  display: block;
+  margin: 0 auto;
+}
+
+.medios button {
+  position: absolute;
+  transform: translateY(-20%);
+  background: none;
+  border: none;
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.4); /* translúcido */
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+.medios button:hover {
+  color: rgba(0, 0, 0, 0.7); /* un poco más fuerte al pasar el mouse */
+}
+
+.medios .prev {
+  left: 15px;
+}
+
+.medios .next {
+  right: 15px;
+}
+
+/* Quiénes Somos */
+.quienes-somos {
+  max-width: 900px;       /* ancho más amplio */
+  margin: 60px auto;      /* centrado con espacio */
+  padding: 40px;
+  background: #ffffff;    /* fondo blanco */
+  border-radius: 12px;    /* bordes redondeados */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* sombra suave */
+  text-align: justify;    /* texto justificado */
+  line-height: 1.8;       /* más separación entre líneas */
+}
+
+.quienes-somos h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #007bff;         /* azul moderno */
+  font-weight: bold;
+}
+
+.quienes-somos p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+
