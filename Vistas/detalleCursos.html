@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="./../Estilos/style_curso.css">
     <link rel="stylesheet" href="./../Estilos/HeaderNav.css">
     <link rel="stylesheet" href="./../Estilos/Footer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap"
+        rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 
@@ -17,19 +20,30 @@
 
 
     <header>
-        <div class="logo"><img src="./../Imagenes/logo.jpg"></div>
-        <div class="search-bar"><input type="text" placeholder="Buscar cursos..."></div>
-        <div class="cart"><i class='bx bx-cart'></i></div>
+        <div class="logo">
+            <img src="./../Imagenes/logo.jpg">
+        </div>
+
+        <div class="search-bar">
+            <div class="search-container">
+            <input type="text" placeholder="Buscar cursos...">
+            <i class='bx bx-search-alt-2'></i>
+            </div>
+        </div>
+
+        <div class="cart">
+            <i class='bx bx-cart'></i>
+        </div>
     </header>
 
 
     <nav>
         <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Calendario</a></li>
-            <li><a href="#">Haz un regalo</a></li>
-            <li><a href="#">Contacto</a></li>
-            <li><a href="#">Inscripción para empresas</a></li>
+            <li><a href="#"><i class='bx bx-home'></i><span>Inicio</span></a></li>
+            <li><a href="#"><i class='bx bx-calendar'></i><span>Calendario</span></a></li>
+            <li><a href="#"><i class='bx bx-gift'></i><span>Haz un regalo</span></a></li>
+            <li><a href="#"><i class='bx bx-phone'></i><span>Contacto</span></a></li>
+            <li><a href="#"><i class='bx bx-briefcase'></i><span>Inscripción para empresas</span></a></li>
         </ul>
     </nav>
 
@@ -57,7 +71,7 @@
                 <summary>INTRODUCCIÓN</summary>
                 <ul>
                     <li>
-                        <span class="icono"><i class='bx bx-volume-full' ></i></span>
+                        <span class="icono"><i class='bx bx-volume-full'></i></span>
                         <div class="info">
                             <span class="titulo">Definición de UX/UI</span>
                             <span class="duracion">12 min</span>
@@ -67,7 +81,7 @@
                     </li>
 
                     <li>
-                        <span class="icono"><i class='bx bxs-file-import' ></i></span>
+                        <span class="icono"><i class='bx bxs-file-import'></i></span>
                         <div class="info">
                             <span class="titulo">Importancia del UX/UI</span>
                             <span class="duracion">18 min</span>
@@ -141,7 +155,8 @@
         <!-- Docente -->
         <section class="docente">
             <div class="foto">
-                <img src="./../Imagenes/UsuarioSinFoto2.png" alt="Usuario"></div>
+                <img src="./../Imagenes/UsuarioSinFoto2.png" alt="Usuario">
+            </div>
             <div class="docente-info">
                 <h3>NOMBRE Y APELLIDO</h3>
                 <p>⭐⭐⭐⭐⭐</p>
@@ -161,7 +176,7 @@
                 </div>
                 <p><strong>60h</strong></p>
                 <p>Cloud & DevOps</p>
-                <a href="#">Ver detalle</a>
+                <a href="./detalle-clouds&devops.html">Ver detalle</a>
                 <button>Comprar</button>
             </div>
 
@@ -172,7 +187,7 @@
                 </div>
                 <p><strong>60h</strong></p>
                 <p>Ciberseguridad</p>
-                <a href="#">Ver detalle</a>
+                <a href="./detalle-ciberSeguridad.html">Ver detalle</a>
                 <button>Comprar</button>
             </div>
 
@@ -183,7 +198,7 @@
                 </div>
                 <p><strong>60h</strong></p>
                 <p>Desarrollo Mobile</p>
-                <a href="#">Ver detalle</a>
+                <a href="./detalle-desarrolloMobile.html">Ver detalle</a>
                 <button>Comprar</button>
             </div>
 
@@ -194,7 +209,7 @@
                 </div>
                 <p><strong>60h</strong></p>
                 <p>Desarrollo Web</p>
-                <a href="#">Ver detalle</a>
+                <a href="./detalle-desarrolloWeb.html">Ver detalle</a>
                 <button>Comprar</button>
             </div>
         </section>

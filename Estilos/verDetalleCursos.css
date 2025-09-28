@@ -1,0 +1,204 @@
+.detalle-curso {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2em 1em;
+    background: linear-gradient(135deg, #e8e9eb 0%, #f7f3ee 100%);
+    border-radius: 1em;
+
+}
+
+.curso-detalle-principal {
+    max-width: 700px;
+    background-color: white;
+    border-radius: 0.8em;
+    padding: 2em;
+    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.curso-detalle-principal h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #3D6FA5;
+}
+
+.curso-detalle-principal img {
+    max-width: 100%;
+    border-radius: 0.5em;
+    margin: 1em 0;
+    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.1);
+}
+
+.curso-detalle-principal p {
+    font-size: 1.05em;
+    margin: 0.6em 0;
+    color: #444;
+    line-height: 1.6;
+}
+
+.curso-detalle-principal button {
+    margin-top: 1.5em;
+    padding: 0.8em 2em;
+    background-color: #3D6FA5;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curso-detalle-principal button:hover {
+    background-color: #2C3E50;
+    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.3);
+}
+
+.curso-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2em;
+    max-width: 1200px;
+    width: 100%;
+    padding: 2em;
+    flex-wrap: nowrap;
+}
+
+.curso-detalle-principal {
+    flex: 2;
+    background-color: white;
+    border-radius: 0.8em;
+    padding: 2em;
+    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+.curso-detalle-principal h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #3D6FA5;
+}
+
+.curso-detalle-principal img {
+    width: 100%;
+    border-radius: 0.5em;
+    margin: 1em 0;
+    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.1);
+}
+
+.curso-detalle-principal p {
+    font-size: 1.05em;
+    margin: 0.6em 0;
+    color: #444;
+    line-height: 1.6;
+}
+
+.curso-detalle-principal button {
+    margin-top: 1.5em;
+    padding: 0.8em 2em;
+    background-color: #3D6FA5;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.curso-detalle-principal button:hover {
+    background-color: #2C3E50;
+    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.3);
+}
+
+.beneficios-curso {
+    flex: 1;
+    background: white;
+    padding: 1.5em;
+    border-radius: 0.8em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 2em;
+}
+
+.beneficios-curso h3 {
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    color: #2a527f;
+    border-bottom: 2px solid #3D6FA5;
+    padding-bottom: 0.3em;
+}
+
+.beneficios-curso ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    color: #2a527f;
+    padding-bottom: 0.3em;
+}
+
+.beneficios-curso li {
+    margin-bottom: 0.8em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background-color: #f9f9f9;
+    padding: 0.6em;
+    border-radius: 0.5em;
+    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.beneficios-curso li:hover {
+    background-color: #eef6ff;
+    transform: translateX(5px);
+}
+
+.beneficios-curso i {
+    color: green;
+    font-size: 1.2em;
+}
+
+.btn-volver {
+    position: fixed;
+    bottom: 2em;
+    left: 2em;
+    background-color: #3D6FA5;
+    color: white;
+    padding: 0.8em 1.5em;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-volver:hover {
+    background-color: #2C3E50;
+    transform: translateY(-3px);
+}
+
+@media screen and (max-width: 48em) {
+    .curso-layout {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .beneficios-curso {
+        position: static;
+        margin-top: 2em;
+    }
+}
