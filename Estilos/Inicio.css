@@ -192,20 +192,23 @@ body {
   margin: 0 auto;
 }
 
-.medios button {
-  position: absolute;
-  transform: translateY(-20%);
-  background: none;
-  border: none;
-  font-size: 60px;
-  color: rgba(0, 0, 0, 0.4); /* translúcido */
+.btn-inscribirse {
+  display: block;              /* ocupa todo el ancho */
+  width: 100%;                 /* mismo que el botón anterior */
+  background: #007bff;
+  color: white;
+  text-align: center;          /* centra el texto */
+  text-decoration: none;       /* saca el subrayado */
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  z-index: 10;
-  transition: color 0.3s ease;
+  margin-top: 15px;
 }
 
-.medios button:hover {
-  color: rgba(0, 0, 0, 0.7); /* un poco más fuerte al pasar el mouse */
+.btn-inscribirse:hover {
+  background: #0056b3;         /* color más oscuro al pasar el mouse */
 }
 
 .medios .prev {
@@ -240,4 +243,110 @@ body {
   font-size: 16px;
   color: #444;
   margin-bottom: 15px;
+}
+
+.slider { position: relative; }           /* para que los botones absolutos se ubiquen bien */
+.slider button { top: 50%; }              /* centra verticalmente (ya usás translateY(-50%)) */
+
+.medios-slider { position: relative; }    /* para que .medios button (absolute) se posicione dentro */
+                                          
+/* =========================================================
+   Breakpoint Tablet (≤ 768px)
+========================================================= */
+@media (max-width: 768px) {
+  /* Texto un poco más cómodo */
+  body { font-size: 16px; line-height: 1.6; }
+
+  /* Slider: más bajo en tablet */
+  .slider { height: 320px; }
+  .slider img { height: 320px; }
+  .slider button { font-size: 42px; }
+  .slider .prev { left: 10px; }
+  .slider .next { right: 10px; }
+
+  /* Profesional: pasamos a 2 columnas con grid, manteniendo tu look */
+  .profesional { padding: 40px 16px; }
+  .profesional-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .profesional .card {
+    max-width: 100%;
+    padding: 18px;
+  }
+
+  /* Cursos Destacados: 2 columnas claras (tu auto-fit ya ayudaba) */
+  .cursos-destacados { padding: 32px 16px; }
+  .cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 100%;
+  }
+  .curso img { height: 140px; }
+
+  /* Medios de pago: permitir salto de línea y espaciar */
+  .medios { padding: 24px 16px; }
+  .medios-slider {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .medios img { width: 90px; height: 54px; }
+  .medios button { font-size: 40px; }
+
+  /* Quiénes Somos: ancho/padding más contenidos */
+  .quienes-somos {
+    margin: 40px 16px;
+    padding: 24px;
+  }
+  .quienes-somos h2 { font-size: 24px; }
+}
+
+/* =========================================================
+   Breakpoint Celular (≤ 480px)
+========================================================= */
+@media (max-width: 480px) {
+  /* Tipografía un poco más compacta */
+  body { font-size: 15px; }
+
+  /* Slider: todavía más bajo para no ocupar todo */
+  .slider { height: 220px; }
+  .slider img { height: 220px; }
+  .slider button { font-size: 32px; }
+  .slider .prev { left: 6px; }
+  .slider .next { right: 6px; }
+
+  /* Profesional: 1 columna */
+  .profesional { padding: 28px 12px; }
+  .profesional h2 { font-size: 22px; }
+  .profesional-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .profesional .card { padding: 16px; }
+
+  /* Cursos Destacados: 1 columna */
+  .cursos-destacados { padding: 24px 12px; }
+  .cursos-destacados h2 {
+    font-size: 22px;
+    letter-spacing: .5px;
+  }
+  .cursos-grid { grid-template-columns: 1fr; gap: 12px; }
+  .curso { padding: 12px; }
+  .curso img { height: 130px; }
+  .curso .precio { top: 8px; right: 8px; font-size: 12px; }
+  .curso button { padding: 8px 12px; }
+
+  /* Medios de pago: logos más chicos y botones menos intrusivos */
+  .medios-slider { gap: 16px; }
+  .medios img { width: 80px; height: 48px; }
+  .medios button { font-size: 28px; }
+
+  /* Quiénes Somos: padding reducido */
+  .quienes-somos {
+    margin: 28px 12px;
+    padding: 16px;
+  }
+  .quienes-somos p { font-size: 14px; }
 }
