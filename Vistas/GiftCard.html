@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalización de Gift Card</title>
+    <link rel="stylesheet" href="../Estilos/GiftCard.css">
+</head>
+<body>
+    <main class="giftcard-wrapper"> 
+        <header>
+            <h1>Diseña tu Gift Card para Obsequiar Cursos</h1>
+        </header>
+
+        <section class="personalizacion"> 
+            <h2>Opciones de Diseño</h2>
+            <form action="#" method="post" class="form-card">
+
+                <div class="form-group">
+                    <label for="fondo">Elegir Fondo:</label>
+                    <select id="fondo" name="fondo">
+                        <option value="default">Diseño Básico</option>
+                        <option value="bg1">Abstracto Azul</option>
+                        <option value="bg2">Fondo Tecnológico</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="destinatario">Nombre del Destinatario:</label>
+                    <input type="text" id="destinatario" name="destinatario" placeholder="Ej: Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="monto">Monto (USD):</label>
+                    <input type="number" id="monto" name="monto" min="10" step="10" value="50" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="color_fuente">Color de Fuente:</label>
+                    <input type="color" id="color_fuente" name="color_fuente" value="#0056b3">
+                </div>
+
+                <div class="form-group">
+                    <label>Tamaño de Fuente:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="tam_m" name="tamano" value="medio" checked> <label for="tam_m">Medio</label>
+                        <input type="radio" id="tam_g" name="tamano" value="grande"> <label for="tam_g">Grande</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ubicacion_valor">Ubicación del Monto:</label>
+                    <select id="ubicacion_valor" name="ubicacion_valor">
+                        <option value="top-right">Superior Derecha</option>
+                        <option value="center" selected>Centro</option>
+                        <option value="bottom-left">Inferior Izquierda</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-continuar">Continuar (Pagar y Enviar)</button>
+            </form>
+        </section>
+
+        <section class="vista-previa"> 
+            <h2>Vista Previa</h2>
+            <div id="giftcard-preview" class="giftcard-box bg-default">
+                <p class="preview-titulo">Gift Card de Cursos Online</p>
+                <p class="preview-nombre">Para: Ana Gómez</p>
+                
+                <p class="preview-monto ubicacion-center tam-m">$50 USD</p> 
+                
+                <small class="empresa-logo">Plataforma de Cursos</small>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
