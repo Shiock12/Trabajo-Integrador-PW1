@@ -3,7 +3,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f0f0f0;
+  background-image: url("../Imagenes/fondo-textura-abstracta_1258-30522.jpg");
   margin: 0;
 }
 

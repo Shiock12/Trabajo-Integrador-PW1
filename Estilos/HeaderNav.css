@@ -90,12 +90,14 @@ nav {
 .btn-login {
   background: #555;
   color: white;
+  padding: 0.4em;
 }
 .btn-login:hover { background: #777; }
 
 .btn-register {
   background: #ffcc00;
   color: #333;
+  padding: 0.4em;
 }
 .btn-register:hover { background: #e6b800; }
 
