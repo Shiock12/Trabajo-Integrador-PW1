@@ -21,7 +21,7 @@ nav {
 
 .contenedor-inputs{
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /*Que se repita 3 columnas */
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     max-width: 850px;
     margin: 50px;
@@ -73,6 +73,6 @@ nav {
   border: none;
   font-size: 20px;
   cursor: pointer;
-  border-radius: 5px; /* bordes redondeados opcionales */
+  border-radius: 5px; 
     
 }
