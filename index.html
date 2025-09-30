@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coursera</title>
-  <link rel="stylesheet" href="Estilos/index.css">
+  <title>Tienda de Cursos</title>
+  <link rel="stylesheet" href="../Estilos/Inicio.css">
   <link rel="stylesheet" href="../Estilos/HeaderNav.css">
   <link rel="stylesheet" href="../Estilos/Footer.css">
-  <link rel="stylesheet" href="Estilos/botones.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -23,12 +22,10 @@
  <!-- Navbar -->
   <nav>
     <ul class="nav-links">
-      <li><a href="#">Inicio</a></li>
       <li><a href="#">Calendario</a></li>
       <li><a href="Vistas/GiftCard.html">Haz un regalo</a></li>
-      <li><a href="#">Contacto</a></li>
+      <li><a href="Vistas/formularioDeContacto.html">Contacto</a></li>
       <li><a href="Vistas/FormularioEmpresas.html">Inscripción para empresas</a></li>
-      <li><a href="Vistas/VistaPerfil.html">Perfil</a></li>
     </ul>
         <section class="botones-index">
       <a href="./Vistas/VistaLogin.html" class="btn btn-login">Iniciar Sesión</a>
@@ -73,7 +70,7 @@
       <p>Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
       <p><strong>Duración:</strong> 75 horas</p>
       <div class="precio">$5000</div>
-      <button class="btn">Inscribirse</button>
+      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
     </div>
 
     <div class="curso">
@@ -82,7 +79,7 @@
       <p>Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.</p>
       <p><strong>Duración:</strong> 80 horas</p>
       <div class="precio">$10000</div>
-      <button class="btn">Inscribirse</button>
+      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
     </div>
 
     <div class="curso">
@@ -91,7 +88,7 @@
       <p>Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de usuario.</p>
       <p><strong>Duración:</strong> 60 horas</p>
       <div class="precio">$3000</div>
-      <button class="btn">Inscribirse</button>
+      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
     </div>
 
     <div class="curso">
@@ -100,7 +97,7 @@
       <p>Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
       <p><strong>Duración:</strong> 100 horas</p>
       <div class="precio">$7650</div>
-      <button class="btn">Inscribirse</button>
+      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
     </div>
 
     <div class="curso">
@@ -109,7 +106,7 @@
       <p>Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de seguridad.</p>
       <p><strong>Duración:</strong> 90 horas</p>
       <div class="precio">$100000</div>
-      <button class="btn">Inscribirse</button>
+      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
     </div>
 
     <div class="curso">
@@ -118,7 +115,7 @@
       <p>Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
       <p><strong>Duración:</strong> 75 horas</p>
       <div class="precio">$90000</div>
-      <button class="btn">Inscribirse</button>
+      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
     </div>
 
     <div class="curso">
@@ -127,7 +124,7 @@
       <p>Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
       <p><strong>Duración:</strong> 50 horas</p>
       <div class="precio">$33000</div>
-      <button class="btn">Inscribirse</button>
+      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
     </div>
 
     <div class="curso">
@@ -136,7 +133,7 @@
       <p>Mejora tu inglés con enfoque en negocios, entrevistas de trabajo y presentaciones.</p>
       <p><strong>Duración:</strong> 100 horas</p>
       <div class="precio">$100000</div>
-      <button class="btn">Inscribirse</button>
+      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
     </div>
   </div>
 </section>
@@ -175,17 +172,21 @@
 
 <!-- Footer -->
   <footer>
-    <div>Datos del grupo
-        <p>Isaac Rios</p>
-        <p>Franco Varela</p>
+    <div>
+        <p>Isaac Rios - 42147287</p>
+        <p>Franco Varela - 40674420</p>
+        <p>Nicolas Maas - 46122160</p>
         <p>Nahuel Esposito - 43862624</p>
         <p>Juan Pablo Pfeiffer - 41454612</p>
     </div>
-    <div>Menú inferior
-        <p>&copy; 2025 TuNombre o Empresa. Todos los derechos reservados.</p>
+    <div>
+        <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
     </div>
-    <div class="redes-sociales">Redes Sociales:
+    <div class="redes-sociales">
         <ul>
+            <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
+            <li><a></a>Franco Varela</li>
+            <li><a></a>Nicolas Maas</li>
             <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
             <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
         </ul>
