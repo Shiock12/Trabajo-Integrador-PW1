@@ -1,4 +1,3 @@
-
 body {
     height: 100vh;
     font-family: 'Inter', sans-serif;
@@ -193,13 +192,18 @@ label {
 }
 
 input[type="radio"]:checked+label {
-    border-color: #333;
-    background-color: #333;
+    border-color: #004D6D;
+    background-color: #004D6D;
+}
+
+input[type="radio"]:checked+label:hover {
+    background-color: #00628A;
+    border-color: #00628A;
 }
 
 
 input[type="radio"]:checked+label::after {
-    content: "✔";
+    content: '✔';
     color: #fff;
     font-size: 0.8em;
     position: absolute;
@@ -306,10 +310,88 @@ input[type="radio"]:checked+label::after {
     box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.3);
 }
 
+@media screen and (max-width: 30em) {
+    main {
+        padding: 0 1em;
+        gap: 1em;
+    }
 
-@media screen and (max-width: 48em) {
     .curso-info {
         grid-template-columns: 1fr;
+        padding: 1em;
+    }
+
+    .curso-info .foto {
+        height: 10em;
+    }
+
+    .curso-detalles button {
+        width: 100%;
+        padding: 0.8em 0;
+    }
+
+    .contenidos {
+        padding: 1em;
+    }
+
+    .docente {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5em;
+    }
+
+    .docente .foto {
+        width: 5em;
+        height: 5em;
+    }
+
+    .curso-card {
+        padding: 0.8em;
+    }
+
+    .curso-card .imagen {
+        height: 6em;
+    }
+
+    .curso-card button {
+        padding: 0.5em 2em;
+    }
+
+    .curso-card a {
+        font-size: 0.6em;
+        padding: 0.3em 0.6em;
+    }
+
+    label {
+        width: 1.5em;
+        height: 1.5em;
+    }
+}
+
+
+
+@media screen and (min-width: 30.0625em) and (max-width: 48em) {
+
+    main {
+        padding: 0 1.5em;
+    }
+
+    .curso-info {
+        grid-template-columns: 1fr;
+        padding: 1.5em;
+    }
+
+    .curso-info .foto {
+        height: 11em;
+    }
+
+    .curso-detalles button {
+        padding: 0.7em 1.5em;
+    }
+
+    .contenidos {
+        padding: 1.2em;
     }
 
     .docente {
@@ -317,4 +399,80 @@ input[type="radio"]:checked+label::after {
         align-items: center;
         text-align: center;
     }
+
+    .docente .foto {
+        width: 5.5em;
+        height: 5.5em;
+    }
+
+    .curso-card .imagen {
+        height: 7em;
+    }
+
+    .curso-card button {
+        padding: 0.5em 3em;
+    }
+
+    .curso-card a {
+        font-size: 0.65em;
+    }
+
+    label {
+        width: 1.3em;
+        height: 1.3em;
+    }
+
+}
+
+@media screen and (min-width: 48.0625em) {
+    main {
+        padding: 0 2em;
+        gap: 2em;
+    }
+
+    .curso-info {
+        grid-template-columns: 15em 1fr;
+        padding: 2em;
+    }
+
+    .curso-info .foto {
+        height: 12em;
+    }
+
+    .curso-detalles button {
+        padding: 0.6em 1.5em;
+    }
+
+    .contenidos {
+        padding: 1.5em;
+    }
+
+    .docente {
+        flex-direction: row;
+        gap: 1em;
+        text-align: left;
+    }
+
+    .docente .foto {
+        width: 6em;
+        height: 6em;
+    }
+
+    .curso-card .imagen {
+        height: 8em;
+    }
+
+    .curso-card button {
+        padding: 0.5em 5em;
+    }
+
+    .curso-card a {
+        font-size: 0.69em;
+    }
+
+    label {
+        width: 1.2em;
+        height: 1.2em;
+    }
+
 }
