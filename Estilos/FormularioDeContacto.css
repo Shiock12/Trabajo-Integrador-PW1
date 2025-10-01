@@ -164,7 +164,8 @@ textarea:focus {
     background: var(--color-mostrar-mensaje-bg);
     border: var(--ancho-borde) solid var(--color-mostrar-mensaje-border);
     color: var(--color-mostrar-mensaje-text);
-    padding: var(--espaciado-xl);
+    padding: var(--espaciado-l);
+    text-align: center;
     border-radius: var(--radio-borde);
     z-index: 1000;
     box-shadow: var(--sombra-s);
@@ -192,8 +193,9 @@ textarea:focus {
 }
 
 .mensaje-exito h3 {
-    margin: 0.8em 0 0.8em 0;
-    color: #405715;
+    margin: 0.8em 0;
+    color: var(--color-mostrar-mensaje-text);
+    text-align: center; 
 }
 
 .mensaje-exito p {
@@ -320,5 +322,73 @@ textarea:focus {
 
     .contenedor-mapa iframe {
         height: 20em;
+    }
+
+    /*≤ 480px*/
+    @media (max-width: 480px) {
+        main {
+            max-width: 95%;
+            gap: var(--espaciado-m);
+            padding: 0 var(--espaciado-s);
+            margin: var(--espaciado-m) auto;
+        }
+
+        .contacto,
+        .contenedor-datos,
+        .contenedor-mapa {
+            padding: var(--espaciado-m);
+        }
+
+        .contacto h1,
+        .contenedor-datos h1,
+        .contenedor-mapa h1 {
+            text-align: center;
+            font-size: var(--fuente-m);
+        }
+
+        .contacto h2 {
+            font-size: var(--fuente-s);
+            text-align: center;
+        }
+
+        fieldset {
+            padding: var(--espaciado-m);
+        }
+
+        label {
+            font-size: var(--fuente-s);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            padding: var(--espaciado-s);
+            font-size: var(--fuente-s);
+        }
+
+        .Consulta {
+            height: 4em;
+            min-height: 4em;
+            max-height: 6em;
+        }
+
+        .enviar-mensaje {
+            width: 70%;
+            margin: var(--espaciado-s) auto 0 auto;
+        }
+
+        .mensaje-exito {
+            padding: var(--espaciado-l);
+            max-width: 70%;
+        }
+
+        .contenedor-datos address {
+            gap: var(--espaciado-s);
+        }
+
+        .contenedor-mapa iframe {
+            height: 18em;
+        }
     }
 }
