@@ -1,11 +1,12 @@
 body {
-  min-height: 100vh; /* que siempre ocupe el alto completo */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../Imagenes/fondo-textura-abstracta_1258-30522.jpg");
+  background-image: url("../Imagenes/fondo2.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat; 
   margin: 0;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
