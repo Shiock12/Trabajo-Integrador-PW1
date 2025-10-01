@@ -133,8 +133,6 @@ details[open] summary::after {
 li {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.6em 0.5em;
     border-bottom: 1px solid #ddd;
 }
 
