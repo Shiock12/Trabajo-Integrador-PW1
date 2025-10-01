@@ -226,7 +226,7 @@ textarea:focus {
 .etiqueta-Contacto {
     font-weight: 600;
     color: var(--color-primario);
-    min-width: 8em;
+    min-width: 10em;
     /*empuja la columna de los datos*/
 }
 
@@ -264,4 +264,61 @@ textarea:focus {
     border-radius: var(--radio-borde);
     box-shadow: var(--sombra-s);
     max-width: 100%;
+}
+
+/*MEDIA QUERIES*/
+/*≤ 768px*/
+@media (max-width: 768px) {
+    main {
+        max-width: 90%;
+        grid-template-columns: 1fr;
+        gap: var(--espaciado-l);
+        padding: 0 var(--espaciado-m);
+    }
+
+    .contacto,
+    .contenedor-datos,
+    .contenedor-mapa {
+        padding: var(--espaciado-l);
+    }
+
+    .contacto h1,
+    .contenedor-datos h1,
+    .contenedor-mapa h1 {
+        font-size: var(--fuente-l);
+    }
+
+    .contacto h2 {
+        font-size: var(--fuente-m);
+    }
+
+    fieldset {
+        padding: var(--espaciado-m);
+    }
+
+    .Consulta {
+        height: 5em;
+        /*Estiramiento:*/
+        resize: vertical;
+        min-height: 5em;
+        max-height: 7em;
+    }
+
+    .dato-contacto {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--espaciado-xs);
+    }
+
+    .etiqueta-Contacto {
+        min-width: auto;
+    }
+
+    .contenedor-mapa {
+        grid-column: 1;
+    }
+
+    .contenedor-mapa iframe {
+        height: 20em;
+    }
 }
