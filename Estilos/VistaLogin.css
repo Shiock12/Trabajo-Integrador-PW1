@@ -3,56 +3,92 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f0f0f0;
+  background-image: url("../Imagenes/fondo-textura-abstracta_1258-30522.jpg");
+  background-size: cover;
+  background-position: center;
   margin: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .formulario {
   background-color: #4492F5;
   border-radius: 1.5em;
   padding: 2em;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
   width: 90%;          /* ocupa casi toda la pantalla */
   max-width: 400px;    /* nunca más de 400px */
+  color: #fff;
+  box-shadow: 0 0.75rem 2rem rgba(0,0,0,0.25);
 }
 
+.formulario h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* Campos del formulario */
 .campos {
-  display: flex;
-  margin-bottom: 3em;
+  display: grid;
+  grid-template-columns: 7rem 1fr; /* etiqueta + input */
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
 }
 
 .campos label {
-  width: 7rem;          
-  text-align: left;
-  font-size: 1.3rem;       
-  margin-top: 0.5em;
-  align-items: center;
-
+  font-size: 1rem;
 }
 
 .campos input {
-  flex: 1;
+  width: 100%;
   padding: 0.6em;
   font-size: 1rem;
   border-radius: 0.3em;
   border: 1px solid #ccc;
 }
 
+/* Botón centrado */
 .campos button {
-  cursor: grab;
+  grid-column: 1 / -1;       /* ocupa ambas columnas */
+  justify-self: center;      /* centrado horizontal */
   margin-top: 1em;
   padding: 0.6em 1.2em;
   font-size: 1rem;
   border: 0.1em solid black;
-  background-color: #4492F5;
+  background-color: #0e5ed6;
   color: white;
   border-radius: 0.5em;
-  width: 100%;           /* botón ocupa todo el ancho */
+  cursor: pointer;
+  width: auto;               /* solo ocupa lo necesario */
+  transition: transform .05s ease, background-color .2s ease;
+}
+
+.campos button:hover {
+  background-color: #0845a6;
 }
 
 button:active {
-  cursor: grabbing;
   background: darkblue;
   transform: scale(0.98);
+}
+
+.formulario a {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #000;
+  text-decoration: underline;
+}
+.formulario a:hover {
+  color: #333;
+}
+
+
+@media (max-width: 480px) {
+  .campos {
+    grid-template-columns: 1fr; 
+  }
+  .campos label {
+    margin-bottom: 0.25rem;
+  }
 }
