@@ -2,7 +2,7 @@
     /*Colores*/
     --color-primario: #004D6D;
     --color-primario-hover: #00628A;
-    --color-background: #6A9CF4;
+    --color-background: #A7D8FF;
     --color-white: #ffffff;
     --color-text: #333;
     --color-border: #ccc;
@@ -36,7 +36,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     background: var(--color-background);
     color: var(--color-text);
     font-size: var(--fuente-base);
@@ -62,7 +62,7 @@ main {
 
 .contacto h1,
 .contenedor-datos h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: var(--fuente-l);
     font-weight: bold;
     margin-bottom: 0.2em;

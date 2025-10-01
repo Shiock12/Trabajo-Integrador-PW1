@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Registrarse</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../Estilos/registrarse.css">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Iconos -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Tus CSS -->
+  <link rel="stylesheet" href="../Estilos/HeaderNav.css" />
+  <link rel="stylesheet" href="../Estilos/Footer.css" />
+  <link rel="stylesheet" href="../Estilos/registrarse.css" />
 </head>
 <body>
+
+  <!-- Header -->
+  <header>
+        <div class="logo">
+            <img src="../Imagenes/logo.jpg" alt="">
+        </div>
+        <div class="search-bar">
+            <div class="search-container">
+                <input type="text" placeholder="Buscar cursos...">
+                <i class='bx bx-search-alt-2'></i>
+            </div>
+        </div>
+        <div class="cart">
+            <i class='bx bx-cart'></i>
+        </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="Inicio.html">Inicio</a></li>
+      <li><a href="VistaCalendario.html">Calendario</a></li>
+      <li><a href="GiftCard.html">Haz un regalo</a></li>
+      <li><a href="formularioDeContacto.html">Contacto</a></li>
+      <li><a href="FormularioEmpresas.html">Inscripción para empresas</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
   <div class="wrap">
     <section class="card">
       <h2>Crear cuenta</h2>
+
       <form class="form" action="#" method="post">
         <div class="row cols-2">
           <div>
@@ -22,10 +61,12 @@
             <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
           </div>
         </div>
+
         <div class="row">
           <label for="password">Contraseña</label>
           <input type="password" id="password" name="password" placeholder="••••••••" required>
         </div>
+
         <div class="row cols-2">
           <div>
             <label for="metodo">Método de pago</label>
@@ -38,6 +79,7 @@
             </select>
           </div>
         </div>
+
         <div class="actions">
           <button type="reset" class="btn ghost">Limpiar</button>
           <button type="submit" class="btn primary">Crear cuenta</button>
@@ -45,5 +87,31 @@
       </form>
     </section>
   </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="columna">
+      <div>
+        <p>Isaac Rios - 42147287</p>
+        <p>Franco Varela - 40674420</p>
+        <p>Maas Nicolas Agustin - 46122160</p>
+        <p>Nahuel Esposito - 43862624</p>
+        <p>Juan Pablo Pfeiffer - 41454612</p>
+      </div>
+    </div>
+    <div>
+      <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
+    </div>
+    <div class="redes-sociales">
+      <ul>
+        <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
+        <li><a>Franco Varela</a></li>
+        <li><a>Nicolas Maas</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
+      </ul>
+    </div>
+  </footer>
+
 </body>
 </html>
