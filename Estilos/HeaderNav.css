@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
 
 /* Header */
 header {
@@ -11,7 +16,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0.625em 1.25em;
 }
 
 .logo img {
@@ -21,27 +26,49 @@ header {
 
 .logo {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.125em;
 }
 
 .search-bar {
     display: flex;
     justify-content: flex-end;
     flex: 1;
-    margin: 0 3px;
+    margin: 0 0.188em;
 }
 
-.search-bar input {
+/*.search-bar input {
     width: 30%;
     padding: 9px;
     font-size: 1em;
     border-radius: 0.5em;
+}*/
 
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 20em;
+}
 
+.search-container input {
+    width: 100%;
+    padding: 0.6em 2.2em 0.6em 1em;
+    font-size: 1em;
+    border-radius: 0.5em;
+    border: 0.06em solid #ccc;
+}
+
+.search-container i.bx-search-alt-2 {
+    position: absolute;
+    right: 0.8em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 1.2em;
+    cursor: pointer;
 }
 
 .cart {
-    font-size: 40px;
+    font-size: 2.5em;
     color: white;
 }
 
@@ -52,6 +79,11 @@ nav {
   grid-template-columns: 1fr auto; 
   align-items: center;
   padding: 12px 30px;
+    background: #3D6FA5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.75em 1.875em;
 }
 
 /* Menú centrado */
@@ -68,6 +100,40 @@ nav {
   color: white;
   font-weight: 500;
   transition: color 0.3s ease;
+    list-style: none;
+    display: flex;
+    gap: 1.55em;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 0.5em;
+}
+
+.nav-links i {
+    display: none;
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.nav-links span {
+    display: inline;
+
 }
 .nav-links a:hover {
   color: #00C9A7;
@@ -86,6 +152,24 @@ nav {
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+box-shadow: 0 0.25em 0.625em rgba(0, 0, 0, 0.3);
+    background-color: rgba(3, 19, 65, 0.281);
+    border-radius: 0.5em;
+    transform: scale(1.1);
+}
+
+/* Botones de acción */
+.nav-buttons {
+    display: flex;
+    gap: 0.75em;
+}
+
+.nav-buttons button {
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.25em;
+    font-weight: bold;
 }
 .btn-login {
   background: #555;
@@ -159,27 +243,103 @@ nav {
 
 
 
+@media screen and (max-width: 44em) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+    }
 
+    .logo img {
+        width: 2.6em;
 
+    }
 
+    .cart {
+        font-size: 2.3em;
+        align-self: center;
+        cursor: pointer;
+    }
 
+    .search-bar {
+        width: 100%;
+        order: 2;
+        padding: 0.5em 1em;
+    }
 
+    .search-container {
+        width: 100%;
+        max-width: none;
+    }
 
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2em;
+    }
 
+    .nav-links i {
+        display: inline-block;
+        font-size: 2em;
+        margin: 0 0.12em 0.12em 0.12em;
+    }
 
+    .nav-links span {
+        display: none;
+    }
 
+    .nav-links a:hover {
+        box-shadow: 0 0.25em 0.625em rgba(0, 0, 0, 0.3);
+        background-color: rgba(3, 19, 65, 0.281);
+        border-radius: 0.5em;
+        transform: scale(1.1);
+    }
+}
 
+@media screen and (max-width: 30em) {
+    nav {
+        padding: 0.5em 1em;
+    }
 
+    .nav-links {
+        display: grid;
+        grid-template-columns: 1fr 0.4fr 1fr;
+        gap: 1em;
+        justify-items: center;
+        width: 100%;
+    }
 
+    .nav-links li {
+        display: flex;
+        justify-content: center;
+    }
 
+    .nav-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.6em;
+        border-radius: 0.5em;
+        transition: all 0.2s ease;
+    }
 
+    .nav-links i {
+        font-size: 1.5em;
+        margin: 0;
+    }
 
+    .nav-links span {
+        display: none;
+    }
 
+    .nav-links li:nth-child(4) {
+        grid-column: 1;
+        transform: translateX(2.9em);
+    }
 
+    .nav-links li:nth-child(5) {
+        grid-column: 3;
+        transform: translateX(-2.9em);
+    }
 
-
-
-
-
-
-
+}

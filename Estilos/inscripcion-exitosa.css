@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #A7D8FF;
+    color: #fff;
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.25em;
+}
+
+.mensaje-exito {
+    background-color: #3D6FA5;
+    padding: 2.5em 1.25em;
+    border-radius: 0.625em;
+    box-shadow: 0 0.5em 1.25em rgba(0, 0, 0, 0.15);
+    max-width: 37.5em;
+    width: 100%;
+}
+
+.mensaje-contenedor {
+    background-color: #ffffff;
+    padding: 1.875em;
+    border-radius: 0.5em;
+    text-align: center;
+    color: #2C3E50;
+}
+
+.mensaje-contenedor header h1 {
+    color: #2C3E50;
+    font-size: 2em;
+    margin-bottom: 1.25em;
+}
+
+.mensaje-contenedor p {
+    font-size: 1.1em;
+    margin-bottom: 1.875em;
+
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 1.5625em;
+    max-width: 9.375em;
+    height: auto;
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.75em 1.5em;
+    background-color: #004D6D;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0.3125em;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0.25em 0.375em rgba(0, 77, 109, 0.4);
+}
+
+.btn-volver:hover {
+    background-color: #003B52;
+    box-shadow: 0 0.375em 0.625em rgba(0, 59, 82, 0.6);
+}
+
+.btn-volver:hover {
+    transform: translateX(-0.25em);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.btn-volver i {
+  font-size: 1.2em;
+}
+
+@media screen and (max-width:600px) {
+    .mensaje-exito {
+        padding: 2em 1em;
+    }
+
+    .mensaje-contenedor {
+        padding: 1.5em;
+    }
+
+    .mensaje-contenedor h1 {
+        font-size: 1,5em;
+    }
+
+    .mensaje-contenedor p {
+        font-size: 1em;
+    }
+
+    .logo {
+        max-width: 7.5em;
+        margin-bottom: 1.25em;
+    }
+
+    .btn-volver {
+        font-size: 0.95em;
+        padding: 0.75em 1.25em;
+        gap: 0.4em;
+    }
+
+    .btn-volver i {
+        font-size: 1em;
+    }
+}

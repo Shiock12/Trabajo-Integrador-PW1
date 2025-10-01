@@ -1,0 +1,204 @@
+   * {
+       padding: 0;
+       margin: 0;
+       box-sizing: border-box;
+   }
+
+   html {
+       width: 100%;
+       height: 100%;
+       font-size: 100%;
+
+   }
+
+   body {
+       margin: 0;
+       padding: 0;
+       display: flex;
+       flex-direction: column;
+       font-family: 'Inter', sans-serif;
+       min-height: 100vh;
+       background-color: #A7D8FF;
+   }
+
+   h1 {
+       font-size: 1.8em;
+   }
+
+   main {
+       flex-grow: 1;
+       max-width: 43.75em;
+       margin: 2em auto 0 auto;
+       background: white;
+       padding: 1.25em;
+       border-radius: 0.5em;
+
+   }
+
+   nav.weekdays {
+       display: grid;
+       grid-template-columns: repeat(7, 1fr);
+       text-align: center;
+       font-weight: bold;
+       margin-bottom: 0.625em;
+   }
+
+   section.calendario {
+       display: grid;
+       grid-template-columns: repeat(7, 1fr);
+       gap: 0.3125em;
+   }
+
+   .day {
+       border: 0.0625em solid #ddd;
+       background-color: #fafafa;
+       padding: 0.625em;
+       text-align: center;
+       min-height: 3.75em;
+       position: relative;
+   }
+
+   .day.course {
+       background-color: #e0f4ff;
+   }
+
+   .day a {
+       color: #0077aa;
+       text-decoration: none;
+       font-weight: bold;
+   }
+
+   .day a:hover {
+       text-decoration: underline;
+   }
+
+   .detalles {
+       display: none;
+       background: #fff8e1;
+       padding: 0.9375em;
+       margin-top: 0.9375em;
+       border: 0.0625em solid #e0c97f;
+       border-radius: 0.3125em;
+       max-height: 12.5em;
+       overflow-y: auto;
+       scroll-margin-top: 6.25em;
+       /*transition: all 0.3s ease-in-out;*/
+   }
+
+   .detalles:target {
+       display: block;
+   }
+
+   .detalles a {
+       display: inline-block;
+       margin-top: 0.625em;
+       color: #444;
+       text-decoration: none;
+   }
+
+   section.detalles {
+       margin-bottom: 1.875em;
+   }
+
+   time {
+       font-weight: bold;
+   }
+
+   @media screen and (max-width: 30em) {
+
+       nav.weekdays,
+       section.calendario {
+           grid-template-columns: repeat(2, 1fr);
+       }
+
+       .day {
+           font-size: 0.8em;
+           padding: 0.5em;
+       }
+
+       main {
+           padding: 1em;
+           margin: 2em 1em 1em 1em;
+       }
+
+       h1 {
+           font-size: 1.2em;
+       }
+   }
+
+   @media screen and (max-width: 48em) {
+
+       nav.weekdays,
+       section.calendario {
+           grid-template-columns: repeat(4, 1fr);
+       }
+
+       main {
+           padding: 1em;
+           margin: 2em 1em 1em 1em;
+       }
+
+       h1 {
+           font-size: 1.5em;
+       }
+
+       .day {
+           min-height: 4.5em;
+           font-size: 0.85em;
+       }
+   }
+
+
+   @media screen and (min-width: 51.25em) and (max-width: 64em) {
+
+       nav.weekdays,
+       section.calendario {
+           grid-template-columns: repeat(5, 1fr);
+       }
+
+       main {
+           max-width: 50em;
+           margin: 2em auto 2em auto;
+           padding: 1em;
+       }
+
+       .day {
+           min-height: 7em;
+           font-size: 0.9em;
+       }
+
+   }
+
+
+   @media screen and (min-width: 48em) and (max-width: 60em) {
+
+       nav.weekdays,
+       section.calendario {
+           grid-template-columns: repeat(5, 1fr);
+       }
+
+       main {
+           max-width: 70em;
+           margin: 3em 3em 3em 3em;
+           padding: 1em;
+       }
+   }
+
+   @media screen and (min-width: 75em) {
+       main {
+           max-width: 56.25em;
+           font-size: 1.1em;
+       }
+
+       h1 {
+           font-size: 2em;
+       }
+
+       .day {
+           min-height: 5em;
+       }
+
+       footer {
+           font-size: 1.1em;
+       }
+   }
