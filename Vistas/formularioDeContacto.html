@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de contacto</title>
+    <link rel="stylesheet" href="../Estilos/HeaderNav.css">
+    <link rel="stylesheet" href="../Estilos/Footer.css">
+    <link rel="stylesheet" href="../Estilos/FormularioDeContacto.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo"><img src="../Imagenes/logo.webp"></div>
+        <div class="search-bar"><input type="text" placeholder="Buscar cursos..."></div>
+        <div class="cart"><i class='bx bx-cart'></i></div>
+    </header>
+    <!-- Navbar -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="#">Calendario</a></li>
+            <li><a href="GiftCard.html">Haz un regalo</a></li>
+            <li><a href="FormularioEmpresas.html">Inscripción para empresas</a></li>
+            <li><a href="VistaPerfil.html">Perfil</a></li>
+
+        </ul>
+    </nav>
+    <!--Main-->
+    <main>
+        <!--Formulario-->
+        <section class="contacto">
+            <h1>Contacto</h1>
+            <h2>Contáctanos llenando todos los campos</h2>
+            <form action="">
+                <fieldset>
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" placeholder="Tu Nombre">
+                    </div>
+                    <div>
+                        <label>Apellido</label>
+                        <input type="text" placeholder="Tu Apellido">
+                    </div>
+                    <div>
+                        <label>Mail</label>
+                        <input type="email" placeholder="Tu Email">
+                    </div>
+                    <div>
+                        <label>Teléfono</label>
+                        <input type="tel" placeholder="Tu teléfono">
+                    </div>
+                    <div>
+                        <label>Consulta</label>
+                        <textarea class="Consulta" placeholder="Escribe tu consulta"></textarea>
+                    </div>
+                    <div class="contenedor-mostrar-mensaje">
+                        <!-- Checkbox oculto -->
+                        <input type="checkbox" id="mostrar-mensaje" class="checkbox-mensaje">
+                        <!-- Mensaje que aparece -->
+                        <div class="mensaje-exito">
+                            <h3>¡Correo Enviado Exitosamente!</h3>
+                            <p>Te responderemos en las próximas 24 horas.</p>
+                            <label for="mostrar-mensaje" class="cerrar-mensaje">× Cerrar</label>
+                        </div>
+                        <!-- Botón que activa el mensaje -->
+                        <label for="mostrar-mensaje" class="enviar-mensaje">Enviar mensaje</label>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+        <aside class="contenedor-datos">
+            <h1>Datos De contacto:</h1>
+            <address>
+                <div class="dato-contacto">
+                    <span class="etiqueta-Contacto">Dirección:</span>
+                    <span>Florencio Varela 1903</span>
+                </div>
+                <div class="dato-contacto">
+                    <span class="etiqueta-Contacto">Teléfono:</span>
+                    <span>011 4480-8900</span>
+                </div>
+                <div class="dato-contacto">
+                    <span class="etiqueta-Contacto">Email:</span>
+                    <span>unlam@edu.com</span>
+                </div>
+                <div class="dato-contacto">
+                    <span class="etiqueta-Contacto">Horarios:</span>
+                    <span>Lun-Sab 8:00-23:00</span>
+                </div>
+            </address>
+        </aside>
+
+        <div class="contenedor-mapa">
+            <h1>Nuestra ubicación</h1>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.364333972291!2d-58.565380123500894!3d-34.67075316104279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc62cc3ef7083%3A0x8867107f425fade5!2sUniversidad%20Nacional%20de%20La%20Matanza!5e0!3m2!1ses-419!2sar!4v1758981892316!5m2!1ses-419!2sar"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </main>
+
+    <footer>
+    <div>
+        <p>Isaac Rios - 42147287</p>
+        <p>Franco Varela - 40674420</p>
+        <p>Maas Nicolas Agustin - 46122160</p>
+        <p>Nahuel Esposito - 43862624</p>
+        <p>Juan Pablo Pfeiffer - 41454612</p>
+    </div>
+        <div>
+        <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
+        </div>
+        <div class="redes-sociales">
+        <ul>
+            <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
+            <li><a></a>Franco Varela</li>
+            <li><a></a>Nicolas Maas</li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
+        </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -5,38 +5,6 @@ body {
   color: #333;
 }
 
-/* Header */
-header {
-  background: #f0f0f0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.logo img{
-  width: 80px;
-  height: auto;
-}
-
-.search-bar {
-  flex: 1;
-  margin: 0 20px;
-}
-
-.search-bar input {
-  width: 100%;
-  padding: 5px;
-}
-
-.cart {
-  font-size: 20px;
-}
 
 /* Menu */
 nav {
@@ -53,7 +21,7 @@ nav {
 
 .contenedor-inputs{
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /*Que se repita 3 columnas */
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     max-width: 850px;
     margin: 50px;
@@ -68,8 +36,12 @@ nav {
   display: flex;
   margin-left: 50px;
   gap: 10px;
+  padding-top: 3em;
 }
 
+.add-person h3{
+  margin-top:1em;
+}
 .add-person img{
   margin-top: 5px;
   width: 45px;
@@ -78,6 +50,7 @@ nav {
 
 
 .inscribirse{
+  padding: 4em 0em 4.85em 0;
   margin-left: 50px;
   display: flex;
   gap: 10px;
@@ -100,41 +73,6 @@ nav {
   border: none;
   font-size: 20px;
   cursor: pointer;
-  border-radius: 5px; /* bordes redondeados opcionales */
-       
-}
-
-
-
-
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: space-around;
-  background: #444;
-  color: white;
-  padding: 20px;
-  margin-top: 30px;
-}
-
-footer div {
-  flex: 1;
-  text-align: center;
-}
-
-.redes-sociales ul{
-    list-style: none;
-}
-
-
-.redes-sociales li{
-    margin: 10px;
-}
-
-.redes-sociales a{
-    text-decoration: none;
-    color: #f0f0f0;
-    display: block;
+  border-radius: 5px; 
     
 }
