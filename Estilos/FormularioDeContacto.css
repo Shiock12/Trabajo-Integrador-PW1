@@ -1,83 +1,121 @@
+:root {
+    /*Colores*/
+    --color-primario: #004D6D;
+    --color-primario-hover: #00628A;
+    --color-background: #6A9CF4;
+    --color-white: #ffffff;
+    --color-text: #333;
+    --color-border: #ccc;
+    --color-mostrar-mensaje-bg: #d4edda;
+    --color-mostrar-mensaje-border: #c3e6cb;
+    --color-mostrar-mensaje-text: #155724;
+
+    /*Espaciados*/
+    --espaciado-xs: 0.3em;
+    --espaciado-s: 0.5em;
+    --espaciado-m: 1em;
+    --espaciado-l: 1.5em;
+    --espaciado-xl: 2em;
+    --espaciado-xxl: 4em;
+
+    /*fuente */
+    --fuente-base: 1em;
+    --fuente-s: 0.9em;
+    --fuente-m: 1.2em;
+    --fuente-l: 1.8em;
+
+    /*Bordes*/
+    --radio-borde: 0.5em;
+    --ancho-borde: 0.0625em;
+
+    /*Sombras*/
+    --sombra-s: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+    --sombra-m: 0 0.25em 1.25em rgba(0, 0, 0, 0.3);
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: #6A9CF4;
-    color: #333;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-size: var(--fuente-base);
 }
 
 main {
     max-width: 75%;
-    margin: 2em auto;
+    margin: var(--espaciado-xl) auto;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto;
-    gap: 4em;
-    padding: 0 2em;
+    gap: var(--espaciado-xxl);
+
 }
 
 /*CONTACTO*/
 .contacto {
-    background: #ffffff;
-    padding: 2em;
-    border-radius: 0.5em;
-    box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
-
+    background: var(--color-white);
+    padding: var(--espaciado-xl);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-m);
 }
 
 .contacto h1,
 .contenedor-datos h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8em;
+    font-size: var(--fuente-l);
     font-weight: bold;
     margin-bottom: 0.2em;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #004D6D;
+    color: var(--color-primario);
     text-align: left;
 }
 
 .contacto h2 {
-    color: #333333;
+    color: var(color --color-text);
     margin-bottom: 0.2em;
-    font-size: 1.2em;
+    font-size: var(--fuente-m);
 }
 
 fieldset {
-    border: 1px solid #ccc;
-    border-radius: 0.5em;
-    padding: 1.5em;
+    border: var(--ancho-borde) solid var(--color-border);
+    border-radius: var(--radio-borde);
+    padding: var(--espaciado-l);
 }
 
-/* Contenedores de campos del formulario */
+/*Contenedores de campos del formulario*/
 label {
     display: block;
     font-weight: 500;
-    color: #333;
-    margin-bottom: 0.3em;
-    margin-top: 0.3em;
+    color: var(color --color-text);
+    margin-bottom: var(--espaciado-xs);
+    margin-top: var(--espaciado-xs);
 }
 
 
-/* Inputs y textarea */
+/*Inputs y textarea*/
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
     width: 100%;
     padding: 0.8em;
-    border: 1px solid #ccc;
-    border-radius: 0.5em;
-    font-size: 1em;
+    border: var(--ancho-borde) solid var(--color-border);
+    border-radius: var(--radio-borde);
+    font-size: var(--fuente-base);
     font-family: 'Inter', sans-serif;
     transition: border-color 0.3s ease;
     box-sizing: border-box;
 }
 
-/* Textarea específico */
+/*Textarea*/
 .Consulta {
     height: 6em;
+    /*Estiramiento:*/
     resize: vertical;
+    min-height: 6em;
+    max-height: 8em;
 }
 
 input[type="text"]:focus,
@@ -85,68 +123,69 @@ input[type="email"]:focus,
 input[type="tel"]:focus,
 textarea:focus {
     outline: none;
-    border-color: #004D6D;
+    border-color: var(--color-primario);
     box-shadow: 0 0 0 2px rgba(0, 77, 109, 0.1);
 }
 
-/* Checkbox oculto */
+/*Checkbox oculto*/
 .checkbox-mensaje {
     display: none;
 }
 
-/* Botón enviar mensaje */
+/*Botón enviar mensaje*/
 .enviar-mensaje {
     display: block;
     margin-left: auto;
-    margin-top: 1em;
+    margin-top: var(--espaciado-m);
     width: fit-content;
     padding: 0.8em 2em;
-    background: #004D6D;
-    color: #fff;
-    border-radius: 0.5em;
+    background: var(--color-primario);
+    color: var(--color-white);
+    border-radius: var(--radio-borde);
     cursor: pointer;
-    font-size: 1em;
+    font-size: var(--fuente-base);
     font-weight: 500;
     transition: background-color 0.3s ease;
 }
 
 .enviar-mensaje:hover {
-    background-color: #00628A;
+    background-color: var(--color-primario-hover);
 }
 
-/* Mensaje de éxito */
+/*Mensaje de éxito*/
 .mensaje-exito {
     display: none;
-    position: fixed;
     /*.cerrar-mensaje*/
+    position: fixed;
     top: 50%;
     left: 50%;
+    /*Ajuste perfecto al centro*/
     transform: translate(-50%, -50%);
-    /* Ajuste perfecto al centro */
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
-    color: #155724;
-    padding: 2em;
-    border-radius: 0.5em;
+    background: var(--color-mostrar-mensaje-bg);
+    border: var(--ancho-borde) solid var(--color-mostrar-mensaje-border);
+    color: var(--color-mostrar-mensaje-text);
+    padding: var(--espaciado-l);
+    text-align: center;
+    border-radius: var(--radio-borde);
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--sombra-s);
     max-width: 30em;
     width: 90%;
 }
 
-/* Si se marca el checkbox, entonces... */
+/*Si se marca el checkbox, entonces...*/
 .checkbox-mensaje:checked+.mensaje-exito {
     display: block;
 }
 
 .cerrar-mensaje {
     position: absolute;
-    top: 0.5em;
+    top: var(--espaciado-s);
     right: 0.8em;
     cursor: pointer;
     font-size: 1.2em;
     font-weight: bold;
-    color: #155724;
+    color: var(--color-mostrar-mensaje-text);
 }
 
 .cerrar-mensaje:hover {
@@ -154,8 +193,9 @@ textarea:focus {
 }
 
 .mensaje-exito h3 {
-    margin: 0.8em 0 0.8em 0;
-    color: #405715;
+    margin: 0.8em 0;
+    color: var(--color-mostrar-mensaje-text);
+    text-align: center; 
 }
 
 .mensaje-exito p {
@@ -164,34 +204,36 @@ textarea:focus {
 
 /* Aside - Datos de contacto */
 .contenedor-datos {
-    background: #ffffff;
-    padding: 2em;
-    border-radius: 0.5em;
-    box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+    background: var(--color-white);
+    padding: var(--espaciado-xl);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-m)
 }
 
 .contenedor-datos address {
     font-style: normal;
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: var(--espaciado-xl);
     margin-top: 1.2em;
 }
 
 .dato-contacto {
     display: flex;
     align-items: baseline;
-    gap: 1em
+    /*alineados en una sola línea horizontal.*/
+    gap: var(--espaciado-m);
 }
 
 .etiqueta-Contacto {
     font-weight: 600;
-    color: #004D6D;
-    min-width: 8em;
+    color: var(--color-primario);
+    min-width: 10em;
+    /*empuja la columna de los datos*/
 }
 
 .dato-contacto span:last-child {
-    color: #333;
+    color: var(--color-text);
 }
 
 /* Contenedor del mapa */
@@ -200,20 +242,20 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fff;
-    padding: 2em;
-    border-radius: 0.5em;
-    box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
-    gap: 1em;
+    background: var(--color-white);
+    padding: var(--espaciado-xl);
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-m);
+    gap: var(--espaciado-m);
 }
 
 .contenedor-mapa h1 {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.8em;
+    font-size: var(--fuente-l);
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #004D6D;
+    color: var(--color-primario);
     text-align: center;
     margin: 0;
 }
@@ -221,7 +263,132 @@ textarea:focus {
 .contenedor-mapa iframe {
     width: 100%;
     height: 30em;
-    border-radius: 0.5em;
-    box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
-    max-width: 100%
+    border-radius: var(--radio-borde);
+    box-shadow: var(--sombra-s);
+    max-width: 100%;
+}
+
+/*MEDIA QUERIES*/
+/*≤ 768px*/
+@media (max-width: 768px) {
+    main {
+        max-width: 90%;
+        grid-template-columns: 1fr;
+        gap: var(--espaciado-l);
+        padding: 0 var(--espaciado-m);
+    }
+
+    .contacto,
+    .contenedor-datos,
+    .contenedor-mapa {
+        padding: var(--espaciado-l);
+    }
+
+    .contacto h1,
+    .contenedor-datos h1,
+    .contenedor-mapa h1 {
+        font-size: var(--fuente-l);
+    }
+
+    .contacto h2 {
+        font-size: var(--fuente-m);
+    }
+
+    fieldset {
+        padding: var(--espaciado-m);
+    }
+
+    .Consulta {
+        height: 5em;
+        /*Estiramiento:*/
+        resize: vertical;
+        min-height: 5em;
+        max-height: 7em;
+    }
+
+    .dato-contacto {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--espaciado-xs);
+    }
+
+    .etiqueta-Contacto {
+        min-width: auto;
+    }
+
+    .contenedor-mapa {
+        grid-column: 1;
+    }
+
+    .contenedor-mapa iframe {
+        height: 20em;
+    }
+
+    /*≤ 480px*/
+    @media (max-width: 480px) {
+        main {
+            max-width: 95%;
+            gap: var(--espaciado-m);
+            padding: 0 var(--espaciado-s);
+            margin: var(--espaciado-m) auto;
+        }
+
+        .contacto,
+        .contenedor-datos,
+        .contenedor-mapa {
+            padding: var(--espaciado-m);
+        }
+
+        .contacto h1,
+        .contenedor-datos h1,
+        .contenedor-mapa h1 {
+            text-align: center;
+            font-size: var(--fuente-m);
+        }
+
+        .contacto h2 {
+            font-size: var(--fuente-s);
+            text-align: center;
+        }
+
+        fieldset {
+            padding: var(--espaciado-m);
+        }
+
+        label {
+            font-size: var(--fuente-s);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            padding: var(--espaciado-s);
+            font-size: var(--fuente-s);
+        }
+
+        .Consulta {
+            height: 4em;
+            min-height: 4em;
+            max-height: 6em;
+        }
+
+        .enviar-mensaje {
+            width: 70%;
+            margin: var(--espaciado-s) auto 0 auto;
+        }
+
+        .mensaje-exito {
+            padding: var(--espaciado-l);
+            max-width: 70%;
+        }
+
+        .contenedor-datos address {
+            gap: var(--espaciado-s);
+        }
+
+        .contenedor-mapa iframe {
+            height: 18em;
+        }
+    }
 }
