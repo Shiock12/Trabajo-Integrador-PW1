@@ -52,129 +52,135 @@
     <main>
 
         <!-- Info del curso -->
-        <section class="curso-info">
-            <div><img src="./../Imagenes/Cursos.jpg" class="foto"></div>
-            <div class="curso-detalles">
-                <h1>DISEÑO UX/UI PARA PRINCIPIANTES</h1>
-                <p><strong>Valor:</strong> $5000</p>
-                <p><strong>Tiempo de dedicación necesario:</strong> 60h</p>
-                <p><strong>Descripción:</strong> Breve descripción del curso.</p>
-                <p><strong>Requisitos Previos:</strong> Ninguno</p>
-                <button>INSCRIBIRSE</button>
-            </div>
-        </section>
+        <form action="./../Vistas/inscripcion-exitosa.html" method="get">
 
-        <!-- Contenidos por clase -->
-        <section class="contenidos">
-            <h2>CONTENIDOS POR CLASE</h2>
+            <section class="curso-info">
+                <div><img src="./../Imagenes/Cursos.jpg" class="foto"></div>
+                <div class="curso-detalles">
+                    <h1>DISEÑO UX/UI PARA PRINCIPIANTES</h1>
+                    <p><strong>Valor:</strong> $5000</p>
+                    <p><strong>Tiempo de dedicación necesario:</strong> 60h</p>
+                    <p><strong>Descripción:</strong> Breve descripción del curso.</p>
+                    <p><strong>Requisitos Previos:</strong> Ninguno</p>
 
-            <details close>
-                <summary>INTRODUCCIÓN</summary>
-                <ul>
-                    <li>
-                        <span class="icono"><i class='bx bx-volume-full'></i></span>
-                        <div class="info">
-                            <span class="titulo">Definición de UX/UI</span>
-                            <span class="duracion">12 min</span>
-                        </div>
-                        <input type="radio" name="intro" id="definicion">
-                        <label for="definicion"></label>
-                    </li>
+                    <input type="hidden" name="curso" value="UX/UI para principiantes">
+                    <button type="submit">INSCRIBIRSE</button>
 
-                    <li>
-                        <span class="icono"><i class='bx bxs-file-import'></i></span>
-                        <div class="info">
-                            <span class="titulo">Importancia del UX/UI</span>
-                            <span class="duracion">18 min</span>
-                        </div>
-                        <input type="radio" name="intro" id="importancia">
-                        <label for="importancia"></label>
-                    </li>
+                </div>
+            </section>
 
-                    <li>
-                        <span class="icono"><i class='bx bx-paint-roll'></i></span>
-                        <div class="info">
-                            <span class="titulo">Rol del diseñador UX/UI</span>
-                            <span class="duracion">8 min</span>
-                        </div>
-                        <input type="radio" name="intro" id="rol-diseñador">
-                        <label for="rol-diseñador"></label>
-                    </li>
-                </ul>
-            </details>
+            <!-- Contenidos por clase -->
+            <section class="contenidos">
+                <h2>CONTENIDOS POR CLASE</h2>
 
-            <details>
-                <summary>UNIDAD 2 - Investigación UX</summary>
-                <ul>
-                    <li>
-                        <span class="icono"><i class='bx bx-search'></i></span>
-                        <div class="info">
-                            <span class="titulo">Tipos de investigación</span>
-                            <span class="duracion">15 min</span>
-                        </div>
-                        <input type="radio" name="unidad2" id="u2-investigacion">
-                        <label for="u2-investigacion"></label>
-                    </li>
-                    <li>
-                        <span class="icono"><i class='bx bx-group'></i></span>
-                        <div class="info">
-                            <span class="titulo">Entrevistas y encuestas</span>
-                            <span class="duracion">17 min</span>
-                        </div>
-                        <input type="radio" name="unidad2" id="u2-entrevistas">
-                        <label for="u2-entrevistas"></label>
-                    </li>
+                <details>
+                    <summary>INTRODUCCIÓN</summary>
+                    <ul>
+                        <li>
+                            <span class="icono"><i class='bx bx-volume-full'></i></span>
+                            <div class="info">
+                                <span class="titulo">Definición de UX/UI</span>
+                                <span class="duracion">12 min</span>
+                            </div>
+                            <input type="radio" name="intro" id="definicion">
+                            <label for="definicion"></label>
+                        </li>
 
-                    <li>
-                        <span class="icono"><i class='bx bx-line-chart'></i></span>
-                        <div class="info">
-                            <span class="titulo">Análisis de resultados</span>
-                            <span class="duracion">11 min</span>
-                        </div>
-                        <input type="radio" name="unidad2" id="u2-analisis">
-                        <label for="u2-analisis"></label>
-                    </li>
+                        <li>
+                            <span class="icono"><i class='bx bxs-file-import'></i></span>
+                            <div class="info">
+                                <span class="titulo">Importancia del UX/UI</span>
+                                <span class="duracion">18 min</span>
+                            </div>
+                            <input type="radio" name="intro" id="importancia">
+                            <label for="importancia"></label>
+                        </li>
 
-                </ul>
-            </details>
+                        <li>
+                            <span class="icono"><i class='bx bx-paint-roll'></i></span>
+                            <div class="info">
+                                <span class="titulo">Rol del diseñador UX/UI</span>
+                                <span class="duracion">8 min</span>
+                            </div>
+                            <input type="radio" name="intro" id="rol-diseñador">
+                            <label for="rol-diseñador"></label>
+                        </li>
+                    </ul>
+                </details>
 
-            
-            <details>
-                <summary>UNIDAD 3 - Arquitectura de la información</summary>
-                <ul>
-                    <li>
-                        <span class="icono"><i class='bx bx-sitemap'></i></span>
-                        <div class="info">
-                            <span class="titulo">Mapa de sitio</span>
-                            <span class="duracion">10 min</span>
-                        </div>
-                        <input type="radio" name="unidad3" id="u3-mapa">
-                        <label for="u3-mapa"></label>
-                    </li>
-                    <li>
-                        <span class="icono"><i class='bx bx-category'></i></span>
-                        <div class="info">
-                            <span class="titulo">Jerarquía y navegación</span>
-                            <span class="duracion">13 min</span>
-                        </div>
-                        <input type="radio" name="unidad3" id="u3-jerarquia">
-                        <label for="u3-jerarquia"></label>
-                    </li>
+                <details>
+                    <summary>UNIDAD 2 - Investigación UX</summary>
+                    <ul>
+                        <li>
+                            <span class="icono"><i class='bx bx-search'></i></span>
+                            <div class="info">
+                                <span class="titulo">Tipos de investigación</span>
+                                <span class="duracion">15 min</span>
+                            </div>
+                            <input type="radio" name="unidad2" id="u2-investigacion">
+                            <label for="u2-investigacion"></label>
+                        </li>
+                        <li>
+                            <span class="icono"><i class='bx bx-group'></i></span>
+                            <div class="info">
+                                <span class="titulo">Entrevistas y encuestas</span>
+                                <span class="duracion">17 min</span>
+                            </div>
+                            <input type="radio" name="unidad2" id="u2-entrevistas">
+                            <label for="u2-entrevistas"></label>
+                        </li>
 
-                    <li>
-                        <span class="icono"><i class='bx bx-notepad'></i></span>
-                        <div class="info">
-                            <span class="titulo">Wireframes básicos</span>
-                            <span class="duracion">16 min</span>
-                        </div>
-                        <input type="radio" name="unidad3" id="u3-wireframes">
-                        <label for="u3-wireframes"></label>
+                        <li>
+                            <span class="icono"><i class='bx bx-line-chart'></i></span>
+                            <div class="info">
+                                <span class="titulo">Análisis de resultados</span>
+                                <span class="duracion">11 min</span>
+                            </div>
+                            <input type="radio" name="unidad2" id="u2-analisis">
+                            <label for="u2-analisis"></label>
+                        </li>
 
-                    </li>
-                </ul>
+                    </ul>
+                </details>
 
-            </details>
-        </section>
+
+                <details>
+                    <summary>UNIDAD 3 - Arquitectura de la información</summary>
+                    <ul>
+                        <li>
+                            <span class="icono"><i class='bx bx-sitemap'></i></span>
+                            <div class="info">
+                                <span class="titulo">Mapa de sitio</span>
+                                <span class="duracion">10 min</span>
+                            </div>
+                            <input type="radio" name="unidad3" id="u3-mapa">
+                            <label for="u3-mapa"></label>
+                        </li>
+                        <li>
+                            <span class="icono"><i class='bx bx-category'></i></span>
+                            <div class="info">
+                                <span class="titulo">Jerarquía y navegación</span>
+                                <span class="duracion">13 min</span>
+                            </div>
+                            <input type="radio" name="unidad3" id="u3-jerarquia">
+                            <label for="u3-jerarquia"></label>
+                        </li>
+
+                        <li>
+                            <span class="icono"><i class='bx bx-notepad'></i></span>
+                            <div class="info">
+                                <span class="titulo">Wireframes básicos</span>
+                                <span class="duracion">16 min</span>
+                            </div>
+                            <input type="radio" name="unidad3" id="u3-wireframes">
+                            <label for="u3-wireframes"></label>
+
+                        </li>
+                    </ul>
+
+                </details>
+            </section>
+        </form>
 
         <!-- Docente -->
         <section class="docente">
