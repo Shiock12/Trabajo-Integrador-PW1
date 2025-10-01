@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #6A9CF4;
+  font-family: 'Inter', sans-serif;
+  background: #A7D8FF;;
   color: #333;
 }
 
@@ -49,7 +49,7 @@ body {
 /* Sección Profesional */
 .profesional {
   padding: 50px 20px;
-  background: #6A9CF4;
+  background: #A7D8FF;
   text-align: center;
 }
 
@@ -158,7 +158,7 @@ body {
 }
 
 .curso button {
-  background: #007bff;
+  background: #004D6D;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -167,10 +167,20 @@ body {
   border-radius: 6px;
 }
 
+.curso button a {
+  text-decoration: none;
+  color: white;
+}
+
+.curso button:hover {
+  background-color: #00628A;
+}
+
 /* Medios de pago */
 .medios {
   padding: 20px;
   text-align: center;
+  
 }
 
 .medios h2 {
@@ -351,3 +361,4 @@ body {
   }
   .quienes-somos p { font-size: 14px; }
 }
+

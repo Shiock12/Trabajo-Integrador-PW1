@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,36 @@
     <link rel="stylesheet" href="../Estilos/GiftCard.css">
     <link rel="stylesheet" href="../Estilos/HeaderNav.css">
     <link rel="stylesheet" href="../Estilos/Footer.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <!-- HEADER -->
     <header class="site-header">
-        <div class="logo"><img src="../Imagenes/logo.jpg" alt=""></div>
-        <div class="search-bar"><input type="text" placeholder="Buscar cursos..."></div>
-        <div class="cart"><i class='bx bx-cart'></i></div>
+        <div class="logo">
+            <img src="../Imagenes/logo.jpg" alt="">
+        </div>
+        <div class="search-bar">
+            <div class="search-container">
+                <input type="text" placeholder="Buscar cursos...">
+                <i class='bx bx-search-alt-2'></i>
+            </div>
+        </div>
+        <div class="cart">
+            <i class='bx bx-cart'></i>
+        </div>
     </header>
 
     <!-- NAV -->
-    <nav class="main-nav">
-        <ul>
-            <li><a href="Inicio.html">Inicio</a></li>
-            <li><a href="#">Calendario</a></li>
-            <li><a href="formularioDeContacto.html">Contacto</a></li>
-            <li><a href="FormularioEmpresas.html">Inscripcion para empresas</a></li>
-            <li><a href="VistaPerfil.html">Perfil</a></li>
+    <nav >
+        <ul class="nav-links">
+            <li><a href="./Inicio.html">Inicio</a></li>
+            <li><a href="./VistaCalendario.html">Calendario</a></li>
+            <li><a href="./formularioDeContacto.html">Contacto</a></li>
+            <li><a href="./FormularioEmpresas.html">Inscripcion para empresas</a></li>
+            <li><a href="./VistaPerfil.html">Perfil</a></li>
         </ul>
     </nav>
 
@@ -35,7 +48,7 @@
         <section class="personalizacion-form">
             <h3>Modelar tu Tarjeta de Regalo</h3>
 
-            <form action="#" method="post">
+            <form action="./../Vistas/Inicio.html" method="get">
 
                 <div class="form-group">
                     <label for="fondo">Elegir Fondo:</label>
@@ -48,14 +61,15 @@
 
                 <div class="form-group">
                     <label for="destinatario">Nombre del Destinatario:</label>
-                    <input type="text" id="destinatario" name="destinatario" placeholder="Nombre (máx. 20 caracteres)" maxlength="20" required>
+                    <input type="text" id="destinatario" name="destinatario" placeholder="Nombre (máx. 20 caracteres)"
+                        maxlength="20" required>
                 </div>
 
                 <div class="form-group">
                     <label for="monto">Monto (USD):</label>
                     <input type="number" id="monto" name="monto" min="10" max="500" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="color_fuente">Color de Fuente:</label>
                     <input type="color" id="color_fuente" name="color_fuente" value="#000000">
@@ -83,7 +97,7 @@
             </form>
 
         </section>
-        
+
         <section class="email-details">
             <h3>Datos de Entrega</h3>
             <p>Al presionar continuar, se le solicitará el email de la persona a la cual se le hace el regalo.</p>
@@ -94,26 +108,30 @@
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="columna">
-    <div>
-        <p>Isaac Rios - 42147287</p>
-        <p>Franco Varela - 40674420</p>
-        <p>Maas Nicolas Agustin - 46122160</p>
-        <p>Nahuel Esposito - 43862624</p>
-        <p>Juan Pablo Pfeiffer - 41454612</p>
-    </div>
+            <div>
+                <p>Isaac Rios - 42147287</p>
+                <p>Franco Varela - 40674420</p>
+                <p>Maas Nicolas Agustin - 46122160</p>
+                <p>Nahuel Esposito - 43862624</p>
+                <p>Juan Pablo Pfeiffer - 41454612</p>
+            </div>
         </div>
-        <div>Menú inferior
-        <p>&copy; 2025 TuNombre o Empresa. Todos los derechos reservados.</p>
+        <div>
+            <p>&copy; GrupoN. Todos los derechos reservados.</p>
         </div>
-        <div class="redes-sociales">Redes Sociales:
-        <ul>
-            <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
-            <li><a></a>Franco Varela</li>
-            <li><a></a>Nicolas Maas</li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
-        </ul>
-    </div>
+        <div class="redes-sociales">
+            <ul>
+                <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a>
+                </li>
+                <li><a>Franco Varela</a></li>
+                <li><a>Nicolas Maas</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a>
+                </li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a>
+                </li>
+            </ul>
+        </div>
     </footer>
 </body>
+
 </html>
