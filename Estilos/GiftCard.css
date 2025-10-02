@@ -4,8 +4,8 @@
     box-sizing: border-box; 
 }
 body {
-    font-family: Arial, sans-serif;
-    background-color: #6A9CF4;
+    font-family: 'Inter', sans-serif;
+    background-color: #A7D8FF;
     color: #343A40; 
 }
 /* HEADER */
@@ -25,29 +25,7 @@ body {
     margin-left: 20px;
     font-weight: bold;
 }
-/* NAV */
-.main-nav {
-    background-color: #3D6FA5; 
-}
-.main-nav ul {
-    list-style: none; 
-    text-align: center;
-    padding: 10px 0;
-}
-.main-nav li {
-    display: inline;
-    margin: 0 15px;
-}
-.main-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-.main-nav a:hover,
-.main-nav a.active {
-    color: #004D6D;
-    text-decoration: underline; 
-}
+
 /* MAIN CONTENT */
 .giftcard-content {
     padding: 20px;

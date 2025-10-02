@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #fff;
   color: #333;
 }
@@ -11,7 +11,7 @@ nav {
   background: #999;
   text-align: center;
   padding: 10px;
-  color:#fff;
+  color: #fff;
 }
 
 .titulo-descripcion{

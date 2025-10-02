@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda de Cursos</title>
-  <link rel="stylesheet" href="../Estilos/Inicio.css">
-  <link rel="stylesheet" href="../Estilos/HeaderNav.css">
-  <link rel="stylesheet" href="../Estilos/Footer.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="./Estilos/Inicio.css">
   <link rel="stylesheet" href="./Estilos/HeaderNav.css">
   <link rel="stylesheet" href="./Estilos/Footer.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
   <!-- Header -->
-   
+
   <header>
-    <div class="logo"><img src="../Imagenes/logo.webp"></div>
-    <div class="search-bar"><input type="text" placeholder="Buscar cursos..."></div>
+    <div class="logo"><img src="./Imagenes/logo.webp">
+    </div>
+    <div class="search-bar">
+      <div class="search-container">
+        <input type="text" placeholder="Buscar cursos...">
+        <i class='bx bx-search-alt-2'></i>
+      </div>
+    </div>
     <div class="cart"><i class='bx bx-cart'></i></div>
   </header>
 
- <!-- Navbar -->
+  <!-- Navbar -->
   <nav>
     <ul class="nav-links">
-      <li><a href="#">Calendario</a></li>
-      <li><a href="Vistas/GiftCard.html">Haz un regalo</a></li>
-      <li><a href="Vistas/formularioDeContacto.html">Contacto</a></li>
-      <li><a href="Vistas/FormularioEmpresas.html">Inscripción para empresas</a></li>
-      <li><a href="#">Haz un regalo</a></li>
-      <li><a href="#">Contacto</a></li>
+      <li><a href="./Vistas/VistaCalendario.html">Calendario</a></li>
+      <li><a href="./Vistas/GiftCard.html">Haz un regalo</a></li>
+      <li><a href="./Vistas/formularioDeContacto.html">Contacto</a></li>
       <li><a href="./Vistas/FormularioEmpresas.html">Inscripción para empresas</a></li>
     </ul>
-        <section class="botones-index">
+    <section class="botones-index">
       <a href="./Vistas/VistaLogin.html" class="btn btn-login">Iniciar Sesión</a>
       <a href="./Vistas/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
     </section>
   </nav>
-  
+
 
   <!-- Slider -->
   <section class="slider">
     <button class="prev">‹</button>
-    <img src="../Imagenes/banner.jpg">
+    <img src="./Imagenes/banner.jpg">
     <button class="next">›</button>
   </section>
 
-    <!-- Sección Profesional -->
+  <!-- Sección Profesional -->
   <section class="profesional">
     <h2>¿Preparado para ser un profesional?</h2>
     <div class="profesional-grid">
@@ -68,194 +71,137 @@
 
   <!-- Cursos destacados -->
   <section class="cursos-destacados">
-  <h2>CURSOS DESTACADOS</h2>
-  <div class="cursos-grid">
-    <div class="curso">
-      <img src="../Imagenes/finanzas.jpg" alt="Curso de Finanzas e Inversión">
-      <h3>Finanzas Personales e Inversiones</h3>
-      <p>Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
-      <p><strong>Duración:</strong> 75 horas</p>
-      <div class="precio">$5000</div>
-      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
-  <section class="cursos">
     <h2>CURSOS DESTACADOS</h2>
     <div class="cursos-grid">
       <div class="curso">
+        <img src="./Imagenes/finanzas.jpg" alt="Curso de Finanzas e Inversión">
+        <h3>Finanzas Personales e Inversiones</h3>
+        <p>Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
+        <p><strong>Duración:</strong> 75 horas</p>
         <div class="precio">$5000</div>
-        <img alt="curso">
-        <p>60 hs</p>
-        <h3>Nombre del Curso</h3>
-        <button onclick="alert('Tenes que iniciar sesión para inscribirte')">Comprar</button>
+        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
       </div>
-      <div class="curso">
-        <div class="precio">$5000</div>
-        <img alt="curso">
-        <p>60 hs</p>
-        <h3>Nombre del Curso</h3>
-        <button onclick="alert('Tenes que iniciar sesión para inscribirte')"> Comprar </button>
-      </div>
-      <div class="curso">
-        <div class="precio">$5000</div>
-        <img alt="curso">
-        <p>60 hs</p>
-        <h3>Nombre del Curso</h3>
-        <button onclick="alert('Tenes que iniciar sesión para inscribirte')">Comprar</button>
-      </div>
-      <div class="curso">
-        <div class="precio">$5000</div>
-        <img alt="curso">
-        <p>60 hs</p>
-        <h3>Nombre del Curso</h3>
-        <button onclick="alert('Tenes que iniciar sesión para inscribirte')">Comprar</button>
-      </div>
-      <div class="curso">
-        <div class="precio">$5000</div>
-        <img alt="curso">
-        <p>60 hs</p>
-        <h3>Nombre del Curso</h3>
-        <button onclick="alert('Tenes que iniciar sesión para inscribirte')">Comprar</button>
-      </div>
-      <div class="curso">
-        <div class="precio">$5000</div>
-        <img alt="curso">
-        <p>60 hs</p>
-        <h3>Nombre del Curso</h3>
-        <button onclick="alert('Tenes que iniciar sesión para inscribirte')">Comprar</button>
-      </div>
-      <div class="curso">
-        <div class="precio">$5000</div>
-        <img alt="curso">
-        <p>60 hs</p>
-        <h3>Nombre del Curso</h3>
-        <button onclick="alert('Tenes que iniciar sesión para inscribirte')">Comprar</button>
-      </div>
-      <div class="curso">
-        <div class="precio">$5000</div>
-        <img alt="curso">
-        <p>60 hs</p>
-        <h3>Nombre del Curso</h3>
-        <button onclick="alert('Tenes que iniciar sesión para inscribirte')">Comprar</button>
-      </div>
-    </div>
-    <div class="curso">
-      <img src="../Imagenes/marketing.jpg" alt="Curso de Marketing Digital">
-      <h3>Marketing Digital & Redes Sociales</h3>
-      <p>Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.</p>
-      <p><strong>Duración:</strong> 80 horas</p>
-      <div class="precio">$10000</div>
-      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
-    </div>
 
-    <div class="curso">
-      <img src="../Imagenes/uxui.jpg" alt="Curso de Diseño UX/UI">
-      <h3>Diseño UX/UI para Principiantes</h3>
-      <p>Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de usuario.</p>
-      <p><strong>Duración:</strong> 60 horas</p>
-      <div class="precio">$3000</div>
-      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
-    </div>
+      <div class="curso">
+        <img src="./Imagenes/marketing.jpg" alt="Curso de Marketing Digital">
+        <h3>Marketing Digital & Redes Sociales</h3>
+        <p>Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.</p>
+        <p><strong>Duración:</strong> 80 horas</p>
+        <div class="precio">$10000</div>
+        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+      </div>
 
-    <div class="curso">
-      <img src="../Imagenes/datascience.jpg" alt="Curso de Data Science">
-      <h3>Introducción a Data Science</h3>
-      <p>Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
-      <p><strong>Duración:</strong> 100 horas</p>
-      <div class="precio">$7650</div>
-      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
-    </div>
+      <div class="curso">
+        <img src="./Imagenes/uxui.jpg" alt="Curso de Diseño UX/UI">
+        <h3>Diseño UX/UI para Principiantes</h3>
+        <p>Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de usuario.</p>
+        <p><strong>Duración:</strong> 60 horas</p>
+        <div class="precio">$3000</div>
+        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+      </div>
 
-    <div class="curso">
-      <img src="../Imagenes/ciberseguridad.jpg" alt="Curso de Ciberseguridad">
-      <h3>Ciberseguridad & Hacking Ético</h3>
-      <p>Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de seguridad.</p>
-      <p><strong>Duración:</strong> 90 horas</p>
-      <div class="precio">$100000</div>
-      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
-    </div>
+      <div class="curso">
+        <img src="./Imagenes/datascience.jpg" alt="Curso de Data Science">
+        <h3>Introducción a Data Science</h3>
+        <p>Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
+        <p><strong>Duración:</strong> 100 horas</p>
+        <div class="precio">$7650</div>
+        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+      </div>
 
-    <div class="curso">
-      <img src="../Imagenes/crypto.jpg" alt="Curso de Finanzas e Inversión">
-      <h3>Inversión en cryptomonedas</h3>
-      <p>Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
-      <p><strong>Duración:</strong> 75 horas</p>
-      <div class="precio">$90000</div>
-      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
-    </div>
+      <div class="curso">
+        <img src="./Imagenes/ciberseguridad.jpg" alt="Curso de Ciberseguridad">
+        <h3>Ciberseguridad & Hacking Ético</h3>
+        <p>Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de seguridad.</p>
+        <p><strong>Duración:</strong> 90 horas</p>
+        <div class="precio">$100000</div>
+        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+      </div>
 
-    <div class="curso">
-      <img src="../Imagenes/foto.jpg" alt="Curso de Fotografía">
-      <h3>Fotografía Profesional</h3>
-      <p>Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
-      <p><strong>Duración:</strong> 50 horas</p>
-      <div class="precio">$33000</div>
-      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
-    </div>
+      <div class="curso">
+        <img src="./Imagenes/crypto.jpg" alt="Curso de Finanzas e Inversión">
+        <h3>Inversión en cryptomonedas</h3>
+        <p>Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
+        <p><strong>Duración:</strong> 75 horas</p>
+        <div class="precio">$90000</div>
+        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+      </div>
 
-    <div class="curso">
-      <img src="../Imagenes/english.jpg" alt="Curso de Idiomas">
-      <h3>Inglés para Profesionales</h3>
-      <p>Mejora tu inglés con enfoque en negocios, entrevistas de trabajo y presentaciones.</p>
-      <p><strong>Duración:</strong> 100 horas</p>
-      <div class="precio">$100000</div>
-      <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+      <div class="curso">
+        <img src="./Imagenes/foto.jpg" alt="Curso de Fotografía">
+        <h3>Fotografía Profesional</h3>
+        <p>Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
+        <p><strong>Duración:</strong> 50 horas</p>
+        <div class="precio">$33000</div>
+        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+      </div>
+
+      <div class="curso">
+        <img src="./Imagenes/english.jpg" alt="Curso de Idiomas">
+        <h3>Inglés para Profesionales</h3>
+        <p>Mejora tu inglés con enfoque en negocios, entrevistas de trabajo y presentaciones.</p>
+        <p><strong>Duración:</strong> 100 horas</p>
+        <div class="precio">$100000</div>
+        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Quiénes Somos -->
   <section class="quienes-somos">
-  <h2>¿QUIÉNES SOMOS?</h2>
-  <p>
-    En Grupo N creemos que el aprendizaje es la herramienta más poderosa para transformar vidas. 
-    Somos un equipo apasionado por la educación y la innovación digital, comprometidos en brindarte 
-    cursos prácticos, accesibles y actualizados que te ayuden a alcanzar tus metas personales y profesionales. 
-  </p>
-  <p>
-    Nuestra misión es acercarte conocimientos de calidad, explicados de forma clara y sencilla, 
-    para que aprendas a tu ritmo, desde cualquier lugar. Más que vender cursos, buscamos crear 
-    una comunidad donde cada persona encuentre inspiración, motivación y resultados reales. 
-  </p>
-  <p>
-    Con cada curso que desarrollamos, queremos que sientas que estás invirtiendo en tu futuro y en tu crecimiento. 
-  </p>
-</section>
+    <h2>¿QUIÉNES SOMOS?</h2>
+    <p>
+      En Grupo N creemos que el aprendizaje es la herramienta más poderosa para transformar vidas.
+      Somos un equipo apasionado por la educación y la innovación digital, comprometidos en brindarte
+      cursos prácticos, accesibles y actualizados que te ayuden a alcanzar tus metas personales y profesionales.
+    </p>
+    <p>
+      Nuestra misión es acercarte conocimientos de calidad, explicados de forma clara y sencilla,
+      para que aprendas a tu ritmo, desde cualquier lugar. Más que vender cursos, buscamos crear
+      una comunidad donde cada persona encuentre inspiración, motivación y resultados reales.
+    </p>
+    <p>
+      Con cada curso que desarrollamos, queremos que sientas que estás invirtiendo en tu futuro y en tu crecimiento.
+    </p>
+  </section>
 
   <!-- Medios de pago -->
   <section class="medios">
     <h2>MEDIOS DE PAGO</h2>
     <div class="medios-slider">
       <button class="prev">‹</button>
-      <img src="../Imagenes/mp.png">
-      <img src="../Imagenes/pagofacil.png">
-      <img src="../Imagenes/MasterCard-logoS.png">
-      <img src="../Imagenes/visa.png">
-      <img src="../Imagenes/pp.png">
+      <img src="./Imagenes/mp.png">
+      <img src="./Imagenes/pagofacil.png">
+      <img src="./Imagenes/MasterCard-logoS.png">
+      <img src="./Imagenes/visa.png">
+      <img src="./Imagenes/pp.png">
       <button class="next">›</button>
     </div>
   </section>
 
-<!-- Footer -->
+  <!-- Footer -->
   <footer>
     <div>
-        <p>Isaac Rios - 42147287</p>
-        <p>Franco Varela - 40674420</p>
-        <p>Nicolas Maas - 46122160</p>
-        <p>Nahuel Esposito - 43862624</p>
-        <p>Juan Pablo Pfeiffer - 41454612</p>
+      <p>Isaac Rios - 42147287</p>
+      <p>Franco Varela - 40674420</p>
+      <p>Nicolas Maas - 46122160</p>
+      <p>Nahuel Esposito - 43862624</p>
+      <p>Juan Pablo Pfeiffer - 41454612</p>
     </div>
     <div>
-        <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
+      <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
     </div>
     <div class="redes-sociales">
-        <ul>
-            <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
-            <li><a></a>Franco Varela</li>
-            <li><a></a>Nicolas Maas</li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
-        </ul>
+      <ul>
+        <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
+        <li><a>Franco Varela</a></li>
+        <li><a>Nicolas Maas</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
+      </ul>
     </div>
   </footer>
 
 </body>
+
 </html>
