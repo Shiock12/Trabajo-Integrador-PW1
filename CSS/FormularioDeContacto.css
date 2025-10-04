@@ -71,7 +71,11 @@ main {
     color: var(--color-primario);
     text-align: left;
 }
-
+label span {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 .contacto h2 {
     color: var(color --color-text);
     margin-bottom: 0.2em;
@@ -110,7 +114,7 @@ textarea {
 }
 
 /*Textarea*/
-.Consulta {
+.consulta {
     height: 6em;
     /*Estiramiento:*/
     resize: vertical;
@@ -126,12 +130,11 @@ textarea:focus {
     border-color: var(--color-primario);
     box-shadow: 0 0 0 2px rgba(0, 77, 109, 0.1);
 }
-
-/*Checkbox oculto*/
-.checkbox-mensaje {
-    display: none;
+.contenedor-mostrar-mensaje {
+    position: relative;
+    /*.cerrar-mensaje*/
+    min-height: 4em;
 }
-
 /*Botón enviar mensaje*/
 .enviar-mensaje {
     display: block;
@@ -141,6 +144,7 @@ textarea:focus {
     padding: 0.8em 2em;
     background: var(--color-primario);
     color: var(--color-white);
+    border: none;
     border-radius: var(--radio-borde);
     cursor: pointer;
     font-size: var(--fuente-base);
@@ -173,19 +177,19 @@ textarea:focus {
     width: 90%;
 }
 
-/*Si se marca el checkbox, entonces...*/
-.checkbox-mensaje:checked+.mensaje-exito {
-    display: block;
-}
 
 .cerrar-mensaje {
     position: absolute;
     top: var(--espaciado-s);
     right: 0.8em;
+    background: none;
+    border: none;
     cursor: pointer;
     font-size: 1.2em;
     font-weight: bold;
     color: var(--color-mostrar-mensaje-text);
+    padding: 0.2em 0.5em;
+    transition: color 0.3s ease;
 }
 
 .cerrar-mensaje:hover {
@@ -199,7 +203,7 @@ textarea:focus {
 }
 
 .mensaje-exito p {
-    margin: 0;
+    margin: 0 0 1em 0;
 }
 
 /* Aside - Datos de contacto */
@@ -298,7 +302,7 @@ textarea:focus {
         padding: var(--espaciado-m);
     }
 
-    .Consulta {
+    .consulta {
         height: 5em;
         /*Estiramiento:*/
         resize: vertical;
@@ -367,7 +371,7 @@ textarea:focus {
             font-size: var(--fuente-s);
         }
 
-        .Consulta {
+        .consulta {
             height: 4em;
             min-height: 4em;
             max-height: 6em;
