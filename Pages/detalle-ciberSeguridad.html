@@ -4,23 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del curso clouds&devops</title>
-    <link rel="stylesheet" href="./../Estilos/style_curso.css">
-    <link rel="stylesheet" href="./../Estilos/HeaderNav.css">
-    <link rel="stylesheet" href="./../Estilos/Footer.css">
-    <link rel="stylesheet" href="./../Estilos/verDetalleCursos.css">
+    <title>Detalle del Curso - Ciberseguridad</title>
+    <link rel="stylesheet" href="./../CSS/style_curso.css">
+    <link rel="stylesheet" href="./../CSS/HeaderNav.css">
+    <link rel="stylesheet" href="./../CSS/Footer.css">
+    <link rel="stylesheet" href="./../CSS/verDetalleCursos.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap"
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 
 <body>
 
     <header>
         <div class="logo">
-            <img src="./../Imagenes/logo.jpg">
+            <img src="./../Images/logo.jpg">
         </div>
 
         <div class="search-bar">
@@ -38,44 +37,45 @@
 
     <nav>
         <ul class="nav-links">
-            <li><a href="./../Vistas/Inicio.html"><i class='bx bx-home'></i><span>Inicio</span></a></li>
-            <li><a href="./../Vistas/VistaCalendario.html"><i class='bx bx-calendar'></i><span>Calendario</span></a></li>
-            <li><a href="./../Vistas/GiftCard.html"><i class='bx bx-gift'></i><span>Haz un regalo</span></a></li>
-            <li><a href="./../Vistas/formularioDeContacto.html"><i class='bx bx-phone'></i><span>Contacto</span></a></li>
-            <li><a href="./../Vistas/FormularioEmpresas.html"><i class='bx bx-briefcase'></i><span>Inscripción para empresas</span></a></li>
+            <li><a href="./../Pages/Inicio.html"><i class='bx bx-home'></i><span>Inicio</span></a></li>
+            <li><a href="./../Pages/VistaCalendario.html"><i class='bx bx-calendar'></i><span>Calendario</span></a></li>
+            <li><a href="./../Pages/GiftCard.html"><i class='bx bx-gift'></i><span>Haz un regalo</span></a></li>
+            <li><a href="./../Pages/formularioDeContacto.html"><i class='bx bx-phone'></i><span>Contacto</span></a></li>
+            <li><a href="./../Pages/FormularioEmpresas.html"><i class='bx bx-briefcase'></i><span>Inscripción para empresas</span></a></li>
         </ul>
     </nav>
 
     <main class="detalle-curso curso-layout">
+        <form action="./inscripcion-exitosa.html" method="get">
         <section class="curso-detalle-principal">
-            <h1>Cloud & DevOps</h1>
-            <img src="./../Imagenes/Clouds & DevOps Course Illustration.png" alt="Imagen curso">
+            <h1>Fundamentos de Ciberseguridad</h1>
+            <img src="./../Images/FundamentosCiberSeguridad.png" alt="Imagen curso">
             <p><strong>Duración:</strong> 60 horas</p>
             <p><strong>Precio:</strong> $5000</p>
-            <p><strong>Descripción:</strong> Este curso está orientado a quienes quieran iniciarse en la nube y
-                automatización de infraestructura...</p>
+            <p><strong>Descripción:</strong> Aprende los principios básicos de la ciberseguridad, protección de datos, y
+                amenazas modernas.</p>
             <button>Inscribirse</button>
         </section>
+        </form>
         <aside class="beneficios-curso">
             <h3>¿Qué aprenderás?</h3>
             <ul>
-                <li><i class='bx bx-check'></i> Fundamentos de Cloud Computing</li>
-                <li><i class='bx bx-check'></i> Automatización con DevOps</li>
-                <li><i class='bx bx-check'></i> CI/CD con Jenkins y GitHub Actions</li>
-                <li><i class='bx bx-check'></i> Infraestructura como código (IaC)</li>
-                <li><i class='bx bx-check'></i> Docker, Kubernetes y contenedores</li>
+                <li><i class='bx bx-check'></i> Principios básicos de ciberseguridad</li>
+                <li><i class='bx bx-check'></i> Tipos de amenazas y ataques</li>
+                <li><i class='bx bx-check'></i> Seguridad en redes y sistemas</li>
+                <li><i class='bx bx-check'></i> Protección de datos personales</li>
+                <li><i class='bx bx-check'></i> Buenas prácticas para usuarios y empresas</li>
             </ul>
-
             <h3>¿Por qué elegirnos?</h3>
             <ul>
                 <li><i class='bx bx-star'></i> Más de 10.000 alumnos</li>
                 <li><i class='bx bx-time'></i> Flexibilidad horaria</li>
                 <li><i class='bx bx-award'></i> Instructores certificados</li>
             </ul>
+
         </aside>
 
     </main>
-
     <footer>
     <div>
         <p>Isaac Rios - 42147287</p>
@@ -100,7 +100,6 @@
     <a href="detalleCursos.html" class="btn-volver">
         <i class='bx bx-arrow-back'></i> Volver
     </a>
-
 </body>
 
 </html>
