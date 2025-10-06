@@ -112,11 +112,11 @@ body {
 
 .cursos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
   gap: 20px;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1300px;
+  align-items: stretch;
+  padding-left: 12%;
+  padding-right: 12%; 
 }
 
 .curso {
@@ -158,6 +158,41 @@ body {
   margin-bottom: 1%;
 }
 
+.curso-info .descripcion {
+  min-height: 60px;   /* ajustá según tu diseño (50–80px suele ir bien) */
+}
+
+.curso-info {
+  flex: 1;                 /* ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column;  /* ordena el contenido en columna */
+}
+
+.curso-info .detalles {
+  margin-top: auto;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.curso-info .detalles:hover {
+  text-decoration: underline;
+}
+
+.ver-detalles {
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ver-detalles:hover {
+  text-decoration: underline;
+}
+
 .curso button {
   background: #004D6D;
   color: white;
@@ -175,6 +210,36 @@ body {
 
 .curso button:hover {
   background-color: #00628A;
+}
+
+.ver-detalles {
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ver-detalles:hover {
+  text-decoration: underline;
+}
+
+.btn-inscribirse {
+   margin-top: 10px;
+  display: block;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-inscribirse:hover {
+  background: #0056b3;         
 }
 
 /* Medios de pago */
@@ -201,25 +266,6 @@ body {
   object-fit: contain; 
   display: block;
   margin: 0 auto;
-}
-
-.btn-inscribirse {
-  display: block;             
-  width: 100%;                 
-  background: #007bff;
-  color: white;
-  text-align: center;          
-  text-decoration: none;      
-  padding: 14px;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: auto;
-}
-
-.btn-inscribirse:hover {
-  background: #0056b3;         
 }
 
 .medios .prev {
@@ -274,11 +320,12 @@ body {
 .medios-slider { position: relative; }    
                                           
 
- /*  Breakpoint Tablet (≤ 768px)*/
+/* =========================
+   Breakpoint Tablet (≤ 768px)
+========================= */
 @media (max-width: 768px) {
 
   body { font-size: 16px; line-height: 1.6; }
-
 
   .slider { height: 320px; }
   .slider img { height: 320px; }
@@ -286,44 +333,29 @@ body {
   .slider .prev { left: 10px; }
   .slider .next { right: 10px; }
 
- 
   .profesional { padding: 40px 16px; }
   .profesional-grid {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-  .profesional .card {
-    max-width: 100%;
-    padding: 18px;
-  }
-
+  .profesional .card { max-width: 100%; padding: 18px; }
 
   .cursos-destacados { padding: 32px 16px; }
-  .cursos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    max-width: 100%;
-  }
+  .cursos-grid { grid-template-columns: repeat(2, 1fr); } /* 2 columnas en tablet */
   .curso img { height: 140px; }
 
   .medios { padding: 24px 16px; }
-  .medios-slider {
-    flex-wrap: wrap;
-    gap: 24px;
-  }
+  .medios-slider { flex-wrap: wrap; gap: 24px; }
   .medios img { width: 90px; height: 54px; }
   .medios button { font-size: 40px; }
 
-  .quienes-somos {
-    margin: 40px 16px;
-    padding: 24px;
-  }
+  .quienes-somos { margin: 40px 16px; padding: 24px; }
   .quienes-somos h2 { font-size: 24px; }
 }
 
-/* Breakpoint Celular (≤ 480px) */
+/* =========================
+   Breakpoint Celular (≤ 480px)
+========================= */
 @media (max-width: 480px) {
   body { font-size: 15px; }
 
@@ -335,31 +367,22 @@ body {
 
   .profesional { padding: 28px 12px; }
   .profesional h2 { font-size: 22px; }
-  .profesional-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+  .profesional-grid { grid-template-columns: 1fr; gap: 12px; }
   .profesional .card { padding: 16px; }
 
   .cursos-destacados { padding: 24px 12px; }
-  .cursos-destacados h2 {
-    font-size: 22px;
-    letter-spacing: .5px;
-  }
-  .cursos-grid { grid-template-columns: 1fr; gap: 12px; }
+  .cursos-destacados h2 { font-size: 22px; letter-spacing: .5px; }
+  .cursos-grid { grid-template-columns: 1fr; gap: 12px; }  /* 1 columna en celular */
   .curso { padding: 12px; }
   .curso img { height: 130px; }
   .curso .precio { top: 8px; right: 8px; font-size: 12px; }
-  .curso button { padding: 8px 12px; }
+  .curso button, .curso a.btn, .curso a.btn-inscribirse { padding: 8px 12px; }
 
   .medios-slider { gap: 16px; }
   .medios img { width: 80px; height: 48px; }
   .medios button { font-size: 28px; }
 
-  .quienes-somos {
-    margin: 28px 12px;
-    padding: 16px;
-  }
+  .quienes-somos { margin: 28px 12px; padding: 16px; }
   .quienes-somos p { font-size: 14px; }
 }
 
