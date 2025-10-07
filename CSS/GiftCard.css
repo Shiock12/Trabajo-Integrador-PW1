@@ -3,11 +3,13 @@
     padding: 0;
     box-sizing: border-box; 
 }
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: #A7D8FF;
     color: #343A40; 
 }
+
 /* HEADER */
 .site-header {
     background-color: #2C3E50; 
@@ -17,10 +19,12 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .logo {
     color: white;
     font-size: 1.8em;
 }
+
 .header-utilidades .carrito {
     margin-left: 20px;
     font-weight: bold;
@@ -29,45 +33,99 @@ body {
 /* MAIN CONTENT */
 .giftcard-content {
     padding: 20px;
-    max-width: 800px;
+    max-width: 1000px; /* más ancho para acomodar 50/50 */
     margin: 20px auto; 
     background-color: white; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.form-group label {
-    display: block; 
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-.form-custom-row {
+
+/* === DISTRIBUCIÓN PRINCIPAL === */
+.giftcard-layout {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    align-items: flex-start;
+    gap: 30px;
 }
-.form-custom-row .half-width {
-    width: 48%; 
+
+/* Cada lado ocupa el 50% */
+.vista-previa-contenedor,
+.personalizacion-form {
+    flex: 1 1 50%;
 }
+
+/* === VISTA PREVIA === */
 .vista-previa-contenedor {
-    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
+
 .giftcard-preview {
-    width: 320px;
-    height: 200px;
+    width: 100%;
+    max-width: 380px;
+    height: 240px;
     background-color: #6A9CF4; 
     color: #2C3E50;
     border: 1px solid #3D6FA5; 
-    margin: 10px auto;
+    margin-top: 20px;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     display: flex; 
     flex-direction: column;
-    justify-content: space-between;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
+    position: relative;
     font-size: 1.1em;
 }
+
+/* Monto arriba a la derecha */
+.preview-precio {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* === FORMULARIO DE PERSONALIZACIÓN === */
+.personalizacion-form {
+    background-color: #f7f9fc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.personalizacion-form h2,
+.personalizacion-form h3 {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* === BOTÓN CONFIRMAR === */
 .btn-continuar {
     display: block;
     width: 100%;
@@ -80,9 +138,11 @@ body {
     cursor: pointer; 
     transition: background-color 0.3s;
 }
+
 .btn-continuar:hover {
     background-color: #00374e; 
 }
+
 /* FOOTER */
 .site-footer {
     background-color: #2C3E50; 
@@ -104,4 +164,22 @@ body {
 .site-footer a {
     color: #B0C4DE;
     text-decoration: none;
+}
+
+/* === RESPONSIVO (móvil) === */
+@media (max-width: 768px) {
+    .giftcard-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vista-previa-contenedor,
+    .personalizacion-form {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .giftcard-preview {
+        max-width: 100%;
+    }
 }
