@@ -36,13 +36,6 @@ header {
   margin: 0 0.188em;
 }
 
-/*.search-bar input {
-    width: 30%;
-    padding: 9px;
-    font-size: 1em;
-    border-radius: 0.5em;
-}*/
-
 .search-container {
   position: relative;
   width: 100%;
@@ -68,8 +61,28 @@ header {
 }
 
 .cart {
-  font-size: 2.5em;
+  position: relative;        /* necesario para posicionar el circulito */
+  font-size: 40px;
   color: white;
+  cursor: pointer;
+}
+
+/* circulito del contador */
+.cart-count {
+  position: absolute;
+  top: -5px;                /* ajustá según el tamaño del ícono */
+  right: -5px;
+  background: #007bff;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #2C3E50; /* mismo color que tu header, opcional */
 }
 
 /* Navbar */

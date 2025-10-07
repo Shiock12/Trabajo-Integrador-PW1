@@ -23,15 +23,26 @@
     </div>
 
     <div class="search-bar">
-      <div class="search-container">
-        <input type="text" placeholder="Buscar cursos...">
-        <i class='bx bx-search-alt-2'></i>
-      </div>
-    </div>
+  <div class="search-container">
+    <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
+    <datalist id="lista-cursos">
+      <option value="Finanzas Personales e Inversiones">
+      <option value="Marketing Digital y Redes Sociales">
+      <option value="Diseño UX/UI para Principiantes">
+      <option value="Introducción a Data Science">
+      <option value="Ciberseguridad y Hacking Ético">
+      <option value="Inversión en Criptomonedas">
+      <option value="Fotografía Profesional">
+      <option value="Inglés para Profesionales">
+    </datalist>
+    <i class='bx bx-search-alt-2'></i>
+  </div>
+</div>
 
-    <div class="cart">
+  <div class="cart">
       <i class='bx bx-cart'></i>
-    </div>
+      <span class="cart-count">0</span>
+  </div>
 
   </header>
 
@@ -80,74 +91,98 @@
   <div class="cursos-grid">
     <div class="curso">
       <img src="../Images/finanzas.jpg" alt="Curso de Finanzas e Inversión">
-      <h3>Finanzas Personales e Inversiones</h3>
-      <p>Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
-      <p><strong>Duración:</strong> 75 horas</p>
-      <div class="precio">$5000</div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
+      <div class="curso-info">
+        <h3>Finanzas Personales e Inversiones</h3>
+        <p class="descripcion">Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
+        <p><strong>Duración:</strong> 75 horas</p>
+        <div class="precio">$5000</div>
+        <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      </div>
+      <a class="btn-inscribirse" href="../Vistas/detalleCursos.html">Inscribirse</a>
     </div>
 
     <div class="curso">
       <img src="../Images/marketing.jpg" alt="Curso de Marketing Digital">
+      <div class="curso-info">
       <h3>Marketing Digital & Redes Sociales</h3>
-      <p>Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.</p>
+      <p class="descripcion">Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.</p>
       <p><strong>Duración:</strong> 80 horas</p>
       <div class="precio">$10000</div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
+      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      </div>
+      <a class="btn-inscribirse" href="../Vistas/detalleCursos.html">Inscribirse</a>
     </div>
 
     <div class="curso">
       <img src="../Images/uxui.jpg" alt="Curso de Diseño UX/UI">
+      <div class="curso-info">
       <h3>Diseño UX/UI para Principiantes</h3>
-      <p>Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de usuario.</p>
+      <p class="descripcion">Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de usuario.</p>
       <p><strong>Duración:</strong> 60 horas</p>
       <div class="precio">$3000</div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
+      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      </div>
+      <a class="btn-inscribirse" href="../Vistas/detalleCursos.html">Inscribirse</a>
     </div>
 
     <div class="curso">
       <img src="../Images/datascience.jpg" alt="Curso de Data Science">
+      <div class="curso-info">
       <h3>Introducción a Data Science</h3>
-      <p>Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
+      <p class="descripcion">Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
       <p><strong>Duración:</strong> 100 horas</p>
       <div class="precio">$7650</div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
+      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      </div>
+      <a class="btn-inscribirse" href="../Vistas/detalleCursos.html">Inscribirse</a>
     </div>
 
     <div class="curso">
       <img src="../Images/ciberseguridad.jpg" alt="Curso de Ciberseguridad">
+      <div class="curso-info">
       <h3>Ciberseguridad & Hacking Ético</h3>
-      <p>Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de seguridad.</p>
+      <p class="descripcion">Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de seguridad.</p>
       <p><strong>Duración:</strong> 90 horas</p>
       <div class="precio">$100000</div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
+      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      </div>
+      <a class="btn-inscribirse" href="../Vistas/detalleCursos.html">Inscribirse</a>
     </div>
 
     <div class="curso">
       <img src="../Images/crypto.jpg" alt="Curso de Finanzas e Inversión">
+      <div class="curso-info">
       <h3>Inversión en cryptomonedas</h3>
-      <p>Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
+      <p class="descripcion">Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
       <p><strong>Duración:</strong> 75 horas</p>
       <div class="precio">$90000</div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
+      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      </div>
+      <a class="btn-inscribirse" href="../Vistas/detalleCursos.html">Inscribirse</a>
     </div>
 
     <div class="curso">
       <img src="../Images/foto.jpg" alt="Curso de Fotografía">
+      <div class="curso-info">
       <h3>Fotografía Profesional</h3>
-      <p>Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
+      <p class="descripcion">Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
       <p><strong>Duración:</strong> 50 horas</p>
       <div class="precio">$33000</div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
+      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      </div>
+      <a class="btn-inscribirse" href="../Vistas/detalleCursos.html">Inscribirse</a>
     </div>
 
     <div class="curso">
       <img src="../Images/english.jpg" alt="Curso de Idiomas">
+      <div class="curso-info">
       <h3>Inglés para Profesionales</h3>
-      <p>Mejora tu inglés con enfoque en negocios, entrePages de trabajo y presentaciones.</p>
+      <p class="descripcion">Mejora tu inglés con enfoque en negocios, entrevistas de trabajo y presentaciones.</p>
       <p><strong>Duración:</strong> 100 horas</p>
       <div class="precio">$100000</div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
+      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      </div>
+      <a class="btn-inscribirse" href="../Vistas/detalleCursos.html">Inscribirse</a>
     </div>
   </div>
 </section>
@@ -169,7 +204,7 @@
     Con cada curso que desarrollamos, queremos que sientas que estás invirtiendo en tu futuro y en tu crecimiento. 
   </p>
 </section>
-</form>
+
   <!-- Medios de pago -->
   <section class="medios">
     <h2>MEDIOS DE PAGO</h2>
@@ -183,26 +218,27 @@
       <button class="next">›</button>
     </div>
   </section>
+</section>
 <!-- Footer -->
   <footer>
     <div>
-        <p>Isaac Rios - 42147287</p>
-        <p>Franco Varela - 40674420</p>
-        <p>Maas Nicolas Agustin - 46122160</p>
-        <p>Nahuel Esposito - 43862624</p>
-        <p>Juan Pablo Pfeiffer - 41454612</p>
+      <p>Isaac Rios - 42147287</p>
+      <p>Franco Varela - 40674420</p>
+      <p>Nicolas Maas - 46122160</p>
+      <p>Nahuel Esposito - 43862624</p>
+      <p>Juan Pablo Pfeiffer - 41454612</p>
     </div>
     <div>
-        <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
+      <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
     </div>
     <div class="redes-sociales">
-        <ul>
-            <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
-            <li><a>Franco Varela</a></li>
-            <li><a>Nicolas Maas</a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
-        </ul>
+      <ul>
+        <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
+        <li><a>Franco Varela</a></li>
+        <li><a>Nicolas Maas</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
+      </ul>
     </div>
   </footer>
 
