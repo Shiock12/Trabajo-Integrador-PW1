@@ -8,101 +8,109 @@
     <link rel="stylesheet" href="../CSS/GiftCard.css">
     <link rel="stylesheet" href="../CSS/HeaderNav.css">
     <link rel="stylesheet" href="../CSS/Footer.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- HEADER -->
-    <header class="site-header">
-        <div class="logo">
-            <img src="../Images/logo.jpg" alt="">
-        </div>
-        <div class="search-bar">
-            <div class="search-container">
-                <input type="text" placeholder="Buscar cursos...">
-                <i class='bx bx-search-alt-2'></i>
-            </div>
-        </div>
-        <div class="cart">
-            <i class='bx bx-cart'></i>
-        </div>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="./../Images/logo.webp">
+    </div>
+    <div class="search-bar">
+  <div class="search-container">
+    <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
+    <datalist id="lista-cursos">
+      <option value="Finanzas Personales e Inversiones">
+      <option value="Marketing Digital y Redes Sociales">
+      <option value="Diseño UX/UI para Principiantes">
+      <option value="Introducción a Data Science">
+      <option value="Ciberseguridad y Hacking Ético">
+      <option value="Inversión en Criptomonedas">
+      <option value="Fotografía Profesional">
+      <option value="Inglés para Profesionales">
+    </datalist>
+    <i class='bx bx-search-alt-2'></i>
+  </div>
+</div>
+  <div class="cart">
+      <i class='bx bx-cart'></i>
+      <span class="cart-count">0</span>
+  </div>
+  </header>
 
     <!-- NAV -->
-    <nav >
+    <nav>
         <ul class="nav-links">
             <li><a href="./Inicio.html">Inicio</a></li>
             <li><a href="./VistaCalendario.html">Calendario</a></li>
             <li><a href="./formularioDeContacto.html">Contacto</a></li>
-            <li><a href="./FormularioEmpresas.html">Inscripcion para empresas</a></li>
+            <li><a href="./FormularioEmpresas.html">Inscripción para empresas</a></li>
             <li><a href="./VistaPerfil.html">Perfil</a></li>
         </ul>
     </nav>
 
     <!-- MAIN -->
     <main class="giftcard-content">
-        <h2>Gift Card</h2>
+        <section class="giftcard-layout">
 
-        <section class="personalizacion-form">
-            <h3>Modelar tu Tarjeta de Regalo</h3>
-
-            <form action="./../Pages/Inicio.html" method="get">
-
-                <div class="form-group">
-                    <label for="fondo">Elegir Fondo:</label>
-                    <select id="fondo" name="fondo">
-                        <option value="fondo1">Fondo Abstracto</option>
-                        <option value="fondo2">Fondo Tecnológico</option>
-                        <option value="fondo3">Fondo Minimalista</option>
-                    </select>
+            <!-- IZQUIERDA: Vista previa -->
+            <div class="vista-previa-contenedor">
+                <h4>Vista Previa</h4>
+                <div class="giftcard-preview">
+                    <p class="preview-precio">$0000.-</p>
+                    <p class="preview-text">GIFT CARD para</p>
+                    <h3 class="preview-nombre">Destinatario</h3>
+                    <p>Regalo de Curso Online</p>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="destinatario">Nombre del Destinatario:</label>
-                    <input type="text" id="destinatario" name="destinatario" placeholder="Nombre (máx. 20 caracteres)"
-                        maxlength="20" required>
-                </div>
+            <!-- DERECHA: Formulario -->
+            <div class="personalizacion-form">
+                <h2>Gift Card</h2>
+                <h3>Modelá tu Tarjeta de Regalo</h3>
 
-                <div class="form-group">
-                    <label for="monto">Monto (USD):</label>
-                    <input type="number" id="monto" name="monto" min="10" max="500" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="color_fuente">Color de Fuente:</label>
-                    <input type="color" id="color_fuente" name="color_fuente" value="#000000">
-                </div>
-
-                <div class="form-group">
-                    <label for="tamano_fuente">Tamaño de Fuente:</label>
-                    <select id="tamano_fuente" name="tamano_fuente">
-                        <option value="small">Pequeño</option>
-                        <option value="medium" selected>Mediano</option>
-                        <option value="large">Grande</option>
-                    </select>
-                </div>
-
-                <div class="vista-previa-contenedor">
-                    <h4>Vista Previa</h4>
-                    <div class="giftcard-preview">
-                        <p style="text-align: right;">$ Precio</p>
-                        <p class="preview-name">Para: Nombre Destinatario</p>
-                        <p>Regalo de Curso Online</p>
+                <form action="./../Pages/Inicio.html" method="get">
+                    <div class="form-group">
+                        <label for="fondo">Elegir Fondo:</label>
+                        <select id="fondo" name="fondo">
+                            <option value="fondo1">Fondo Abstracto</option>
+                            <option value="fondo2">Fondo Tecnológico</option>
+                            <option value="fondo3">Fondo Minimalista</option>
+                        </select>
                     </div>
-                </div>
 
-                <button type="submit" class="btn-continuar">Confirmar</button>
-            </form>
+                    <div class="form-group">
+                        <label for="destinatario">Nombre del Destinatario:</label>
+                        <input type="text" id="destinatario" name="destinatario" maxlength="20" required>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="monto">Monto (USD):</label>
+                        <input type="number" id="monto" name="monto" min="10" max="500" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="color_fuente">Color de Fuente:</label>
+                        <input type="color" id="color_fuente" name="color_fuente" value="#000000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tamano_fuente">Tamaño de Fuente:</label>
+                        <select id="tamano_fuente" name="tamano_fuente">
+                            <option value="small">Pequeño</option>
+                            <option value="medium" selected>Mediano</option>
+                            <option value="large">Grande</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-continuar">Confirmar</button>
+                </form>
+            </div>
         </section>
-
-        <section class="email-details">
-            <h3>Datos de Entrega</h3>
-            <p>Al presionar continuar, se le solicitará el email de la persona a la cual se le hace el regalo.</p>
-        </section>
-
     </main>
 
     <!-- FOOTER -->
@@ -116,22 +124,21 @@
                 <p>Juan Pablo Pfeiffer - 41454612</p>
             </div>
         </div>
+
         <div>
             <p>&copy; GrupoN. Todos los derechos reservados.</p>
         </div>
+
         <div class="redes-sociales">
             <ul>
-                <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a>
-                </li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
                 <li><a>Franco Varela</a></li>
                 <li><a>Nicolas Maas</a></li>
-                <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a>
-                </li>
-                <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a>
-                </li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Juan Pablo Pfeiffer</a></li>
             </ul>
         </div>
     </footer>
-</body>
 
+</body>
 </html>

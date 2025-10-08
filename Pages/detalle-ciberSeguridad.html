@@ -17,22 +17,32 @@
 
 <body>
 
-    <header>
-        <div class="logo">
-            <img src="./../Images/logo.jpg">
-        </div>
-
-        <div class="search-bar">
-            <div class="search-container">
-                <input type="text" placeholder="Buscar cursos...">
-                <i class='bx bx-search-alt-2'></i>
-            </div>
-        </div>
-
-        <div class="cart">
-            <i class='bx bx-cart'></i>
-        </div>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="./../Images/logo.webp">
+    </div>
+    <div class="search-bar">
+  <div class="search-container">
+    <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
+    <datalist id="lista-cursos">
+      <option value="Finanzas Personales e Inversiones">
+      <option value="Marketing Digital y Redes Sociales">
+      <option value="Diseño UX/UI para Principiantes">
+      <option value="Introducción a Data Science">
+      <option value="Ciberseguridad y Hacking Ético">
+      <option value="Inversión en Criptomonedas">
+      <option value="Fotografía Profesional">
+      <option value="Inglés para Profesionales">
+    </datalist>
+    <i class='bx bx-search-alt-2'></i>
+  </div>
+</div>
+  <div class="cart">
+      <i class='bx bx-cart'></i>
+      <span class="cart-count">0</span>
+  </div>
+  </header>
 
 
     <nav>
