@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de contacto</title>
     <link rel="stylesheet" href="../CSS/HeaderNav.css">
-    <link rel="stylesheet" href="../CSS/Footer.css">
+    <link rel="stylesheet" href="../CSS/HeaderNav.css">
     <link rel="stylesheet" href="../CSS/FormularioDeContacto.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <script src="../Javascript/formulario-de-contacto.js"></script>
     <!-- Header -->
   <!-- Header -->
   <header>
@@ -43,11 +42,12 @@
     <!-- Navbar -->
     <nav>
         <ul class="nav-links">
-            <li><a href="./Inicio.html">Inicio</a></li>
-            <li><a href="./VistaCalendario.html">Calendario</a></li>
-            <li><a href="./GiftCard.html">Haz un regalo</a></li>
-            <li><a href="./FormularioEmpresas.html">Inscripción para empresas</a></li>
-            <li><a href="./VistaPerfil.html">Perfil</a></li>
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="#">Calendario</a></li>
+            <li><a href="GiftCard.html">Haz un regalo</a></li>
+            <li><a href="FormularioEmpresas.html">Inscripción para empresas</a></li>
+            <li><a href="VistaPerfil.html">Perfil</a></li>
+
         </ul>
     </nav>
     <!--Main-->
@@ -56,39 +56,36 @@
         <section class="contacto">
             <h1>Contacto</h1>
             <h2>Contáctanos llenando todos los campos</h2>
-            <form action="">
+            <form action="#" id="formularioContacto">
                 <fieldset>
                     <div>
-                        <label>Nombre <span style="color: red;">*</span></label>
-                        <input type="text" placeholder="Tu Nombre" required>
+                        <label for="nombre">Nombre <span class="color">*</span></label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre" required>
                     </div>
                     <div>
-                        <label>Apellido <span style="color: red;">*</span></label>
-                        <input type="text" placeholder="Tu Apellido" required>
+                        <label for="apellido">Apellido <span class="color">*</span></label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Tu Apellido" required>
                     </div>
                     <div>
-                        <label>Mail <span style="color: red;">*</span></label>
-                        <input type="email" placeholder="Tu Email" required>
+                        <label for="email">Mail <span class="color">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="Tu Email" required>
                     </div>
                     <div>
-                        <label>Teléfono</label>
-                        <input type="tel" placeholder="Tu teléfono">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono">
                     </div>
                     <div>
-                        <label>Consulta<span style="color: red;">*</span></label>
-                        <textarea class="Consulta" placeholder="Escribe tu consulta" required></textarea>
+                        <label for="consulta">Consulta <span>*</span></label>
+                        <textarea class="consulta" id="consulta" name="consulta" placeholder="Escribe tu consulta"
+                            required></textarea>
                     </div>
                     <div class="contenedor-mostrar-mensaje">
-                        <!-- Checkbox oculto -->
-                        <input type="checkbox" id="mostrar-mensaje" class="checkbox-mensaje">
-                        <!-- Mensaje que aparece -->
-                        <div class="mensaje-exito">
+                        <div class="mensaje-exito" id="mensajeExito">
                             <h3>¡Correo Enviado Exitosamente!</h3>
                             <p>Te responderemos en las próximas 24 horas.</p>
-                            <label for="mostrar-mensaje" class="cerrar-mensaje">× Cerrar</label>
+                            <button type="button" class="cerrar-mensaje" id="btnCerrar">× Cerrar</button>
                         </div>
-                        <!-- Botón que activa el mensaje -->
-                        <label for="mostrar-mensaje" class="enviar-mensaje">Enviar mensaje</label>
+                        <button type="submit" class="enviar-mensaje">Enviar mensaje</button>
                     </div>
                 </fieldset>
             </form>
@@ -126,24 +123,27 @@
     </main>
 
     <footer>
-    <div>
-        <p>Isaac Rios - 42147287</p>
-        <p>Franco Varela - 40674420</p>
-        <p>Maas Nicolas Agustin - 46122160</p>
-        <p>Nahuel Esposito - 43862624</p>
-        <p>Juan Pablo Pfeiffer - 41454612</p>
-    </div>
         <div>
-        <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
+            <p>Isaac Rios - 42147287</p>
+            <p>Franco Varela - 40674420</p>
+            <p>Maas Nicolas Agustin - 46122160</p>
+            <p>Nahuel Esposito - 43862624</p>
+            <p>Juan Pablo Pfeiffer - 41454612</p>
+        </div>
+        <div>
+            <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
         </div>
         <div class="redes-sociales">
-        <ul>
-            <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
-            <li><a>Franco Varela</a></li>
-            <li><a>Nicolas Maas</a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
-        </ul>
+            <ul>
+                <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a>
+                </li>
+                <li><a></a>Franco Varela</li>
+                <li><a></a>Nicolas Maas</li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a>
+                </li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a>
+                </li>
+            </ul>
         </div>
     </footer>
 </body>
