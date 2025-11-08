@@ -18,32 +18,32 @@
 
     <div id="top"></div>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">
-      <img src="./../Images/logo.webp">
-    </div>
-    <div class="search-bar">
-  <div class="search-container">
-    <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
-    <datalist id="lista-cursos">
-      <option value="Finanzas Personales e Inversiones">
-      <option value="Marketing Digital y Redes Sociales">
-      <option value="Diseño UX/UI para Principiantes">
-      <option value="Introducción a Data Science">
-      <option value="Ciberseguridad y Hacking Ético">
-      <option value="Inversión en Criptomonedas">
-      <option value="Fotografía Profesional">
-      <option value="Inglés para Profesionales">
-    </datalist>
-    <i class='bx bx-search-alt-2'></i>
-  </div>
-</div>
-  <div class="cart">
-      <i class='bx bx-cart'></i>
-      <span class="cart-count">0</span>
-  </div>
-  </header>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="./../Images/logo.webp">
+        </div>
+        <div class="search-bar">
+            <div class="search-container">
+                <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
+                <datalist id="lista-cursos">
+                    <option value="Finanzas Personales e Inversiones">
+                    <option value="Marketing Digital y Redes Sociales">
+                    <option value="Diseño UX/UI para Principiantes">
+                    <option value="Introducción a Data Science">
+                    <option value="Ciberseguridad y Hacking Ético">
+                    <option value="Inversión en Criptomonedas">
+                    <option value="Fotografía Profesional">
+                    <option value="Inglés para Profesionales">
+                </datalist>
+                <i class='bx bx-search-alt-2'></i>
+            </div>
+        </div>
+        <div class="cart">
+            <i class='bx bx-cart'></i>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
 
     <nav>
         <ul class="nav-links">
@@ -60,9 +60,13 @@
 
 
 
-        <h1>Calendario de Nuevos Cursos - Octubre 2025</h1>
+        <h1 id="calendar-title">Calendario de Nuevos Cursos</h1>
         <p>Haz clic en una fecha marcada para ver el detalle del curso disponible.</p>
 
+        <div class="calendar-nav">
+            <button id="prev-month-btn">&lt; Anterior</button>
+            <button id="next-month-btn">Siguiente &gt;</button>
+        </div>
         <nav class="weekdays">
             <div>Dom</div>
             <div>Lun</div>
@@ -75,61 +79,8 @@
 
 
         <div class="calendario-detalles-container">
-            <section class="calendario">
-                <div class="day"></div>
-                <div class="day"></div>
-                <div class="day"><time datetime="2025-10-01">1</time></div>
-                <div class="day"><time datetime="2025-10-01">2</time></div>
-                <div class="day course">
-                    <a href="#curso1"><time datetime="2025-10-03">3</time></a>
-                </div>
-                <div class="day"><time datetime="2025-10-04">4</time></div>
-                <div class="day"><time datetime="2025-10-05">5</time></div>
-
-                <div class="day"><time datetime="2025-10-06">6</time></div>
-                <div class="day"><time datetime="2025-10-07">7</time></div>
-                <div class="day"><time datetime="2025-10-08">8</time></div>
-                <div class="day"><time datetime="2025-10-09">9</time></div>
-                <div class="day"><time datetime="2025-10-10">10</time></div>
-                <div class="day"><time datetime="2025-10-11">11</time></div>
-                <div class="day"><time datetime="2025-10-12">12</time></div>
-
-                <div class="day"><time datetime="2025-10-13">13</time></div>
-                <div class="day"><time datetime="2025-10-14">14</time></div>
-                <div class="day course">
-                    <a href="#curso2"><time datetime="2025-10-15">15</time></a>
-                </div>
-                <div class="day"><time datetime="2025-10-16">16</time></div>
-                <div class="day course">
-                    <a href="#curso3"><time datetime="2025-10-17">17</time></a>
-                </div>
-                <div class="day"><time datetime="2025-10-18">18</time></div>
-                <div class="day"><time datetime="2025-10-19">19</time></div>
-
-                <div class="day"><time datetime="2025-10-20">20</time></div>
-                <div class="day"><time datetime="2025-10-21">21</time></div>
-                <div class="day course">
-                    <a href="#curso4"><time datetime="2025-10-22">22</time></a>
-                </div>
-                <div class="day"><time datetime="2025-10-23">23</time></div>
-                <div class="day"><time datetime="2025-10-24">24</time></div>
-                <div class="day"><time datetime="2025-10-25">25</time></div>
-                <div class="day course">
-                    <a href="#curso5"><time datetime="2025-10-24">26</time></a>
-                </div>
-
-
-                <div class="day course">
-                    <a href="#curso6"><time datetime="2025-10-27">27</time></a>
-                </div>
-                <div class="day"><time datetime="2025-10-28">28</time></div>
-                <div class="day"><time datetime="2025-10-29">29</time></div>
-                <div class="day"><time datetime="2025-10-30">30</time></div>
-                <div class="day"><time datetime="2025-10-31">31</time></div>
-                <div class="day"></div>
-                <div class="day"></div>
-
-
+            <section class="calendario" id="calendar-grid">
+                <!-- El calendario se generará aquí por JavaScript -->
             </section>
 
             <section>
@@ -159,7 +110,8 @@
                     <article id="curso4" class="detalles">
                         <h2>Introducción a Data Science</h2>
                         <p><strong>Inicio: </strong><time datetime="2025-10-22">22 de Octubre</time></p>
-                        <p>Descubre cómo analizar datos con Python, estadísticas y técnicas básicas de aprendizaje automático.
+                        <p>Descubre cómo analizar datos con Python, estadísticas y técnicas básicas de aprendizaje
+                            automático.
                         </p>
                         <a href="#top">Cerrar</a>
                     </article>
@@ -167,15 +119,40 @@
                     <article id="curso5" class="detalles">
                         <h2>Inglés para Profesionales</h2>
                         <p><strong>Inicio: </strong><time datetime="2025-10-26">26 de Octubre</time></p>
-                        <p>Mejora tu inglés para negocios, reuniones y presentaciones profesionales en entornos laborales.</p>
+                        <p>Mejora tu inglés para negocios, reuniones y presentaciones profesionales en entornos
+                            laborales.</p>
                         <a href="#top">Cerrar</a>
                     </article>
 
                     <article id="curso6" class="detalles">
                         <h2>Ciberseguridad & Hacking Ético</h2>
                         <p><strong>Inicio: </strong><time datetime="2025-10-27">27 de Octubre</time></p>
-                        <p>Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de seguridad online.
+                        <p>Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de
+                            seguridad online.
                         </p>
+                        <a href="#top">Cerrar</a>
+                    </article>
+
+                    <article id="curso7" class="detalles">
+                        <h2>Finanzas Personales e Inversiones</h2>
+                        <p><strong>Inicio: </strong><time datetime="2025-11-05">5 de Noviembre</time></p>
+                        <p>Domina tus finanzas, aprende a presupuestar y descubre estrategias de inversión para tu
+                            futuro.</p>
+                        <a href="#top">Cerrar</a>
+                    </article>
+
+                    <article id="curso8" class="detalles">
+                        <h2>Marketing Digital y Redes Sociales</h2>
+                        <p><strong>Inicio: </strong><time datetime="2025-11-12">12 de Noviembre</time></p>
+                        <p>Crea campañas efectivas, entiende el SEO y maneja redes sociales como un profesional.</p>
+                        <a href="#top">Cerrar</a>
+                    </article>
+
+                    <article id="curso9" class="detalles">
+                        <h2>Diseño UX/UI para Principiantes</h2>
+                        <p><strong>Inicio: </strong><time datetime="2025-11-19">19 de Noviembre</time></p>
+                        <p>Aprende los fundamentos del diseño de experiencia de usuario e interfaces para crear
+                            productos digitales.</p>
                         <a href="#top">Cerrar</a>
                     </article>
                 </div>
@@ -211,7 +188,7 @@
             </ul>
         </div>
     </footer>
-
+    <script type="module" src="./../Javascript/main.js"></script>
 </body>
 
 </html>

@@ -91,7 +91,7 @@ nav {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  padding: 12px 30px;
+  padding: 12px 3px;
 }
 
 /* Menú centrado */

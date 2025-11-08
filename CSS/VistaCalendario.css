@@ -114,6 +114,44 @@
        font-weight: bold;
    }
 
+           .calendar-nav {
+            display: flex;
+            justify-content: space-between;
+            margin: 1em 0;
+        }
+
+        .calendar-nav button {
+            background: #3D6FA5;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 0.3em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .calendar-nav button:hover {
+            background: #2C3E50;
+        }
+
+        .day.course {
+            cursor: pointer; /* Añade el cursor de puntero */
+            position: relative; /* Para que el z-index y transform funcionen */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .day.course:hover {
+            background-color: #e0f4ff; /* Mantenemos el color que tenías */
+            transform: scale(1.05); /* "Algo más interactivo" */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10; /* Para que aparezca por encima de otros días */
+        }
+
+        section.calendario {
+            min-height: 25em; 
+        }
+
    @media screen and (max-width: 30em) {
 
        nav.weekdays,
