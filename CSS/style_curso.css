@@ -98,8 +98,7 @@ main {
 }
 
 
-/* ----- Contenidos ----- */
-/* Sección Contenedora del Acordeón */
+
 .contenidos {
     background: #fff;
     padding: 1.5em;
@@ -111,12 +110,12 @@ main {
 .contenidos h2 {
     color: #004D6D;
     font-size: 1.6rem;
-    /* Relativo al tamaño de fuente base */
+
     margin-bottom: 0.9375em;
     /* 15px */
 }
 
-/* Estilo para cada Módulo/Details */
+
 .contenidos details {
     border: 0.0625em solid #ddd;
     /* 1px */
@@ -127,7 +126,7 @@ main {
     background-color: #f9f9f9;
 }
 
-/* Estilo para el Título del Módulo (summary) */
+
 .contenidos summary {
     display: block;
     padding: 0.9375em;
@@ -144,7 +143,6 @@ main {
     background-color: #e0e8eb;
 }
 
-/* Icono de expansión personalizado (Flecha derecha) */
 .contenidos summary::after {
     content: '\25B8';
     float: right;
@@ -153,14 +151,14 @@ main {
     color: #004D6D;
 }
 
-/* ESTADO ABIERTO: Cambia la flecha al abrir */
+
 .contenidos details[open]>summary::after {
     content: '\25BE';
     /* Flecha hacia abajo */
     transform: rotate(0deg);
 }
 
-/* Estilos para la lista de Clases (contenido) */
+
 .contenidos ul {
     list-style: none;
     padding: 0;
@@ -193,7 +191,7 @@ main {
     /* 10px */
 }
 
-/* Información de la clase (Título y Duración) */
+
 .contenidos .info {
     flex-grow: 1;
     display: flex;
@@ -213,10 +211,10 @@ main {
     /* 20px */
 }
 
-/* Estilos para el input radio personalizado */
+
 .contenidos input[type="radio"] {
     display: none;
-    /* Asegura que no se muestre el input real */
+
 }
 
 .contenidos label {
@@ -231,7 +229,7 @@ main {
     cursor: pointer;
     transition: all 0.2s ease;
     flex-shrink: 0;
-    /* Evita que el label se encoja */
+
 }
 
 .contenidos input[type="radio"]:checked+label {
@@ -259,25 +257,24 @@ main {
     padding: 0;
 }
 
-/* ----- Docente (Mejorado) ----- */
+
 
 .docente {
     display: flex;
-    /* CAMBIO A FONDO DISTINTO DE BLANCO */
+
     background: #fff;
     border: 0.0625em solid #e0e6eb;
-    /* Borde sutil para definir la caja */
-    /* FIN CAMBIO */
+
 
     padding: 1.5em;
     /* 24px */
     border-radius: 0.5em;
     gap: 1.5em;
-    /* Aumentamos el espacio */
+
     align-items: flex-start;
-    /* Alinea la foto y el texto en la parte superior */
+
     box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.05);
-    /* Sombra muy sutil */
+
 
 
 }
@@ -288,9 +285,9 @@ main {
     align-items: center;
     text-align: center;
     flex-shrink: 0;
-    /* Asegura que la columna de la foto no se encoja */
+
     width: 8em;
-    /* Ancho fijo para el contenedor del perfil */
+
 }
 
 .docente-foto {
@@ -315,7 +312,7 @@ main {
 .docente-rating {
     margin: 0;
     line-height: 1;
-    /* Elimina espacio extra */
+
     font-size: 0.9em;
 }
 
@@ -342,12 +339,9 @@ main {
     line-height: 1.5;
 }
 
-/* ----- Cursos relacionados ----- */
-/* ----- Cursos relacionados ----- */
 
-/* 1. Mantenemos .relacionados solo para espaciado superior/inferior si es necesario */
 .relacionados {
-    /* Mantenemos limpio para que el grid sea responsabilidad del wrapper */
+
     margin-top: 2.5em;
     /* 40px */
     padding-top: 1.25em;
@@ -362,33 +356,27 @@ main {
     text-align: center;
 }
 
-/* 2. Aplicamos la cuadrícula (el diseño) al contenedor generado por JS */
+
 .cards-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
     gap: 1.5em;
-    /* Asegúrate de que los estilos del H2 no interfieran, si el título está fuera del wrapper */
+
 }
 
-/* El resto de estilos de .curso-card DEBEN QUEDAR IGUAL: */
+
 
 .curso-card {
-background: #fff;
+    background: #fff;
     padding: 1em;
     border-radius: 0.5em;
-    
-    /* 1. CAMBIAR a Grid */
-    display: grid; 
-    
-    /* 2. Definir la estructura de filas */
-    grid-template-rows: auto auto 1fr auto auto; /* Define filas para Imagen, Duración, Contenido Variable, Enlace y Botón */
-    
-    /* 3. CLAVE: Alinear el contenido en la parte inferior */
-    align-content: end; /* Esto empuja los elementos al final del espacio disponible en la celda */
-    
-    /* Nota: Remueve align-items: center y flex-direction: column si lo tenías */
-    align-items: center; /* Puedes mantener este para centrar horizontalmente */
 
+
+    display: grid;
+
+    grid-template-rows: auto auto 1fr auto auto;
+    align-content: end;
+    align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
 }
@@ -451,43 +439,43 @@ background: #fff;
 }
 
 
-/* El fondo oscuro del modal */
+
 .modal {
     display: none;
-    /* Oculto por defecto */
+
     position: fixed;
-    /* Posición fija para cubrir toda la ventana */
+
     z-index: 1000;
-    /* Asegura que esté por encima de todo */
+
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    /* Permite scroll si el contenido es muy largo */
+
     background-color: rgba(0, 0, 0, 0.4);
-    /* Fondo semi-transparente y oscuro */
+
 }
 
-/* Contenedor principal del contenido del modal */
+
 .modal-contenido {
     background-color: #fefefe;
     margin: 15% auto;
-    /* 15% arriba y centrado horizontalmente */
+
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    /* Ancho del modal, puedes ajustarlo */
+
     max-width: 500px;
-    /* Ancho máximo para pantallas grandes */
+
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: relative;
     text-align: center;
-    /* Centra el texto dentro del modal */
+
 }
 
-/* Estilo para el botón de cerrar (la 'x') */
+
 .cerrar-modal {
     color: #aaa;
     float: right;
@@ -503,7 +491,7 @@ background: #fff;
     cursor: pointer;
 }
 
-/* Estilos para el resumen dentro del modal */
+
 #modal-resumen {
     padding: 10px;
     margin-top: 15px;
@@ -513,7 +501,7 @@ background: #fff;
 
 #btn-cerrar-modal {
     background-color: #007bff;
-    /* Un color de acción, usa tu paleta */
+
     color: white;
     padding: 10px 20px;
     border: none;
@@ -526,9 +514,7 @@ background: #fff;
     background-color: #0056b3;
 }
 
-/* ---------------------------------------------------------------------- */
-/* ----- DOCENTES RELACIONADOS (SECCIÓN DINÁMICA) ----- */
-/* ---------------------------------------------------------------------- */
+
 
 .docentes-relacionados {
     margin-top: 2.5em;
@@ -546,15 +532,15 @@ background: #fff;
     text-align: center;
 }
 
-/* Contenedor Flex para las Tarjetas (permite scroll) */
+
 .docentes-relacionados .docentes-cards-wrapper {
     display: flex;
     flex-wrap: nowrap;
     gap: 1.25em;
-    /* Espacio entre las tarjetas */
+
     padding: 0.625em 0;
     overflow-x: auto;
-    /* Permite el scroll horizontal */
+
     -webkit-overflow-scrolling: touch;
 
     scrollbar-width: none;
@@ -565,19 +551,17 @@ background: #fff;
     display: none;
 }
 
-/* Estilo para cada Tarjeta de Docente (similar a .curso-card) */
+
 .docentes-relacionados .docente-card {
     min-width: 12em;
-    /* Ancho fijo para el scroll */
+
     max-width: 12em;
     flex-shrink: 0;
 
-    /* 🌟 SOLUCIÓN: Flexbox vertical */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Empuja el último elemento (botón) hacia abajo */
-    /* ----------------------------- */
+
 
     background: #ffffff;
     border: 0.0625em solid #eee;
