@@ -7,12 +7,7 @@ body {
 
 /* Slider */
 .slider {
-  height: 400px;
-  background: #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
+  position: relative;
 }
 
 .slider img{
@@ -44,6 +39,36 @@ body {
 
 .slider .next {
   right: 15px;
+}
+
+.slider-dots{
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+
+.slider-dots .dot{
+  display: inline-block;   /* evita width:100% si tenés un reset global */
+  position: static;        /* quita cualquier absolute heredado */
+  width: 10px;
+  height: 10px;
+  padding: 0;              /* por si algún reset agrega padding */
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+  cursor: pointer;
+}
+
+.dot:hover {
+  background: #007bff;
+}
+.slider-dots .dot.active {
+  background: #007bff;
 }
 
 /* Sección Profesional */
