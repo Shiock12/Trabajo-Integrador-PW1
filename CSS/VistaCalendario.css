@@ -114,43 +114,74 @@
        font-weight: bold;
    }
 
-           .calendar-nav {
-            display: flex;
-            justify-content: space-between;
-            margin: 1em 0;
-        }
+   .calendar-nav {
+       display: flex;
+       justify-content: space-between;
+       margin: 1em 0;
+   }
 
-        .calendar-nav button {
-            background: #3D6FA5;
-            color: white;
-            border: none;
-            padding: 0.5em 1em;
-            border-radius: 0.3em;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
+   .calendar-nav button {
+       background: #3D6FA5;
+       color: white;
+       border: none;
+       padding: 0.5em 1em;
+       border-radius: 0.3em;
+       cursor: pointer;
+       font-weight: bold;
+       transition: background 0.3s ease;
+   }
 
-        .calendar-nav button:hover {
-            background: #2C3E50;
-        }
+   .calendar-nav button:hover {
+       background: #2C3E50;
+   }
 
-        .day.course {
-            cursor: pointer; /* Añade el cursor de puntero */
-            position: relative; /* Para que el z-index y transform funcionen */
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .day.course:hover {
-            background-color: #e0f4ff; /* Mantenemos el color que tenías */
-            transform: scale(1.05); /* "Algo más interactivo" */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 10; /* Para que aparezca por encima de otros días */
-        }
+   .day.course {
+       cursor: pointer;
+       /* Añade el cursor de puntero */
+       position: relative;
+       /* Para que el z-index y transform funcionen */
+       transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+   }
 
-        section.calendario {
-            min-height: 25em; 
-        }
+   .day.course:hover {
+       background-color: #e0f4ff;
+       /* Mantenemos el color que tenías */
+       transform: scale(1.05);
+       /* "Algo más interactivo" */
+       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+       z-index: 10;
+       /* Para que aparezca por encima de otros días */
+   }
+
+   section.calendario {
+       min-height: 25em;
+   }
+
+   /* Estilos para las celdas de días que contienen un curso */
+   .calendar-grid .day.course {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       /* Centra el contenido (número del día e imagen) */
+       justify-content: center;
+       border: 2px solid #3498db;
+       /* Destaca el día con un borde azul */
+       cursor: pointer;
+       padding: 5px;
+       /* Pequeño padding para que no se pegue al borde */
+   }
+
+   /* Estilos para las imágenes/íconos dentro de las celdas del curso */
+   .calendar-grid .day.course img {
+       width: 30px;
+       /* Tamaño consistente con lo que definiste en JS */
+       height: 30px;
+       margin-top: 5px;
+       /* Espacio entre el número del día y la imagen */
+       border-radius: 5px;
+       object-fit: contain;
+       /* Asegura que la imagen se vea bien sin distorsión */
+   }
 
    @media screen and (max-width: 30em) {
 
@@ -233,6 +264,25 @@
    }
 
    @media screen and (min-width: 75em) {
+       main {
+           max-width: 56.25em;
+           font-size: 1.1em;
+       }
+
+       h1 {
+           font-size: 2em;
+       }
+
+       .day {
+           min-height: 5em;
+       }
+
+       footer {
+           font-size: 1.1em;
+       }
+   }
+
+         @media screen and (min-width: 55em){
        main {
            max-width: 56.25em;
            font-size: 1.1em;

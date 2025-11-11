@@ -64,197 +64,180 @@
     <main>
 
         <!-- Info del curso -->
-        <form action="./../Pages/inscripcion-exitosa.html" method="get">
 
-            <section class="curso-info">
-                <div><img src="./../Images/Cursos.jpg" class="foto"></div>
-                <div class="curso-detalles">
-                    <h1>DISEÑO UX/UI PARA PRINCIPIANTES</h1>
-                    <p><strong>Valor:</strong> $5000</p>
-                    <p><strong>Tiempo de dedicación necesario:</strong> 60h</p>
-                    <p><strong>Descripción:</strong> Breve descripción del curso.</p>
-                    <p><strong>Requisitos Previos:</strong> Ninguno</p>
+        <section class="curso-info">
+            <div>
+                <img id="course-image" class="foto" alt="Imagen del Curso">
+            </div>
+            <div class="curso-detalles">
+                <h1>Cargando curso...</h1>
+                <p><strong>Valor:</strong> </p>
+                <p><strong>Tiempo de dedicación necesario:</strong> </p>
+                <p><strong>Descripción:</strong> </p>
+                <p><strong>Requisitos Previos:</strong> </p>
 
-                    <input type="hidden" name="curso" value="UX/UI para principiantes">
-                    <button type="submit">INSCRIBIRSE</button>
+                <input type="hidden" id="curso-nombre" value="">
+                <input type="hidden" id="curso-valor" value="">
+                <input type="hidden" id="curso-modalidad" value="">
 
-                </div>
-            </section>
+                <button type="button" id="btn-inscripcion">Cargando...</button>
 
-            <!-- Contenidos por clase -->
-            <section class="contenidos">
-                <h2>CONTENIDOS POR CLASE</h2>
-
-                <details>
-                    <summary>INTRODUCCIÓN</summary>
-                    <ul>
-                        <li>
-                            <span class="icono"><i class='bx bx-volume-full'></i></span>
-                            <div class="info">
-                                <span class="titulo">Definición de UX/UI</span>
-                                <span class="duracion">12 min</span>
-                            </div>
-                            <input type="radio" name="intro" id="definicion">
-                            <label for="definicion"></label>
-                        </li>
-
-                        <li>
-                            <span class="icono"><i class='bx bxs-file-import'></i></span>
-                            <div class="info">
-                                <span class="titulo">Importancia del UX/UI</span>
-                                <span class="duracion">18 min</span>
-                            </div>
-                            <input type="radio" name="intro" id="importancia">
-                            <label for="importancia"></label>
-                        </li>
-
-                        <li>
-                            <span class="icono"><i class='bx bx-paint-roll'></i></span>
-                            <div class="info">
-                                <span class="titulo">Rol del diseñador UX/UI</span>
-                                <span class="duracion">8 min</span>
-                            </div>
-                            <input type="radio" name="intro" id="rol-diseñador">
-                            <label for="rol-diseñador"></label>
-                        </li>
-                    </ul>
-                </details>
-
-                <details>
-                    <summary>UNIDAD 2 - Investigación UX</summary>
-                    <ul>
-                        <li>
-                            <span class="icono"><i class='bx bx-search'></i></span>
-                            <div class="info">
-                                <span class="titulo">Tipos de investigación</span>
-                                <span class="duracion">15 min</span>
-                            </div>
-                            <input type="radio" name="unidad2" id="u2-investigacion">
-                            <label for="u2-investigacion"></label>
-                        </li>
-                        <li>
-                            <span class="icono"><i class='bx bx-group'></i></span>
-                            <div class="info">
-                                <span class="titulo">Entrevistas y encuestas</span>
-                                <span class="duracion">17 min</span>
-                            </div>
-                            <input type="radio" name="unidad2" id="u2-entrevistas">
-                            <label for="u2-entrevistas"></label>
-                        </li>
-
-                        <li>
-                            <span class="icono"><i class='bx bx-line-chart'></i></span>
-                            <div class="info">
-                                <span class="titulo">Análisis de resultados</span>
-                                <span class="duracion">11 min</span>
-                            </div>
-                            <input type="radio" name="unidad2" id="u2-analisis">
-                            <label for="u2-analisis"></label>
-                        </li>
-
-                    </ul>
-                </details>
+            </div>
+        </section>
 
 
-                <details>
-                    <summary>UNIDAD 3 - Arquitectura de la información</summary>
-                    <ul>
-                        <li>
-                            <span class="icono"><i class='bx bx-sitemap'></i></span>
-                            <div class="info">
-                                <span class="titulo">Mapa de sitio</span>
-                                <span class="duracion">10 min</span>
-                            </div>
-                            <input type="radio" name="unidad3" id="u3-mapa">
-                            <label for="u3-mapa"></label>
-                        </li>
-                        <li>
-                            <span class="icono"><i class='bx bx-category'></i></span>
-                            <div class="info">
-                                <span class="titulo">Jerarquía y navegación</span>
-                                <span class="duracion">13 min</span>
-                            </div>
-                            <input type="radio" name="unidad3" id="u3-jerarquia">
-                            <label for="u3-jerarquia"></label>
-                        </li>
+        <!-- Contenidos por clase -->
+        <section class="contenidos">
+            <h2>CONTENIDOS POR CLASE</h2>
 
-                        <li>
-                            <span class="icono"><i class='bx bx-notepad'></i></span>
-                            <div class="info">
-                                <span class="titulo">Wireframes básicos</span>
-                                <span class="duracion">16 min</span>
-                            </div>
-                            <input type="radio" name="unidad3" id="u3-wireframes">
-                            <label for="u3-wireframes"></label>
+            <details>
+                <summary>INTRODUCCIÓN</summary>
+                <ul>
+                    <li>
+                        <span class="icono"><i class='bx bx-volume-full'></i></span>
+                        <div class="info">
+                            <span class="titulo">Definición de UX/UI</span>
+                            <span class="duracion">12 min</span>
+                        </div>
+                        <input type="radio" name="intro" id="definicion">
+                        <label for="definicion"></label>
+                    </li>
 
-                        </li>
-                    </ul>
+                    <li>
+                        <span class="icono"><i class='bx bxs-file-import'></i></span>
+                        <div class="info">
+                            <span class="titulo">Importancia del UX/UI</span>
+                            <span class="duracion">18 min</span>
+                        </div>
+                        <input type="radio" name="intro" id="importancia">
+                        <label for="importancia"></label>
+                    </li>
 
-                </details>
-            </section>
-        </form>
+                    <li>
+                        <span class="icono"><i class='bx bx-paint-roll'></i></span>
+                        <div class="info">
+                            <span class="titulo">Rol del diseñador UX/UI</span>
+                            <span class="duracion">8 min</span>
+                        </div>
+                        <input type="radio" name="intro" id="rol-diseñador">
+                        <label for="rol-diseñador"></label>
+                    </li>
+                </ul>
+            </details>
 
-        <!-- Docente -->
+            <details>
+                <summary>UNIDAD 2 - Investigación UX</summary>
+                <ul>
+                    <li>
+                        <span class="icono"><i class='bx bx-search'></i></span>
+                        <div class="info">
+                            <span class="titulo">Tipos de investigación</span>
+                            <span class="duracion">15 min</span>
+                        </div>
+                        <input type="radio" name="unidad2" id="u2-investigacion">
+                        <label for="u2-investigacion"></label>
+                    </li>
+                    <li>
+                        <span class="icono"><i class='bx bx-group'></i></span>
+                        <div class="info">
+                            <span class="titulo">Entrevistas y encuestas</span>
+                            <span class="duracion">17 min</span>
+                        </div>
+                        <input type="radio" name="unidad2" id="u2-entrevistas">
+                        <label for="u2-entrevistas"></label>
+                    </li>
+
+                    <li>
+                        <span class="icono"><i class='bx bx-line-chart'></i></span>
+                        <div class="info">
+                            <span class="titulo">Análisis de resultados</span>
+                            <span class="duracion">11 min</span>
+                        </div>
+                        <input type="radio" name="unidad2" id="u2-analisis">
+                        <label for="u2-analisis"></label>
+                    </li>
+
+                </ul>
+            </details>
+
+
+            <details>
+                <summary>UNIDAD 3 - Arquitectura de la información</summary>
+                <ul>
+                    <li>
+                        <span class="icono"><i class='bx bx-sitemap'></i></span>
+                        <div class="info">
+                            <span class="titulo">Mapa de sitio</span>
+                            <span class="duracion">10 min</span>
+                        </div>
+                        <input type="radio" name="unidad3" id="u3-mapa">
+                        <label for="u3-mapa"></label>
+                    </li>
+                    <li>
+                        <span class="icono"><i class='bx bx-category'></i></span>
+                        <div class="info">
+                            <span class="titulo">Jerarquía y navegación</span>
+                            <span class="duracion">13 min</span>
+                        </div>
+                        <input type="radio" name="unidad3" id="u3-jerarquia">
+                        <label for="u3-jerarquia"></label>
+                    </li>
+
+                    <li>
+                        <span class="icono"><i class='bx bx-notepad'></i></span>
+                        <div class="info">
+                            <span class="titulo">Wireframes básicos</span>
+                            <span class="duracion">16 min</span>
+                        </div>
+                        <input type="radio" name="unidad3" id="u3-wireframes">
+                        <label for="u3-wireframes"></label>
+
+                    </li>
+                </ul>
+
+            </details>
+        </section>
         <section class="docente">
-            <div class="foto">
-                <img src="./../Images/UsuarioSinFoto2.png" alt="Usuario">
-            </div>
-            <div class="docente-info">
-                <h3>NOMBRE Y APELLIDO</h3>
-                <p>⭐⭐⭐⭐⭐</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.
+            <div class="docente-perfil">
+                <div class="docente-foto">
+                    <img src="./../Images/UsuarioSinFoto2.png" id="docente-imagen" alt="Foto del Docente">
+                </div>
+                <p class="docente-rating">
+                    <span id="docente-estrellas">⭐⭐⭐⭐⭐</span>
+                    <span id="docente-calificacion" class="rating-numero">(5.0)</span>
                 </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            <div class="docente-info">
+                <h3 id="docente-nombre">NOMBRE Y APELLIDO DEL DOCENTE</h3>
+
+                <p id="docente-titulo" class="docente-titulo">Experto en [Área], 10 años de experiencia.</p>
+
+                <p id="docente-bio-p1" class="docente-bio">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                </p>
+                <p id="docente-bio-p2" class="docente-bio">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                </p>
+                <p id="docente-bio-p3" class="docente-bio">
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                </p>
             </div>
         </section>
 
+        <section class="docentes-relacionados">
+            <h2>Otros Docentes Destacados</h2>
+            <div class="docentes-cards-wrapper">
+            </div>
+        </section>
+
+        <section class="relacionados" id="cursos-relacionados-container">
+
+        </section>
         <!-- Cursos relacionados -->
-        <section class="relacionados">
-            <div class="curso-card">
-                <div class="imagen">
-                    <img src="./../Images/Clouds & DevOps Course Illustration.png" alt="Imágen curso Clouds&Devs">
-                    <p class="valor"><strong>$5000</strong></p>
-                </div>
-                <p><strong>60h</strong></p>
-                <p>Cloud & DevOps</p>
-                <a href="./detalle-clouds&devops.html">Ver detalle</a>
-                <button>Comprar</button>
-            </div>
-
-            <div class="curso-card">
-                <div class="imagen">
-                    <img src="./../Images/FundamentosCiberSeguridad.png" alt="Imágen curso Ciberseguridad">
-                    <p class="valor"><strong>$5000</strong></p>
-                </div>
-                <p><strong>60h</strong></p>
-                <p>Ciberseguridad</p>
-                <a href="./detalle-ciberSeguridad.html">Ver detalle</a>
-                <button>Comprar</button>
-            </div>
-
-            <div class="curso-card">
-                <div class="imagen">
-                    <img src="./../Images/DesarrolloMóvil.jpg" alt="Imágen curso Desarrolo Mobile">
-                    <p class="valor"><strong>$5000</strong></p>
-                </div>
-                <p><strong>60h</strong></p>
-                <p>Desarrollo Mobile</p>
-                <a href="./detalle-desarrolloMobile.html">Ver detalle</a>
-                <button>Comprar</button>
-            </div>
-
-            <div class="curso-card">
-                <div class="imagen">
-                    <img src="./../Images/DesarrolloWeb.jpg" alt="Imágen curso Desarrollo Web">
-                    <p class="valor"><strong>$5000</strong></p>
-                </div>
-                <p><strong>60h</strong></p>
-                <p>Desarrollo Web</p>
-                <a href="./detalle-desarrolloWeb.html">Ver detalle</a>
-                <button>Comprar</button>
-            </div>
-        </section>
 
     </main>
 
@@ -282,6 +265,22 @@
             </ul>
         </div>
     </footer>
+
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2 id="modal-titulo">¡Felicidades! 🎉</h2>
+            <p id="modal-mensaje"></p>
+            <div id="modal-resumen">
+                <p><strong>Curso:</strong> <span id="resumen-curso-nombre"></span></p>
+                <p><strong>Modalidad:</strong> <span id="resumen-curso-tipo"></span></p>
+                <p><strong>Valor:</strong> <span id="resumen-curso-valor"></span></p>
+            </div>
+            <p>Pronto recibirás un email con los detalles.</p>
+            <button id="btn-cerrar-modal">Aceptar</button>
+        </div>
+    </div>
+
     <script type="module" src="./../Javascript/main.js"></script>
 </body>
 

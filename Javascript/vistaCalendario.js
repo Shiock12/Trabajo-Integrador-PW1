@@ -5,10 +5,10 @@ import { getCourses, getCourseById, addCourseToCart, isCourseInCart } from './..
 const ModalController = (() => {
     let modalOverlay = null;
     let modalContent = null;
-    let audioPlayer = null; 
+    let audioPlayer = null;
 
     function createModal() {
-        if (modalOverlay) return; 
+        if (modalOverlay) return;
 
         modalOverlay = document.createElement('div');
         modalOverlay.className = 'day-modal-overlay';
@@ -17,8 +17,8 @@ const ModalController = (() => {
         modalContent = document.createElement('div');
         modalContent.className = 'day-modal-content';
         document.body.appendChild(modalContent);
-        
-        audioPlayer = new Audio(); 
+
+        audioPlayer = new Audio();
 
         const style = document.createElement('style');
         style.textContent = `
@@ -78,7 +78,7 @@ const ModalController = (() => {
 
     function close() {
         if (!modalOverlay) return;
-        
+
         if (audioPlayer) {
             audioPlayer.pause();
             audioPlayer.src = '';
@@ -92,11 +92,11 @@ const ModalController = (() => {
     }
 
     function open(course) {
-        createModal(); 
+        createModal();
 
         const { id, title, dateText, description } = course;
-        
-        const detailPageURL = `./../Pages/detalleCursos.html?id=${id}`;
+
+        const detailPageURL = `./detalleCursos.html?id=${id}`;
 
         const isInCart = isCourseInCart(id);
         const enrollButtonText = isInCart ? '¡Agregado!' : 'Inscribirse';
@@ -104,19 +104,20 @@ const ModalController = (() => {
         const enrollButtonDisabled = isInCart ? 'disabled' : '';
 
         modalContent.innerHTML = `
-            <span class="day-modal-close-btn">&times;</span>
-            <div class="day-modal-body">
-                <h2>${title}</h2>
-                <p><strong>Inicio: </strong> ${dateText}</p>
-                <p>${description}</p>
-            </div>
-            <div class="day-modal-footer">
-                <a href="${detailPageURL}" class="day-modal-btn detail">Ver Detalle</a>
-                <button class="day-modal-btn ${enrollButtonClass}" ${enrollButtonDisabled}>
-                    ${enrollButtonText}
-                </button>
-            </div>
-        `;
+        <span class="day-modal-close-btn">&times;</span>
+        <div class="day-modal-body">
+            ${course.imageURL ? `<img src="${course.imageURL}" alt="${title}" style="max-width: 100px; height: auto; float: right; margin: 0 0 1em 1em; border-radius: 0.3em;">` : ''}
+            <h2>${title}</h2>
+            <p><strong>Inicio: </strong> ${dateText}</p>
+            <p>${description}</p>
+        </div>
+        <div class="day-modal-footer">
+            <a href="${detailPageURL}" class="day-modal-btn detail">Ver Detalle</a>
+            <button class="day-modal-btn ${enrollButtonClass}" ${enrollButtonDisabled}>
+                ${enrollButtonText}
+            </button>
+        </div>
+    `;
 
         modalOverlay.classList.add('visible');
         modalContent.classList.add('visible');
@@ -127,7 +128,7 @@ const ModalController = (() => {
         if (enrollButton) {
             enrollButton.addEventListener('click', () => {
                 addCourseToCart(course);
-                
+
                 enrollButton.textContent = '¡Agregado!';
                 enrollButton.classList.add('added');
                 enrollButton.disabled = true;
@@ -152,19 +153,19 @@ const CalendarGenerator = (() => {
     let calendarTitle;
     let prevMonthBtn;
     let nextMonthBtn;
-    let courses = []; 
+    let courses = [];
 
 
     function render() {
 
-        calendarGrid.innerHTML = ''; 
-        
+        calendarGrid.innerHTML = '';
+
         const monthName = new Date(currentYear, currentMonth).toLocaleString('es-ES', { month: 'long' });
         calendarTitle.textContent = `Calendario - ${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${currentYear}`;
 
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
         const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-        
+
         let totalCellsGenerated = 0;
 
         for (let i = 0; i < firstDayOfMonth; i++) {
@@ -176,7 +177,7 @@ const CalendarGenerator = (() => {
             calendarGrid.appendChild(createDayCell(day));
             totalCellsGenerated++;
         }
-        
+
         while (totalCellsGenerated < 42) {
             calendarGrid.appendChild(createEmptyDayCell());
             totalCellsGenerated++;
@@ -192,7 +193,7 @@ const CalendarGenerator = (() => {
     function createDayCell(day) {
         const dayCell = document.createElement('div');
         dayCell.className = 'day';
-        
+
         const timeEl = document.createElement('time');
         timeEl.setAttribute('datetime', `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`);
         timeEl.textContent = day;
@@ -201,6 +202,19 @@ const CalendarGenerator = (() => {
         const course = findCourseForDay(day);
         if (course) {
             dayCell.classList.add('course');
+
+            if (course.imageURL) {
+                const imgEl = document.createElement('img');
+                imgEl.src = course.imageURL;
+                imgEl.alt = course.title;
+                // Estilos simples para que el icono sea pequeño
+                imgEl.style.width = '25px';
+                imgEl.style.height = '25px';
+                imgEl.style.marginTop = '5px';
+                imgEl.style.borderRadius = '30px';
+                dayCell.appendChild(imgEl);
+            }
+
             dayCell.addEventListener('click', () => {
                 handleCourseClick(course);
             });
@@ -249,12 +263,12 @@ const CalendarGenerator = (() => {
                 console.error("Faltan elementos del DOM para inicializar el calendario.");
                 return;
             }
-            
 
-            courses = getCourses(); 
-            
+
+            courses = getCourses();
+
             render();
-            
+
             prevMonthBtn.addEventListener('click', prevMonth);
             nextMonthBtn.addEventListener('click', nextMonth);
         }
