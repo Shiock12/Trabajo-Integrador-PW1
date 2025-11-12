@@ -20,11 +20,11 @@ nav {
 }
 
 .contenedor-inputs{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    max-width: 850px;
-    margin: 50px;
+  display: grid;
+  grid-template-columns: 1fr;  /* ← una columna = vertical */
+  gap: 12px;
+  max-width: 850px;
+  margin: 50px;
 }
 
 .contenedor-inputs input{
@@ -75,4 +75,29 @@ nav {
   cursor: pointer;
   border-radius: 5px; 
     
+}
+
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto; /* 3 inputs + botón X */
+  gap: 10px;
+  margin-bottom: 0; /* el gap del contenedor ya separa filas */
+}
+
+.btn-eliminar {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 600px){
+  .fila {
+    grid-template-columns: 1fr 1fr;  /* 2 columnas */
+  }
+  .fila .btn-eliminar {
+    justify-self: end;
+    grid-column: 2; /* coloca la X al final de la segunda columna */
+  }
 }
