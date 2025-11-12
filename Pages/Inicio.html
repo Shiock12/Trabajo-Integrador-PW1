@@ -8,9 +8,8 @@
   <link rel="stylesheet" href="./../CSS/Inicio.css">
   <link rel="stylesheet" href="./../CSS/HeaderNav.css">
   <link rel="stylesheet" href="./../CSS/Footer.css">
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -22,25 +21,25 @@
       <img src="./../Images/logo.webp">
     </div>
     <div class="search-bar">
-  <div class="search-container">
-    <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
-    <datalist id="lista-cursos">
-      <option value="Finanzas Personales e Inversiones">
-      <option value="Marketing Digital y Redes Sociales">
-      <option value="Diseño UX/UI para Principiantes">
-      <option value="Introducción a Data Science">
-      <option value="Ciberseguridad y Hacking Ético">
-      <option value="Inversión en Criptomonedas">
-      <option value="Fotografía Profesional">
-      <option value="Inglés para Profesionales">
-    </datalist>
-    <i class='bx bx-search-alt-2'></i>
-  </div>
-</div>
-  <div class="cart">
+      <div class="search-container">
+        <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
+        <datalist id="lista-cursos" class="data-list">
+          <option value="Finanzas Personales e Inversiones">
+          <option value="Marketing Digital y Redes Sociales">
+          <option value="Diseño UX/UI para Principiantes">
+          <option value="Introducción a Data Science">
+          <option value="Ciberseguridad y Hacking Ético">
+          <option value="Inversión en Cryptomonedas">
+          <option value="Fotografía Profesional">
+          <option value="Inglés para Profesionales">
+        </datalist>
+        <i class='bx bx-search-alt-2'></i>
+      </div>
+    </div>
+    <div class="cart">
       <i class='bx bx-cart'></i>
       <span class="cart-count">0</span>
-  </div>
+    </div>
   </header>
 
   <!-- Navbar -->
@@ -82,125 +81,134 @@
   </section>
 
   <!-- Cursos destacados -->
-<form action="./../Pages/detalleCursos.html" method="get">
   <section class="cursos-destacados">
-  <h2>CURSOS DESTACADOS</h2>
-  <div class="cursos-grid">
-    <div class="curso">
-      <img src="../Images/finanzas.jpg" alt="Curso de Finanzas e Inversión">
-      <div class="curso-info">
-        <h3>Finanzas Personales e Inversiones</h3>
-        <p class="descripcion">Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
-        <p><strong>Duración:</strong> 75 horas</p>
-        <div class="precio">$5000</div>
-        <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+    <h2>CURSOS DESTACADOS</h2>
+    <div class="cursos-grid">
+      <div class="curso">
+        <img src="../Images/finanzas.jpg" alt="Curso de Finanzas e Inversión">
+        <div class="curso-info">
+          <h3>Finanzas Personales e Inversiones</h3>
+          <p class="descripcion">Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
+          <p><strong>Duración:</strong> 75 horas</p>
+          <div class="precio">$5000</div>
+          <a href="../Pages/detalleCursos.html?id=finanzas-personales" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="finanzas-personales" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=finanzas-personales">Inscribirse</a>
       </div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
-    </div>
 
-    <div class="curso">
-      <img src="../Images/marketing.jpg" alt="Curso de Marketing Digital">
-      <div class="curso-info">
-      <h3>Marketing Digital & Redes Sociales</h3>
-      <p class="descripcion">Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.</p>
-      <p><strong>Duración:</strong> 80 horas</p>
-      <div class="precio">$10000</div>
-      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      <div class="curso">
+        <img src="../Images/marketing.jpg" alt="Curso de Marketing Digital">
+        <div class="curso-info">
+          <h3>Marketing Digital & Redes Sociales</h3>
+          <p class="descripcion">Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.
+          </p>
+          <p><strong>Duración:</strong> 80 horas</p>
+          <div class="precio">$10000</div>
+          <a href="../Pages/detalleCursos.html?id=marketing-digital" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="marketing-digital" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=marketing-digital">Inscribirse</a>
       </div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
-    </div>
 
-    <div class="curso">
-      <img src="../Images/uxui.jpg" alt="Curso de Diseño UX/UI">
-      <div class="curso-info">
-      <h3>Diseño UX/UI para Principiantes</h3>
-      <p class="descripcion">Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de usuario.</p>
-      <p><strong>Duración:</strong> 60 horas</p>
-      <div class="precio">$3000</div>
-      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      <div class="curso">
+        <img src="../Images/datascience.jpg" alt="Curso de Data Science">
+        <div class="curso-info">
+          <h3>Introducción a Data Science</h3>
+          <p class="descripcion">Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
+          <p><strong>Duración:</strong> 100 horas</p>
+          <div class="precio">$7650</div>
+          <a href="../Pages/detalleCursos.html?id=data-science" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="data-science" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=data-science">Inscribirse</a>
       </div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
-    </div>
 
-    <div class="curso">
-      <img src="../Images/datascience.jpg" alt="Curso de Data Science">
-      <div class="curso-info">
-      <h3>Introducción a Data Science</h3>
-      <p class="descripcion">Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
-      <p><strong>Duración:</strong> 100 horas</p>
-      <div class="precio">$7650</div>
-      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      <div class="curso">
+        <img src="../Images/uxui.jpg" alt="Curso de Diseño UX/UI">
+        <div class="curso-info">
+          <h3>Diseño UX/UI para Principiantes</h3>
+          <p class="descripcion">Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de
+            usuario.</p>
+          <p><strong>Duración:</strong> 60 horas</p>
+          <div class="precio">$3000</div>
+          <a href="../Pages/detalleCursos.html?id=diseno-ux-ui" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="diseno-ux-ui" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=diseno-ux-ui">Inscribirse</a>
       </div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
-    </div>
 
-    <div class="curso">
-      <img src="../Images/ciberseguridad.jpg" alt="Curso de Ciberseguridad">
-      <div class="curso-info">
-      <h3>Ciberseguridad & Hacking Ético</h3>
-      <p class="descripcion">Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de seguridad.</p>
-      <p><strong>Duración:</strong> 90 horas</p>
-      <div class="precio">$100000</div>
-      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      <div class="curso">
+        <img src="../Images/ciberseguridad.jpg" alt="Curso de Ciberseguridad">
+        <div class="curso-info">
+          <h3>Ciberseguridad & Hacking Ético</h3>
+          <p class="descripcion">Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de
+            seguridad.</p>
+          <p><strong>Duración:</strong> 90 horas</p>
+          <div class="precio">$100000</div>
+          <a href="../Pages/detalleCursos.html?id=ciberseguridad" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="ciberseguridad" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=ciberseguridad">Inscribirse</a>
       </div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
-    </div>
+      <div class="curso">
+        <img src="../Images/crypto.jpg" alt="Curso de Inversión en Cryptomonedas">
+        <div class="curso-info">
+          <h3>Inversión en Cryptomonedas</h3>
+          <p class="descripcion">Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
+          <p><strong>Duración:</strong> 75 horas</p>
+          <div class="precio">$90000</div>
+          <a href="../Pages/detalleCursos.html?id=inversion-cryptomonedas" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="inversion-cryptomonedas" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=inversion-cryptomonedas">Inscribirse</a>
+      </div>
 
-    <div class="curso">
-      <img src="../Images/crypto.jpg" alt="Curso de Finanzas e Inversión">
-      <div class="curso-info">
-      <h3>Inversión en cryptomonedas</h3>
-      <p class="descripcion">Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
-      <p><strong>Duración:</strong> 75 horas</p>
-      <div class="precio">$90000</div>
-      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      <div class="curso">
+        <img src="../Images/foto.jpg" alt="Curso de Fotografía">
+        <div class="curso-info">
+          <h3>Fotografía Profesional</h3>
+          <p class="descripcion">Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
+          <p><strong>Duración:</strong> 50 horas</p>
+          <div class="precio">$33000</div>
+          <a href="../Pages/detalleCursos.html?id=fotografia-profesional" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="fotografia-profesional" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=fotografia-profesional">Inscribirse</a>
       </div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
-    </div>
 
-    <div class="curso">
-      <img src="../Images/foto.jpg" alt="Curso de Fotografía">
-      <div class="curso-info">
-      <h3>Fotografía Profesional</h3>
-      <p class="descripcion">Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
-      <p><strong>Duración:</strong> 50 horas</p>
-      <div class="precio">$33000</div>
-      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
+      <div class="curso">
+        <img src="../Images/english.jpg" alt="Curso de Idiomas">
+        <div class="curso-info">
+          <h3>Inglés para Profesionales</h3>
+          <p class="descripcion">Mejora tu inglés con enfoque en negocios, entrevistas de trabajo y presentaciones.</p>
+          <p><strong>Duración:</strong> 100 horas</p>
+          <div class="precio">$100000</div>
+          <a href="../Pages/detalleCursos.html?id=ingles-profesional" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="ingles-profesional" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=ingles-profesional">Inscribirse</a>
       </div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
     </div>
-
-    <div class="curso">
-      <img src="../Images/english.jpg" alt="Curso de Idiomas">
-      <div class="curso-info">
-      <h3>Inglés para Profesionales</h3>
-      <p class="descripcion">Mejora tu inglés con enfoque en negocios, entrevistas de trabajo y presentaciones.</p>
-      <p><strong>Duración:</strong> 100 horas</p>
-      <div class="precio">$100000</div>
-      <a href="../Pages/detalle-ciberSeguridad.html" class="detalles">Ver detalles del curso</a>
-      </div>
-      <a class="btn-inscribirse" href="../Pages/detalleCursos.html">Inscribirse</a>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Quiénes Somos -->
   <section class="quienes-somos">
-  <h2>¿QUIÉNES SOMOS?</h2>
-  <p>
-    En Grupo N creemos que el aprendizaje es la herramienta más poderosa para transformar vidas. 
-    Somos un equipo apasionado por la educación y la innovación digital, comprometidos en brindarte 
-    cursos prácticos, accesibles y actualizados que te ayuden a alcanzar tus metas personales y profesionales. 
-  </p>
-  <p>
-    Nuestra misión es acercarte conocimientos de calidad, explicados de forma clara y sencilla, 
-    para que aprendas a tu ritmo, desde cualquier lugar. Más que vender cursos, buscamos crear 
-    una comunidad donde cada persona encuentre inspiración, motivación y resultados reales. 
-  </p>
-  <p>
-    Con cada curso que desarrollamos, queremos que sientas que estás invirtiendo en tu futuro y en tu crecimiento. 
-  </p>
-</section>
+    <h2>¿QUIÉNES SOMOS?</h2>
+    <p>
+      En Grupo N creemos que el aprendizaje es la herramienta más poderosa para transformar vidas.
+      Somos un equipo apasionado por la educación y la innovación digital, comprometidos en brindarte
+      cursos prácticos, accesibles y actualizados que te ayuden a alcanzar tus metas personales y profesionales.
+    </p>
+    <p>
+      Nuestra misión es acercarte conocimientos de calidad, explicados de forma clara y sencilla,
+      para que aprendas a tu ritmo, desde cualquier lugar. Más que vender cursos, buscamos crear
+      una comunidad donde cada persona encuentre inspiración, motivación y resultados reales.
+    </p>
+    <p>
+      Con cada curso que desarrollamos, queremos que sientas que estás invirtiendo en tu futuro y en tu crecimiento.
+    </p>
+  </section>
 
   <!-- Medios de pago -->
   <section class="medios">
@@ -215,8 +223,8 @@
       <button class="next">›</button>
     </div>
   </section>
-</section>
-<!-- Footer -->
+  </section>
+  <!-- Footer -->
   <footer>
     <div>
       <p>Isaac Rios - 42147287</p>
@@ -238,7 +246,7 @@
       </ul>
     </div>
   </footer>
-<script type="module" src="./../Javascript/main.js"></script>
+  <script type="module" src="./../Javascript/main.js"></script>
 </body>
 
 </html>

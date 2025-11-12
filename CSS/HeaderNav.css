@@ -34,6 +34,7 @@ header {
   justify-content: flex-end;
   flex: 1;
   margin: 0 0.188em;
+
 }
 
 .search-container {
@@ -42,12 +43,22 @@ header {
   max-width: 20em;
 }
 
-.search-container input {
+
+.search-container input[list] {
   width: 100%;
   padding: 0.6em 2.2em 0.6em 1em;
   font-size: 1em;
   border-radius: 0.5em;
   border: 0.06em solid #ccc;
+
+  -webkit-appearance: none;  
+  -moz-appearance: none;     
+  appearance: none;         
+}
+
+
+.search-container input[list]::-webkit-contacts-auto-fill-button {
+  display: none;
 }
 
 .search-container i.bx-search-alt-2 {

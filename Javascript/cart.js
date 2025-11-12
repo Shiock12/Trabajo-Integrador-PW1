@@ -1,6 +1,6 @@
 
-const CourseService = (() => {
-
+export const CourseService = (() => {
+    // Definición de los cursos (DATOS CENTRALIZADOS)
     const COURSES_DATA = [
         {
             id: 'html-basico',
@@ -398,7 +398,7 @@ const CourseService = (() => {
         return COURSES_DATA;
     }
 
- 
+   
     function getCourseById(id) {
         return COURSES_DATA.find(course => course.id === id);
     }
@@ -667,6 +667,8 @@ const CartModalController = (() => {
         }
     };
 })();
+
+
 
 
 export const initCart = CartModalController.init;
