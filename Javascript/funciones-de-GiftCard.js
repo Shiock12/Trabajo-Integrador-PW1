@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   selectFondo.addEventListener("change", () => {
     switch (selectFondo.value) {
       case "fondo1":
-        previewGiftcard.style.backgroundColor = "#FF0000"; // Rojoojo
+        previewGiftcard.style.backgroundColor = "#FF0000"; // Rojo
         break;
       case "fondo2":
         previewGiftcard.style.backgroundColor = "#00FF00"; // Verde
