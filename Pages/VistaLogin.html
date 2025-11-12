@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coursera</title>
-    <link rel="stylesheet" href="../CSS/VistaLogin.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coursera</title>
+  <link rel="stylesheet" href="../CSS/VistaLogin.css">
 </head>
 <body>
-    <form action="Inicio.html">
-        <div class="formulario">
-        <h1>Ingresa a tu cuenta</h1>
-        <section class="campos">
-                <label for="">Usuario</label>
-                <input type="text" name="" id="" placeholder="Ingresa tu usuario" required>
-        </section>
-        <section class="campos">
-                <label for="">Contraseña</label>
-                <input type="password" name="" id="" placeholder="Ingresa tu contraseña" required>
-        </section>
-        <section class="campos"><button type="submit">Iniciar sesion</button>
-        </section>
-        <a href="">¿Olvidaste tu contraseña?</a>
+  <div class="formulario">
+    <h1>Ingresa a tu cuenta</h1>
+    <form id="formLogin">
+      <section class="campos">
+        <label>Usuario</label>
+        <input type="text" id="loginUsuario" placeholder="Ingresa tu usuario" required>
+      </section>
+      <section class="campos">
+        <label>Contraseña</label>
+        <input type="password" id="loginPassword" placeholder="Ingresa tu contraseña" required>
+      </section>
+      <section class="campos">
+        <button type="submit">Iniciar sesión</button>
+      </section>
+      <a href="../Pages/VistaRegistrarse.html">¿No tenés cuenta? Registrate</a>
     </form>
-    </div>
+  </div>
+
+  <script type="module" src="../Javascript/inicio.JS"></script>
 </body>
 </html>
