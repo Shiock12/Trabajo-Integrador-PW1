@@ -5,13 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Registrarse</title>
 
-  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Iconos -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
-  <!-- Tus CSS -->
   <link rel="stylesheet" href="../CSS/HeaderNav.css" />
   <link rel="stylesheet" href="../CSS/Footer.css" />
   <link rel="stylesheet" href="../CSS/registrarse.css" />
@@ -20,18 +16,18 @@
 
   <!-- Header -->
   <header>
-        <div class="logo">
-            <img src="../Images/logo.jpg" alt="Logo-Pagina">
-        </div>
-        <div class="search-bar">
-            <div class="search-container">
-                <input type="text" placeholder="Buscar cursos...">
-                <i class='bx bx-search-alt-2'></i>
-            </div>
-        </div>
-        <div class="cart">
-            <i class='bx bx-cart'></i>
-        </div>
+    <div class="logo">
+      <img src="../Images/logo.jpg" alt="Logo-Pagina">
+    </div>
+    <div class="search-bar">
+      <div class="search-container">
+        <input type="text" placeholder="Buscar cursos...">
+        <i class='bx bx-search-alt-2'></i>
+      </div>
+    </div>
+    <div class="cart">
+      <i class='bx bx-cart'></i>
+    </div>
   </header>
 
   <!-- Navbar -->
@@ -50,41 +46,47 @@
     <section class="card">
       <h2>Crear cuenta</h2>
 
-      <form class="form" action="./../index.html" method="get">
-        <div class="row cols-2">
-          <div>
-            <label for="nombre">Usuario</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu usuario" required>
-          </div>
-          <div>
-            <label for="email">Mail</label>
-            <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
-          </div>
-        </div>
+      <form id="formRegistro" class="form" action="#" method="post">
+  <div class="row cols-2">
+    <div>
+      <label for="registroUsuario">Usuario</label>
+      <input type="text" id="registroUsuario" name="usuario" placeholder="Tu usuario" required>
+    </div>
+    <div>
+      <label for="registroEmail">Mail</label>
+      <input type="email" id="registroEmail" name="email" placeholder="tu@correo.com" required>
+    </div>
+  </div>
 
-        <div class="row">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" name="password" placeholder="••••••••" required>
-        </div>
+  <div class="row">
+    <label for="registroPassword">Contraseña</label>
+    <input type="password" id="registroPassword" name="password" placeholder="••••••••" required>
+  </div>
 
-        <div class="row cols-2">
-          <div>
-            <label for="metodo">Método de pago</label>
-            <select id="metodo" name="metodo" required>
-              <option value="" selected disabled>Elegí un método</option>
-              <option>Mercado Pago</option>
-              <option>Tarjeta de crédito</option>
-              <option>PayPal</option>
-              <option>Transferencia</option>
-            </select>
-          </div>
-        </div>
+  <!-- (opcional) repetir contraseña -->
+  <div class="row">
+    <label for="registroPassword2">Repetir contraseña</label>
+    <input type="password" id="registroPassword2" name="password2" placeholder="••••••••" required>
+  </div>
 
-        <div class="actions">
-          <button type="reset" class="btn ghost">Limpiar</button>
-          <a href="Inicio.html" class="btn primary">Crear cuenta</a>
-        </div>
-      </form>
+  <div class="row cols-2">
+    <div>
+      <label for="metodo">Método de pago</label>
+      <select id="metodo" name="metodo" required>
+        <option value="" selected disabled>Elegí un método</option>
+        <option>Mercado Pago</option>
+        <option>Tarjeta de crédito</option>
+        <option>PayPal</option>
+        <option>Transferencia</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button type="reset" class="btn ghost">Limpiar</button>
+    <button type="submit" class="btn primary">Crear cuenta</button>
+  </div>
+</form>
     </section>
   </div>
 
@@ -113,5 +115,6 @@
     </div>
   </footer>
 
+  <script type="module" src="../Javascript/inicio.JS"></script>
 </body>
 </html>
