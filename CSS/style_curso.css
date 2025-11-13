@@ -623,154 +623,64 @@ main {
 }
 
 
-
-
-@media screen and (max-width: 30em) {
-    main {
-        padding: 0 1em;
-        gap: 1em;
+/* Media Query para pantallas de tamaño medio (770px a 1180px) */
+@media screen and (min-width: 48em) and (max-width: 74.375em) {
+    .curso-info, .contenidos, .docente, .docentes-relacionados, .relacionados {
+        width: 95%; /* Ajustamos el ancho a 48% para hacer espacio para 2 columnas */
     }
 
     .curso-info {
-        grid-template-columns: 1fr;
-        padding: 1em;
-    }
-
-    .curso-info .foto {
-        height: 10em;
-    }
-
-    .curso-detalles button {
-        width: 100%;
-        padding: 0.8em 0;
-    }
-
-    .contenidos {
-        padding: 1em;
-    }
-
-    .docente {
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 0.5em;
+        gap: 1.5em;
     }
 
-    .docente .foto {
-        width: 5em;
-        height: 5em;
-    }
-
-    .curso-card {
-        padding: 0.8em;
-    }
-
-    .curso-card .imagen {
-        height: 6em;
+    /* Ajustamos las imágenes */
+    .curso-info .foto, .curso-card .imagen {
+        max-height: 10em;
+        object-fit: cover;
     }
 
     .curso-card button {
-        padding: 0.5em 2em;
+        padding: 0.7em 2em;
     }
 
     .curso-card a {
-        font-size: 0.6em;
-        padding: 0.3em 0.6em;
-    }
-
-    label {
-        width: 1.5em;
-        height: 1.5em;
-    }
-}
-
-
-
-@media screen and (min-width: 30.0625em) and (max-width: 48em) {
-
-    main {
-        padding: 0 1.5em;
-    }
-
-    .curso-info {
-        grid-template-columns: 1fr;
-        padding: 1.5em;
-    }
-
-    .curso-info .foto {
-        height: 11em;
-    }
-
-    .curso-detalles button {
-        padding: 0.7em 1.5em;
-    }
-
-    .contenidos {
-        padding: 1.2em;
-    }
-
-    .docente {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        font-size: 0.75em;
+        padding: 0.4em 0.8em;
     }
 
     .docente .foto {
-        width: 5.5em;
-        height: 5.5em;
+        width: 6em;
+        height: 6em;
     }
 
     .curso-card .imagen {
         height: 7em;
     }
 
-    .curso-card button {
-        padding: 0.5em 3em;
+    .docentes-relacionados, .relacionados {
+        width: 48%; /* Hacer que los elementos relacionados tengan un ancho del 48% */
     }
-
-    .curso-card a {
-        font-size: 0.65em;
-    }
-
-    label {
-        width: 1.3em;
-        height: 1.3em;
-    }
-
 }
 
-@media screen and (min-width: 48.0625em) {
-    main {
-        padding: 0 2em;
-        gap: 2em;
-    }
-
+/* Media Query para pantallas grandes (a partir de 1180px) */
+@media screen and (min-width: 74.375em) {
     .curso-info {
-        grid-template-columns: 15em 1fr;
-        padding: 2em;
+        display: grid;
+        grid-template-columns: 15em 1fr; /* Usar grid para pantallas más grandes */
     }
 
     .curso-info .foto {
         height: 12em;
     }
 
+    .contenidos, .docente, .docentes-relacionados, .relacionados {
+        width: 100%; /* Los contenedores ocupan el 100% del ancho */
+    }
+
     .curso-detalles button {
         padding: 0.6em 1.5em;
-    }
-
-    .contenidos {
-        padding: 1.5em;
-    }
-
-    .docente {
-        flex-direction: row;
-        gap: 1em;
-        text-align: left;
-    }
-
-    .docente .foto {
-        width: 6em;
-        height: 6em;
     }
 
     .curso-card .imagen {
@@ -789,14 +699,154 @@ main {
         width: 1.2em;
         height: 1.2em;
     }
-
 }
 
+
+
+@media screen and (max-width: 30em) {
+    .curso-info, .contenidos, .docente, .docentes-relacionados, .relacionados {
+        width: 100%; /* Los contenedores ocupan todo el ancho */
+        padding: 1em;
+    }
+
+    .curso-info .foto, .curso-card .imagen {
+        width: 100%; /* Las imágenes ocupan el 100% del ancho */
+        max-height: 10em;
+        object-fit: cover;
+    }
+
+    .curso-card button {
+        padding: 0.5em 2em;
+    }
+
+    .curso-card a {
+        font-size: 0.6em;
+        padding: 0.3em 0.6em;
+    }
+
+    .docente .foto {
+        width: 5.5em;
+        height: 5.5em;
+    }
+}
+
+/* 2. Media Query para pantallas pequeñas y medianas (30em - 48em, 480px - 768px) */
+@media screen and (min-width: 30.0625em) and (max-width: 48em) {
+    main {
+        padding: 0 1.5em;
+    }
+
+    .curso-info, .contenidos, .docente, .docentes-relacionados, .relacionados {
+        width: 48%; /* Los contenedores ocupan 48% para crear un diseño de 2 columnas */
+    }
+
+    .curso-info .foto {
+        height: 11em;
+    }
+
+    .curso-detalles button {
+        padding: 0.7em 1.5em;
+    }
+
+    .curso-card .imagen {
+        height: 7em;
+    }
+
+    .curso-card button {
+        padding: 0.5em 3em;
+    }
+
+    .curso-card a {
+        font-size: 0.65em;
+    }
+
+    label {
+        width: 1.3em;
+        height: 1.3em;
+    }
+}
+
+/* 3. Media Query para pantallas grandes (48.0625em en adelante, 768px en adelante) */
+@media screen and (min-width: 48.0625em) {
+    main {
+        padding: 0 2em;
+        gap: 2em;
+    }
+
+    .curso-info {
+        display: grid;
+        grid-template-columns: 15em 1fr; /* Diseño de 2 columnas */
+        padding: 2em;
+    }
+
+    .curso-info .foto {
+        height: 12em;
+    }
+
+    .contenidos, .docente, .docentes-relacionados, .relacionados {
+        width: 95%; /* Aseguramos que estos contenedores tomen todo el espacio */
+    }
+
+    .curso-detalles button {
+        padding: 0.6em 1.5em;
+    }
+
+    .curso-card .imagen {
+        height: 8em;
+    }
+
+    .curso-card button {
+        padding: 0.5em 5em;
+    }
+
+    .curso-card a {
+        font-size: 0.69em;
+    }
+
+    label {
+        width: 1.2em;
+        height: 1.2em;
+    }
+}
+
+/* 4. Media Query para pantallas extra grandes (1200px en adelante) */
+@media screen and (min-width: 75em) {
+    main {
+        max-width: 1200px; /* Limitar el ancho máximo para pantallas grandes */
+        padding: 3em;
+    }
+
+    .curso-info {
+        display: grid;
+        grid-template-columns: 15em 1fr; /* Diseño de 2 columnas */
+        gap: 2em;
+    }
+
+    .curso-info .foto {
+        height: 15em;
+    }
+
+    .contenidos, .docente, .docentes-relacionados, .relacionados {
+        width: 100%; /* Los contenedores ocupan todo el ancho disponible */
+    }
+
+    .curso-card button {
+        padding: 1em 4em;
+    }
+
+    .curso-card a {
+        font-size: 1em;
+    }
+}
+
+
+
+/* 5. Ajuste para dispositivos móviles (menor de 768px) */
 @media (max-width: 768px) {
-    .curso-info>div {
-        max-width: 100%;
-        /* Ocupa todo el ancho en móviles */
+    .curso-info > div {
+        max-width: 100%; /* Los contenedores toman todo el ancho */
         margin-right: 0;
         margin-bottom: 1em;
     }
 }
+
