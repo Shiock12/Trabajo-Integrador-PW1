@@ -13,9 +13,6 @@
 </head>
 
 <body>
-
-  <!-- Header -->
-
   <!-- Header -->
   <header>
     <div class="logo">
@@ -58,10 +55,10 @@
   </nav>
 
 
-  <!-- Slider -->
+   <!-- Slider -->
   <section class="slider">
     <button class="prev">‹</button>
-    <img src="./Images/banner.jpg">
+    <img src="../Images/banner.jpg">
     <button class="next">›</button>
   </section>
 
@@ -84,80 +81,114 @@
     </div>
   </section>
 
-  <!-- Cursos destacados -->
+    <!-- Cursos destacados -->
   <section class="cursos-destacados">
     <h2>CURSOS DESTACADOS</h2>
     <div class="cursos-grid">
       <div class="curso">
-        <img src="./Images/finanzas.jpg" alt="Curso de Finanzas e Inversión">
-        <h3>Finanzas Personales e Inversiones</h3>
-        <p>Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
-        <p><strong>Duración:</strong> 75 horas</p>
-        <div class="precio">$5000</div>
-        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+        <img src="../Images/finanzas.jpg" alt="Curso de Finanzas e Inversión">
+        <div class="curso-info">
+          <h3>Finanzas Personales e Inversiones</h3>
+          <p class="descripcion">Aprende a gestionar tu dinero, invertir en bolsa de forma segura.</p>
+          <p><strong>Duración:</strong> 75 horas</p>
+          <div class="precio">$5000</div>
+          <a href="../Pages/detalleCursos.html?id=finanzas-personales" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="finanzas-personales" 
+          href="../Pages/detalleCursos.html?id=finanzas-personales">Inscribirse</a>
       </div>
 
       <div class="curso">
-        <img src="./Images/marketing.jpg" alt="Curso de Marketing Digital">
-        <h3>Marketing Digital & Redes Sociales</h3>
-        <p>Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.</p>
-        <p><strong>Duración:</strong> 80 horas</p>
-        <div class="precio">$10000</div>
-        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+        <img src="../Images/marketing.jpg" alt="Curso de Marketing Digital">
+        <div class="curso-info">
+          <h3>Marketing Digital & Redes Sociales</h3>
+          <p class="descripcion">Domina las estrategias de publicidad online, SEO, email marketing y gestión de redes.
+          </p>
+          <p><strong>Duración:</strong> 80 horas</p>
+          <div class="precio">$10000</div>
+          <a href="../Pages/detalleCursos.html?id=marketing-digital" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="marketing-digital" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=marketing-digital">Inscribirse</a>
       </div>
 
       <div class="curso">
-        <img src="./Images/uxui.jpg" alt="Curso de Diseño UX/UI">
-        <h3>Diseño UX/UI para Principiantes</h3>
-        <p>Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de usuario.</p>
-        <p><strong>Duración:</strong> 60 horas</p>
-        <div class="precio">$3000</div>
-        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+        <img src="../Images/datascience.jpg" alt="Curso de Data Science">
+        <div class="curso-info">
+          <h3>Introducción a Data Science</h3>
+          <p class="descripcion">Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
+          <p><strong>Duración:</strong> 100 horas</p>
+          <div class="precio">$7650</div>
+          <a href="../Pages/detalleCursos.html?id=data-science" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="data-science" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=data-science">Inscribirse</a>
       </div>
 
       <div class="curso">
-        <img src="./Images/datascience.jpg" alt="Curso de Data Science">
-        <h3>Introducción a Data Science</h3>
-        <p>Explora el mundo de los datos con Python, estadística y machine learning aplicado.</p>
-        <p><strong>Duración:</strong> 100 horas</p>
-        <div class="precio">$7650</div>
-        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+        <img src="../Images/uxui.jpg" alt="Curso de Diseño UX/UI">
+        <div class="curso-info">
+          <h3>Diseño UX/UI para Principiantes</h3>
+          <p class="descripcion">Aprende a diseñar interfaces intuitivas con Figma, prototipado y experiencia de
+            usuario.</p>
+          <p><strong>Duración:</strong> 60 horas</p>
+          <div class="precio">$3000</div>
+          <a href="../Pages/detalleCursos.html?id=diseno-ux-ui" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="diseno-ux-ui" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=diseno-ux-ui">Inscribirse</a>
       </div>
 
       <div class="curso">
-        <img src="./Images/ciberseguridad.jpg" alt="Curso de Ciberseguridad">
-        <h3>Ciberseguridad & Hacking Ético</h3>
-        <p>Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de seguridad.</p>
-        <p><strong>Duración:</strong> 90 horas</p>
-        <div class="precio">$100000</div>
-        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+        <img src="../Images/ciberseguridad.jpg" alt="Curso de Ciberseguridad">
+        <div class="curso-info">
+          <h3>Ciberseguridad & Hacking Ético</h3>
+          <p class="descripcion">Aprende a proteger sistemas, detectar vulnerabilidades y aplicar buenas prácticas de
+            seguridad.</p>
+          <p><strong>Duración:</strong> 90 horas</p>
+          <div class="precio">$100000</div>
+          <a href="../Pages/detalleCursos.html?id=ciberseguridad" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="ciberseguridad" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=ciberseguridad">Inscribirse</a>
+      </div>
+      <div class="curso">
+        <img src="../Images/crypto.jpg" alt="Curso de Inversión en Cryptomonedas">
+        <div class="curso-info">
+          <h3>Inversión en Cryptomonedas</h3>
+          <p class="descripcion">Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
+          <p><strong>Duración:</strong> 75 horas</p>
+          <div class="precio">$90000</div>
+          <a href="../Pages/detalleCursos.html?id=inversion-cryptomonedas" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="inversion-cryptomonedas" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=inversion-cryptomonedas">Inscribirse</a>
       </div>
 
       <div class="curso">
-        <img src="./Images/crypto.jpg" alt="Curso de Finanzas e Inversión">
-        <h3>Inversión en cryptomonedas</h3>
-        <p>Aprende a gestionar tu dinero, invertir en criptomonedas de forma segura.</p>
-        <p><strong>Duración:</strong> 75 horas</p>
-        <div class="precio">$90000</div>
-        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+        <img src="../Images/foto.jpg" alt="Curso de Fotografía">
+        <div class="curso-info">
+          <h3>Fotografía Profesional</h3>
+          <p class="descripcion">Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
+          <p><strong>Duración:</strong> 50 horas</p>
+          <div class="precio">$33000</div>
+          <a href="../Pages/detalleCursos.html?id=fotografia-profesional" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="fotografia-profesional" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=fotografia-profesional">Inscribirse</a>
       </div>
 
       <div class="curso">
-        <img src="./Images/foto.jpg" alt="Curso de Fotografía">
-        <h3>Fotografía Profesional</h3>
-        <p>Domina el uso de cámaras, iluminación, edición digital y crea tu portafolio.</p>
-        <p><strong>Duración:</strong> 50 horas</p>
-        <div class="precio">$33000</div>
-        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
-      </div>
-
-      <div class="curso">
-        <img src="./Images/english.jpg" alt="Curso de Idiomas">
-        <h3>Inglés para Profesionales</h3>
-        <p>Mejora tu inglés con enfoque en negocios, entrePages de trabajo y presentaciones.</p>
-        <p><strong>Duración:</strong> 100 horas</p>
-        <div class="precio">$100000</div>
-        <a class="btn-inscribirse" onclick="alert('Tenes que iniciar sesion para inscribirte')">Inscribirse</a>
+        <img src="../Images/english.jpg" alt="Curso de Idiomas">
+        <div class="curso-info">
+          <h3>Inglés para Profesionales</h3>
+          <p class="descripcion">Mejora tu inglés con enfoque en negocios, entrevistas de trabajo y presentaciones.</p>
+          <p><strong>Duración:</strong> 100 horas</p>
+          <div class="precio">$100000</div>
+          <a href="../Pages/detalleCursos.html?id=ingles-profesional" class="detalles">Ver detalles del curso</a>
+        </div>
+        <a class="btn-inscribirse" data-course-id="ingles-profesional" 👈 **CORREGIDO**
+          href="../Pages/detalleCursos.html?id=ingles-profesional">Inscribirse</a>
       </div>
     </div>
   </section>
