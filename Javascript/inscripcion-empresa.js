@@ -1,14 +1,14 @@
 // inscripcion-empresa.js
 export function initEmpresaForm() {
 
-  // --- Elementos de la página de Empresas ---
-  const selectCurso = document.getElementById('curso');
-  const tituloEl= document.getElementById('tituloCurso');
-  const descEl= document.getElementById('descCurso');
-  const precioEl= document.getElementById('precioTotal');
+  //variables
+  const curso = document.getElementById("curso");
+  const tituloCurso= document.getElementById("tituloCurso");
+  const descripcion= document.getElementById("descripcion");
+  const precioTotal= document.getElementById("precioTotal");
 
   const contenedor  = document.getElementById('contenedorInputs');
-  const btnAgregar  = document.getElementById('agregar');
+  const botonagregar  = document.getElementById('agregar'); //es la iamgen del +
 
   // Modal
   const btnInscribirse = document.getElementById('btnInscribirse');
@@ -16,49 +16,59 @@ export function initEmpresaForm() {
   const modalContenido = document.getElementById('modalContenido');
   const btnConfirmar   = document.getElementById('btnConfirmar');
 
-  if (!selectCurso || !tituloEl || !descEl || !precioEl || !contenedor) return;
+
 
   // --- Config ---
-  const PER_PERSON_FEE = 20; // $20 por persona
+  const costoPersona = 20; // $20 por persona
 
-  // Helpers
-  const getBasePrice = () => Number(selectCurso.options[selectCurso.selectedIndex]?.dataset.precio || 0);
-  const countPersons = () => contenedor.querySelectorAll('.fila').length;
-  const formatMoney = n => `$${n}.-`;
+  function getPrecioBase (){
+    const opcion = curso.options[curso.selectedIndex];
+    const precio = opcion.dataset.precio || 0;
+    return Number(precio);
+  }
 
-  // Total = base + (personas * fee)
-  function renderTotal() {
-    const base = getBasePrice();
-    const personas = countPersons();
-    const total = base + (PER_PERSON_FEE * personas);
-    precioEl.textContent = formatMoney(total);
+  function contadorPersonas (){
+    const filas = contenedor.querySelectorAll('.fila'); 
+    const cantidad = filas.length;
+    return cantidad;
+  }
+
+  function formatoMoneda (n){
+     const texto = `$${n}.-`;
+     return texto;
+  }
+
+  // CalculoDeSumaPersonas+Curso
+  function devolverTotal() {
+    const base = getPrecioBase();
+    const personas = contadorPersonas();
+    const total = base + (costoPersona * personas);
+    precioTotal.textContent = formatoMoneda(total);
   }
 
   // Set título/desc desde el select y recalcular total
   function aplicarCursoDesdeSelect() {
-    const opt = selectCurso.options[selectCurso.selectedIndex];
+    const opt = curso.options[curso.selectedIndex];
     const titulo = opt?.dataset.titulo || 'Curso';
     const desc   = opt?.dataset.desc   || '';
-    tituloEl.textContent = titulo;
-    descEl.textContent   = desc;
-    renderTotal();
+    tituloCurso.textContent = titulo;
+    descripcion.textContent   = desc;
+    devolverTotal();
   }
 
-  // Eliminar fila
-  function wireEliminar(imgEl) {
-    imgEl.addEventListener('click', () => {
-      const fila = imgEl.closest('.fila');
+  function eliminarFila(imagen) {
+    imagen.addEventListener('click', () => {
+      const fila = imagen.closest('.fila'); //Busca para arriba si hay un elemento llamado .fila
       if (fila) {
         fila.remove();
-        renderTotal();
+        devolverTotal();
       }
     });
   }
 
   // Conectar X de filas iniciales (si hay)
-  contenedor.querySelectorAll('.btn-eliminar').forEach(wireEliminar);
+  contenedor.querySelectorAll('.btn-eliminar').forEach(eliminarFila);
 
-  // Agregar fila
   function crearFila() {
     const fila = document.createElement('div');
     fila.className = 'fila';
@@ -86,25 +96,33 @@ export function initEmpresaForm() {
     fila.append(inpNombre, inpDni, inpTel, btnEliminar);
     contenedor.appendChild(fila);
 
-    wireEliminar(btnEliminar);
+    eliminarFila(btnEliminar);
     inpNombre.focus();
 
-    renderTotal();
+    devolverTotal();
   }
 
-  // ---------- Modal ----------
-  function abrirModal() {
-    modal?.classList.add('show');
-    modal?.setAttribute('aria-hidden', 'false');
+  function abrirModal(){
+    if(!modal) return;
+
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden','false');
+
   }
-  function cerrarModal() {
-    modal?.classList.remove('show');
-    modal?.setAttribute('aria-hidden', 'true');
+  function cerrarModal(){
+    if(!modal) return;
+     modal.classList.remove('show');
+     modal.setAttribute('aria-hidden', 'true');
   }
-  // Cerrar por backdrop / botón con data-close
-  modal?.addEventListener('click', (e) => {
-    if (e.target?.dataset?.close !== undefined) cerrarModal();
+
+if (modal) {
+  modal.addEventListener('click', function (e) {
+    const elementoClickeado = e.target;
+    if (elementoClickeado && elementoClickeado.dataset && elementoClickeado.dataset.close !== undefined) {
+      cerrarModal();
+    }
   });
+}
 
   // Arma el resumen a partir de las filas actuales
   function abrirResumenInscripcion() {
@@ -129,8 +147,8 @@ export function initEmpresaForm() {
       ).join('');
 
       modalContenido.innerHTML = `
-        <p><strong>Curso:</strong> ${tituloEl.textContent}</p>
-        <p><strong>Total:</strong> ${precioEl.textContent}</p>
+        <p><strong>Curso:</strong> ${tituloCurso.textContent}</p>
+        <p><strong>Total:</strong> ${precioTotal.textContent}</p>
         <hr>
         <p><strong>Personas (${personas.length}):</strong></p>
         <ol class="modal-lista">${items}</ol>
@@ -139,20 +157,16 @@ export function initEmpresaForm() {
     abrirModal();
   }
 
-  // Eventos
-  selectCurso.addEventListener('change', aplicarCursoDesdeSelect);
-  btnAgregar?.addEventListener('click', crearFila);
+  curso.addEventListener('change', aplicarCursoDesdeSelect);
+  botonagregar?.addEventListener('click', crearFila);
   btnInscribirse?.addEventListener('click', abrirResumenInscripcion);
   btnConfirmar?.addEventListener('click', () => {
-    // Futuro: acá podrías enviar al server / limpiar / redirigir
     cerrarModal();
   });
 
-  // Estado inicial
   aplicarCursoDesdeSelect();
-  renderTotal();
+  devolverTotal();
 
-  // --- Mostrar tarjeta de resumen ---
 const boton = document.getElementById('btnInscribirse');
 const resumen = document.getElementById('resumenInscripcion');
 const lista = document.getElementById('listaPersonas');
@@ -174,8 +188,8 @@ boton.addEventListener('click', () => {
     lista.appendChild(li);
   });
 
-  resumenCurso.textContent = tituloEl.textContent;
-  resumenPrecio.textContent = precioEl.textContent;
+  resumenCurso.textContent = tituloCurso.textContent;
+  resumenPrecio.textContent = precioTotal.textContent;
 
   resumen.style.display = 'block'; // mostrar tarjeta
   resumen.scrollIntoView({ behavior: 'smooth' });
