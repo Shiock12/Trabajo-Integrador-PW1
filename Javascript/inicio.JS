@@ -142,9 +142,9 @@ function initPerfil() {
 
   const iconos = {
     "Mercado Pago": "../Images/mercadopago.png",
-    "PayPal": "../Images/paypal.png",
-    "Tarjeta de crédito": "../Images/tarjeta.png",
-    "Transferencia": "../Images/transferencia.png",
+    "PayPal": "../Images/pp.png",
+    "Tarjeta de crédito": "../Images/visa.png",
+    "MasterCard": "../Images/MasterCard-logoS.png",
   };
   if (iconos[activo.metodo]) {
     metodoImg.src = iconos[activo.metodo];
