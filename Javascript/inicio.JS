@@ -49,13 +49,14 @@ function initSlider() {
   show(0);
 }
 
-/* ---------------- FORMULARIO EMPRESAS ---------------- */
+
 function initEmpresas() {
-  // Verifica si estás en la página de inscripción
+
+
   const formEmpresas = document.getElementById("contenedorInputs");
   if (!formEmpresas) return;
 
-  // Llamamos al módulo que maneja el formulario
+
   initEmpresaForm();
 }
 
@@ -79,17 +80,14 @@ function initRegistro() {
     }
 
     try {
-      const nuevo = registrarUsuario({
-        usuario: usuario.value.trim(),
-        email: email.value.trim(),
-        password: password.value,
-        metodo: metodo?.value || "",
-      });
-
+     const nuevo = registrarUsuario(
+  usuario.value.trim(),
+  email.value.trim(),
+  password.value,
+  metodo ? metodo.value : ""
+);
       setUsuarioActivo(nuevo);
       alert("Usuario registrado correctamente ✅");
-
-      // Redirección después de registrar
       window.location.href = "Inicio.html";
     } catch (err) {
       alert(err.message || "Error al registrar usuario.");
@@ -109,10 +107,10 @@ function initLogin() {
     e.preventDefault();
 
     try {
-      const usr = loginUsuario({
-        usuario: user.value.trim(),
-        password: pass.value,
-      });
+const usr = loginUsuario(
+  user.value.trim(),
+  pass.value
+);
       setUsuarioActivo(usr);
       alert("Inicio de sesión exitoso ✅");
       window.location.href = "Inicio.html";
@@ -159,7 +157,7 @@ function initPerfil() {
     window.location.href = "VistaLogin.html";
   });
 
-  /* ======= NUEVO: ELIMINAR CUENTA ======= */
+
   const btnDelete =
     document.getElementById("btnDeleteAccount") ||
     document.querySelector('[data-action="delete-account"]');
@@ -180,11 +178,10 @@ function initPerfil() {
   }
 }
 
-/* ---------------- INICIALIZACIÓN GLOBAL ---------------- */
 document.addEventListener("DOMContentLoaded", () => {
-  initSlider();     // Inicio
-  initEmpresas();   // Formulario empresas
-  initRegistro();   // Registrarse
-  initLogin();      // Login
-  initPerfil();     // Perfil
+  initSlider();    
+  initEmpresas();   
+  initRegistro();   
+  initLogin();      
+  initPerfil();    
 });
