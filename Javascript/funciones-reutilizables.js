@@ -28,7 +28,7 @@ function validarLongitudMaxima(texto, maxCaracteres) {
     return texto.length <= maxCaracteres;
 }
 
-// MANEJO DE ERRORES
+// errores
 function mostrarError(input, mensaje) {
     const errorPrevio = input.parentNode.querySelector('.mensaje-error');
     if (errorPrevio) {
@@ -57,7 +57,7 @@ function limpiarTodosLosErrores(formulario) {
     });
 }
 
-// CONTADOR DE CARACTERES
+// Contador de caractres
 function crearContadorCaracteres(textarea, maxCaracteres) {
     const contadorDiv = document.createElement('div');
     contadorDiv.className = 'contador-caracteres';
