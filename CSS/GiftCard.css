@@ -33,14 +33,14 @@ body {
 /* MAIN CONTENT */
 .giftcard-content {
     padding: 20px;
-    max-width: 1000px; /* más ancho para acomodar 50/50 */
+    max-width: 1000px;
     margin: 20px auto; 
     background-color: white; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* === DISTRIBUCIÓN PRINCIPAL === */
+/* DISTRIBUCIÓN PRINCIPAL */
 .giftcard-layout {
     display: flex;
     justify-content: space-between;
@@ -54,12 +54,16 @@ body {
     flex: 1 1 50%;
 }
 
-/* === VISTA PREVIA === */
+/* VISTA PREVIA */
 .vista-previa-contenedor {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.vista-previa-contenedor h4 {
+    font-weight: 600;
 }
 
 .giftcard-preview {
@@ -93,7 +97,7 @@ body {
     font-weight: bold;
 }
 
-/* === FORMULARIO DE PERSONALIZACIÓN === */
+/* FORMULARIO DE PERSONALIZACIÓN */
 .personalizacion-form {
     background-color: #f7f9fc;
     border-radius: 8px;
@@ -107,12 +111,13 @@ body {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+    font-size: 14px;
 }
 
 .form-group label {
     display: block; 
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     font-weight: 600;
 }
 
@@ -125,7 +130,165 @@ select {
     border-radius: 5px;
 }
 
-/* === BOTÓN CONFIRMAR === */
+/* =========================
+   OPCIONES DE COLOR (radios)
+========================= */
+
+.color-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.color-radio {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+/* ocultamos el radio nativo */
+.color-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    display: inline-block;
+}
+
+/* borde cuando está seleccionado */
+.color-radio input:checked + .color-swatch {
+    border-color: #343A40;
+}
+
+/* =========================
+   TAMAÑO DE FUENTE
+========================= */
+
+.size-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.size-radio {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.size-radio input {
+    margin-bottom: 2px;
+}
+
+/* =========================
+   UBICACIÓN DEL MONTO
+========================= */
+
+.ubicacion-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.ubicacion-radio {
+    position: relative;
+    cursor: pointer;
+}
+
+.ubicacion-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ubicacion-box {
+    width: 36px;
+    height: 28px;
+    border: 1px solid #999;
+    background: #f5f5f5;
+    position: relative;
+}
+
+/* “bloque” gris que simula el monto */
+.ubicacion-box::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 10px;
+    background: #999;
+}
+
+.ubicacion-izq::before {
+    top: 0;
+    left: 0;
+}
+
+.ubicacion-centro::before {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ubicacion-der::before {
+    top: 0;
+    right: 0;
+}
+
+/* borde al seleccionar */
+.ubicacion-radio input:checked + .ubicacion-box {
+    border: 2px solid #343A40;
+}
+
+/* =========================
+   FONDOS (cuadraditos)
+========================= */
+
+.fondo-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.fondo-radio {
+    position: relative;
+    cursor: pointer;
+}
+
+.fondo-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fondo-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    border: 1px solid #999;
+    background: #b3b3b3; /* gris base */
+}
+
+/* distintos tonos */
+.fondo1 { background-image: url("../Images/4757-mercadopago.png"); }
+.fondo2 { background-image: url("../Images/4757-mercadopago.png"); }
+.fondo3 { background-image: url("../Images/4757-mercadopago.png"); }
+
+.fondo-radio input:checked + .fondo-swatch {
+    border: 2px solid #343A40;
+}
+
+/* BOTÓN CONFIRMAR */
 .btn-continuar {
     display: block;
     width: 100%;
@@ -166,7 +329,7 @@ select {
     text-decoration: none;
 }
 
-/* === RESPONSIVO (móvil) === */
+/* RESPONSIVO (móvil) */
 @media (max-width: 768px) {
     .giftcard-layout {
         flex-direction: column;
