@@ -19,37 +19,35 @@ body {
   padding: 1.25rem;
 }
 
+/* Estilo del Perfil */
 .perfil-header {
+  margin-bottom: 2rem;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 1.5rem;
 }
 
 .avatar {
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 9999px;
   background: #eef2ff;
   display: grid;
   place-items: center;
 }
 
-.avatar svg {
-  width: 70%;
-  height: 70%;
-  fill: #6366f1;
-}
-
 .perfil-meta {
   display: grid;
-  gap: .25rem;
-  color: white;
+  gap: 0.5rem;
 }
 
 .perfil-meta .usuario {
   font-weight: 800;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
+  color: #6b7280;
 }
 
 .perfil-meta .mail {
@@ -59,22 +57,22 @@ body {
 .metodo {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
-  padding: .5rem .75rem;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
   background: #f1f5f9;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   font-weight: 600;
 }
 
 .metodo img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
   object-fit: contain;
 }
 
 .perfil-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 
@@ -84,61 +82,88 @@ body {
   }
 }
 
-.listado {
-  display: grid;
-  gap: .75rem;
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb; 
+  padding-bottom: 0.5rem;
+  text-transform: uppercase; 
+  letter-spacing: 0.05rem; 
 }
 
-.curso-item {
-  display: grid;
-  grid-template-columns: 3.5rem 1fr auto;
-  gap: .75rem;
-  align-items: center;
-  padding: .6rem .7rem;
-  border: 1px solid #eef2f7;
-  border-radius: .6rem;
+
+.card.listado {
+  padding: 1rem;
   background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
 }
 
-.curso-item img {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: .5rem;
+.card.listado .curso-item {
+  margin-bottom: 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card.listado .curso-item:hover {
+  background: #f1f5f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card.listado .curso-item img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.5rem;
   object-fit: cover;
 }
 
-.curso-item .title {
-  font-weight: 700;
+.card.listado .curso-item .title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
 }
 
-.curso-item .meta {
+.card.listado .curso-item .meta {
   color: #6b7280;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
-.curso-item .btn {
-  padding: .45rem .8rem;
-  border-radius: .5rem;
+.card.listado .curso-item .btn {
+  margin-left: auto;
+  padding: 0.5rem 0.5rem;
   background: #3b82f6;
-  color: #fff;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 700;
+  transition: background 0.3s ease;
 }
 
-.curso-item .btn:hover {
+.card.listado .curso-item .btn:hover {
   background: #2563eb;
 }
 
-/* Logout button (header/nav) */
+
 .logout {
-  margin-left: 10rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .btn-logout {
   background-color: #e74c3c;
   color: #fff;
   border: none;
-  padding: 0.9rem;
+  padding: 0.9rem 1.5rem;
   border-radius: 0.5rem;
   cursor: pointer;
   font-weight: 600;
@@ -147,4 +172,45 @@ body {
 
 .btn-logout:hover {
   background-color: #c0392b;
+}
+
+
+.avatar svg {
+  width: 70%;
+  height: 70%;
+  fill: #6366f1;
+}
+
+
+.perfil-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 56rem) {
+  .perfil-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 56rem) {
+  .perfil-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .perfil-header {
+    grid-template-columns: 1fr; 
+  }
+
+  .avatar {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .perfil-meta .usuario {
+    font-size: 1rem;
+  }
 }

@@ -1,4 +1,3 @@
-
 /* ---------------- SLIDER ---------------- */
 function initSlider() {
   const slider = document.querySelector(".slider");
@@ -27,6 +26,7 @@ function initSlider() {
   });
 
   let index = 0;
+
   function show(i) {
     index = (i + images.length) % images.length;
     imgEl.src = images[index];
@@ -36,37 +36,70 @@ function initSlider() {
   prevBtn?.addEventListener("click", () => show(index - 1));
   nextBtn?.addEventListener("click", () => show(index + 1));
   setInterval(() => show(index + 1), 4000);
+
   show(0);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  initSlider();       
-});
-
 /* ---------------- NAVBAR ---------------- */
-document.addEventListener("DOMContentLoaded", () => {
-  const usuario = getUsuarioActivo(); 
-  const linkPerfil = document.querySelector("[data-usuario-nombre]");
 
-  const cajaInvitado = document.querySelector("[data-seccion-invitado]");
-  const cajaLogueado = document.querySelector("[data-seccion-logueado]");
+// Helpers sencillos para manejar el usuario activo
+function getUsuarioActivo() {
+  const data = localStorage.getItem("usuarioActivo");
+  if (!data) return null;
+
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    console.error("Error al parsear usuarioActivo:", e);
+    return null;
+  }
+}
+
+function logoutUsuario() {
+  localStorage.removeItem("usuarioActivo");
+}
+
+// Inicializa el estado de la navbar según si hay usuario logueado o no
+function initNavbar() {
+  const usuario = getUsuarioActivo(); 
+
+  // Elementos del DOM (acordate de tener estas secciones en el HTML)
+  const linkPerfil   = document.querySelector("[data-usuario-nombre]");
+  const cajaInvitado = document.querySelector("[data-seccion-invitado]");  // Iniciar sesión / Registrarse
+  const cajaLogueado = document.querySelector("[data-seccion-logueado]");  // Perfil / Cerrar sesión
   const btnLogout    = document.querySelector("[data-btn-logout]");
 
+  // Opcional: saber si existen usuarios guardados (pero no es obligatorio)
+  const hayUsuariosGuardados = !!localStorage.getItem("usuarios");
+
   if (usuario) {
-    // ✅ Usuario logueado
+    // ✅ Caso A: HAY usuario logueado (usuarioActivo existe)
     if (cajaInvitado) cajaInvitado.style.display = "none";
     if (cajaLogueado) cajaLogueado.style.display = "flex";
-    if (linkPerfil)   linkPerfil.textContent = "Perfil" || "Usuario";
+
+    if (linkPerfil) {
+      // Mostramos el nombre de usuario; si por alguna razón no tiene, mostramos "Perfil"
+      linkPerfil.textContent = usuario.usuario || "Perfil";
+    }
   } else {
-    // 🚫 Nadie logueado
+    // 🚫 Caso B/C: NO hay usuario logueado (usuarioActivo no existe)
+    // Da igual que haya usuarios guardados o no: mostramos la parte de invitado
     if (cajaInvitado) cajaInvitado.style.display = "flex";
     if (cajaLogueado) cajaLogueado.style.display = "none";
   }
 
+  // Evento de cerrar sesión
   if (btnLogout) {
     btnLogout.addEventListener("click", () => {
       logoutUsuario();
-      window.location.href = "Inicio.html"; 
+      window.location.href = "Inicio.html";
     });
   }
+}
+
+/* ---------------- INIT GENERAL ---------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  initSlider();
+  initNavbar();
 });

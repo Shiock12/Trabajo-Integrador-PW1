@@ -15,9 +15,9 @@
 
   <!-- Header -->
   <header>
-    <a href="/Pages/Inicio.html" class="logo">
-      <img src="../Images/logo.webp" alt="Logo">
-    </a>
+    <div class="logo">
+      <img src="./../Images/logo.webp" alt="Logo">
+    </div>
 
     <div class="search-bar">
       <div class="search-container">
@@ -43,28 +43,23 @@
   </header>
 
   <!-- Navbar -->
-  <nav class="navbar">  
-  <ul class="nav-links">
-    <li><a href="./Inicio.html">Inicio</a></li>
-    <li><a href="./VistaCalendario.html">Calendario</a></li>
-    <li><a href="./GiftCard.html">Haz un regalo</a></li>
-    <li><a href="./formularioDeContacto.html">Contacto</a></li>
-    <li><a href="./cursos.html">Cursos</a></li>
-    <li><a href="./FormularioEmpresas.html">Inscripción para empresas</a></li>
-  </ul>
-
-  <!-- 🔹 Versión invitado (NO logueado) -->
-  <div class="nav-acciones" data-seccion-invitado>
-    <a href="/Pages/VistaLogin.html" class="btn btn-login">Iniciar sesión</a>
-    <a href="/Pages/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
-  </div>
-
-  <!-- 🔹 Versión usuario logueado -->
-  <div class="nav-acciones" data-seccion-logueado>
-    <a href="/Pages/VistaPerfil.html" class="btn usuario-link" data-usuario-nombre></a>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="Inicio.html">Inicio</a></li>
+      <li><a href="VistaCalendario.html">Calendario</a></li>
+      <li><a href="GiftCard.html">Haz un regalo</a></li>
+      <li><a href="formularioDeContacto.html">Contacto</a></li>
+      <li><a href="FormularioEmpresas.html">Inscripción para empresas</a></li>
+      <li>
+        <div class="logout">
+          <button class="btn-logout" id="btnDeleteAccount">Eliminar cuenta</button>
+        </div>
+      </li>
+       <div class="nav-acciones" data-seccion-logueado>
     <button class="btn btn-cerrarSesion" data-btn-logout>Cerrar sesión</button>
   </div>
-</nav>
+    </ul>
+  </nav>
 
   <!-- Contenido -->
   <div class="wrap">
@@ -80,17 +75,29 @@
           <div class="mail" id="perfilEmail">usuario@mail.com</div>
         </div>
         <div class="metodo">
-          <img id="perfilMetodoImg" src="" alt="Método de pago">
+          <img id="perfilMetodoImg" src="../Images/mercadopago.png" alt="Método de pago">
           <span id="perfilMetodoTexto">Método de registro</span>
         </div>
       </header>
-      <h1>Agregar cursos que me inscribi/pague</h1>
 
-      <h1>Agregar la parte de cursos que me gustaron</h1>
+      <div class="perfil-grid">
+        <!-- Cursos inscriptos -->
+        <div class="card listado">
+          <h3>Cursos inscriptos</h3>
+          <div id="cursosInscriptos">
+
+          </div>
+        </div>
+
+        <!-- Cursos que me gustaron -->
+        <div class="card listado">
+          <h3>Cursos que me gustaron</h3>
+
+          </div>
+        </div>
+      </div>
     </section>
   </div>
-
-
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -114,6 +121,14 @@
       </ul>
     </div>
   </footer>
- <script type="module" src="/Javascript/perfilUsuario.js"></script>
+
+  <!-- Scripts -->
+  <script type="module" src="../Javascript/inicio.JS"></script>
+  <script type="module" src="../Javascript/cart.js"></script>
+  <script type="module" src="../Javascript/detalleCurso.js"></script>
+  <script type="module" src="../Javascript/perfil.js"></script>
+  
+
+
 </body>
 </html>

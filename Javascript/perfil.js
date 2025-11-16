@@ -1,85 +1,146 @@
-// perfil.js - Manejo del usuario activo, logout y eliminación de cuenta
+// perfil.js - usa localStorage.usuarioActivo y getCourseById
 
-document.addEventListener("DOMContentLoaded", function () {
+import { getCourseById } from './cart.js';
 
-  // 1) Capturamos los elementos del DOM
-  const perfilUsuario = document.getElementById("perfilUsuario");
-  const perfilEmail = document.getElementById("perfilEmail");
-  const perfilMetodoTexto = document.getElementById("perfilMetodoTexto");
+document.addEventListener("DOMContentLoaded", () => {
 
-  const btnLogout = document.getElementById("btnLogout");
-  const btnDelete = document.getElementById("btnDeleteAccount");
+  // 1) Obtener usuario activo desde localStorage
+  const usuarioActivoStr = localStorage.getItem("usuarioActivo");
 
-  // 2) Leemos el usuario activo desde localStorage
-  const usuarioActivoJSON = localStorage.getItem("usuarioActivo");
-
-  if (!usuarioActivoJSON) {
-    // Si no hay usuario logueado, lo mandamos al login
+  if (!usuarioActivoStr) {
+    // Si no hay usuario logueado, mandamos al login (o donde quieras)
     window.location.href = "VistaLogin.html";
     return;
   }
 
-  const usuarioActivo = JSON.parse(usuarioActivoJSON);
+  let user;
+  try {
+    user = JSON.parse(usuarioActivoStr);
+  } catch (e) {
+    console.error("Error al parsear usuarioActivo:", e);
+    window.location.href = "VistaLogin.html";
+    return;
+  }
 
-  // 3) MOSTRAR DATOS EN PANTALLA
-  perfilUsuario.textContent = usuarioActivo.usuario;
-  perfilEmail.textContent = usuarioActivo.email;
-  perfilMetodoTexto.textContent = usuarioActivo.metodo;
+  // 2) Mostrar nombre y mail en el perfil
+  const perfilUsuario = document.getElementById("perfilUsuario");
+  const perfilEmail   = document.getElementById("perfilEmail");
+  const perfilMetodo  = document.getElementById("perfilMetodoTexto");
 
-  // 4) CERRAR SESIÓN
-  btnLogout.addEventListener("click", function () {
-    localStorage.removeItem("usuarioActivo");
-    window.location.href = "../index.html"; // Cambiá si querés otro destino
-  });
+  if (perfilUsuario) {
+    // Probar distintas propiedades por si el objeto viene con otro nombre
+    perfilUsuario.textContent = user.usuario || user.name || "Usuario";
+  }
 
-  // 5) ELIMINAR CUENTA
-  btnDelete.addEventListener("click", function () {
+  if (perfilEmail) {
+    perfilEmail.textContent = user.email || "usuario@mail.com";
+  }
 
-    const confirmar = confirm("¿Seguro que querés eliminar tu cuenta?");
+  if (perfilMetodo) {
+    // Si en el usuario guardaste el método de pago/registro
+    perfilMetodo.textContent = user.metodo || "Método de registro";
+  }
 
-    if (!confirmar) return;
+  // 3) Cursos inscriptos (comprados)
+  const inscriptosContainer = document.getElementById("cursosInscriptos");
+  if (inscriptosContainer) {
+    inscriptosContainer.innerHTML = "";
 
-    // Traemos la lista de todos los usuarios
-    let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const purchased = Array.isArray(user.purchasedCourses)
+      ? user.purchasedCourses
+      : (Array.isArray(user.cursos) ? user.cursos : []); // fallback
 
-    // Filtramos para eliminar al usuario activo
-    const nuevaLista = listaUsuarios.filter(function (u) {
-      return u.usuario !== usuarioActivo.usuario;
+    if (purchased.length === 0) {
+      inscriptosContainer.innerHTML = "<p>No has comprado ningún curso aún.</p>";
+    } else {
+      purchased.forEach((id) => {
+        const course = getCourseById(id);
+        if (!course) return;
+
+        inscriptosContainer.innerHTML += `
+          <article class="curso-item">
+            <img src="${course.imageURL}" alt="${course.title}">
+            <div>
+              <div class="title">${course.title}</div>
+              <div class="meta">${course.dedicacion || ""}</div>
+            </div>
+            <a href="detalleCursos.html?id=${course.id}" class="btn">Ir al curso</a>
+          </article>
+        `;
+      });
+    }
+  }
+
+  // 4) Cursos que me gustaron (segunda card.listado)
+  const segundaCard = document.querySelector(".perfil-grid .card.listado:nth-of-type(2)");
+  let likedContainer = null;
+
+  if (segundaCard) {
+    likedContainer = document.createElement("div");
+    likedContainer.id = "cursosGustados";
+    segundaCard.appendChild(likedContainer);
+  }
+
+  if (likedContainer) {
+    likedContainer.innerHTML = "";
+
+    const liked = Array.isArray(user.likedCourses) ? user.likedCourses : [];
+
+    if (liked.length === 0) {
+      likedContainer.innerHTML = "<p>No tienes cursos en favoritos.</p>";
+    } else {
+      liked.forEach((id) => {
+        const course = getCourseById(id);
+        if (!course) return;
+
+        likedContainer.innerHTML += `
+          <article class="curso-item">
+            <img src="${course.imageURL}" alt="${course.title}">
+            <div>
+              <div class="title">${course.title}</div>
+              <div class="meta">${course.dedicacion || ""}</div>
+            </div>
+            <a href="detalleCursos.html?id=${course.id}" class="btn">Ver detalle</a>
+          </article>
+        `;
+      });
+    }
+  }
+
+  // 5) Eliminar cuenta
+  const btnDeleteAccount = document.getElementById("btnDeleteAccount");
+
+  if (btnDeleteAccount) {
+    btnDeleteAccount.addEventListener("click", () => {
+
+      const confirmar = confirm("¿Seguro que querés eliminar tu cuenta? Esta acción no se puede deshacer.");
+
+      if (!confirmar) return;
+
+      // a) Eliminar de la lista "usuarios" (si la usás)
+      try {
+        const usuariosStr = localStorage.getItem("usuarios");
+        if (usuariosStr) {
+          const lista = JSON.parse(usuariosStr);
+          const nuevaLista = Array.isArray(lista)
+            ? lista.filter((u) => {
+                const mismoEmail   = u.email === user.email;
+                const mismoUsuario = u.usuario === (user.usuario || user.name);
+                return !(mismoEmail || mismoUsuario);
+              })
+            : [];
+          localStorage.setItem("usuarios", JSON.stringify(nuevaLista));
+        }
+      } catch (err) {
+        console.error("Error al actualizar 'usuarios' en localStorage:", err);
+      }
+
+      // b) Eliminar usuarioActivo
+      localStorage.removeItem("usuarioActivo");
+
+      alert("Tu cuenta fue eliminada correctamente.");
+      window.location.href = "Inicio.html";
     });
-
-    // Guardamos la nueva lista
-    localStorage.setItem("usuarios", JSON.stringify(nuevaLista));
-
-    // Quitamos usuario activo
-    localStorage.removeItem("usuarioActivo");
-
-    alert("Tu cuenta fue eliminada correctamente.");
-    window.location.href = "../index.html";
-  });
-
-  // 6) MOSTRAR CURSOS INSCRIPTOS (si los hay)
-  // Lugar donde vamos a insertar la lista de cursos
-  const cursosTitulo = document.createElement("h2");
-  cursosTitulo.textContent = "Cursos inscriptos";
-  cursosTitulo.style.marginTop = "30px";
-
-  const listaCursos = document.createElement("ul");
-  listaCursos.style.marginTop = "10px";
-
-  document.querySelector(".card").appendChild(cursosTitulo);
-  document.querySelector(".card").appendChild(listaCursos);
-
-  // Si tiene cursos, los mostramos
-  if (Array.isArray(usuarioActivo.cursos) && usuarioActivo.cursos.length > 0) {
-    usuarioActivo.cursos.forEach(function (curso) {
-      const li = document.createElement("li");
-      li.textContent = curso;
-      listaCursos.appendChild(li);
-    });
-  } else {
-    const li = document.createElement("li");
-    li.textContent = "Todavía no estás inscripto en ningún curso.";
-    listaCursos.appendChild(li);
   }
 
 });

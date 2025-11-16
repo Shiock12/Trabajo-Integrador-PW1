@@ -1,4 +1,4 @@
-// registrase.js - guardar usuario en localStorage con validación
+// registrarse.js - guardar usuario en localStorage con validación
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -10,56 +10,57 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   formRegistro.addEventListener("submit", function (evento) {
-    evento.preventDefault();
+    evento.preventDefault(); // evita recargar la página
 
-    // Capturamos los valores del formulario
+    // Capturar datos del formulario
     const usuario = document.getElementById("registroUsuario").value.trim();
     const email = document.getElementById("registroEmail").value.trim();
     const password = document.getElementById("registroPassword").value;
     const password2 = document.getElementById("registroPassword2").value;
     const metodo = document.getElementById("metodo").value;
 
-    // Validación de contraseñas
+    // Validación: passwords iguales
     if (password !== password2) {
       alert("Las contraseñas no coinciden.");
       return;
     }
 
-    // Leer lista de usuarios guardados
+    // Leer usuarios guardados en localStorage
     let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    // *** VALIDACIÓN: usuario o email ya usados ***
+    // Validar usuario repetido
     const existeUsuario = listaUsuarios.some(u => u.usuario === usuario);
-    const existeEmail = listaUsuarios.some(u => u.email === email);
-
     if (existeUsuario) {
-      alert("El nombre de usuario ya está en uso. Elegí uno diferente.");
+      alert("El nombre de usuario ya está en uso.");
       return;
     }
 
+    // Validar email repetido
+    const existeEmail = listaUsuarios.some(u => u.email === email);
     if (existeEmail) {
       alert("El email ya está registrado.");
       return;
     }
 
-    // Creamos el nuevo usuario
+    // Crear objeto usuario
     const nuevoUsuario = {
       usuario: usuario,
       email: email,
       password: password,
       metodo: metodo,
-      cursos: []   // para guardar cursos más adelante
+      cursos: [] // futuro: guardar cursos aquí
     };
 
-    // Agregamos el usuario a la lista
+    // Agregar a la lista
     listaUsuarios.push(nuevoUsuario);
 
-    // Guardamos en localStorage
+    // Guardar nuevamente en localStorage
     localStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
 
+    // Avisar y limpiar
     alert("Cuenta creada correctamente ✅");
     formRegistro.reset();
     window.location.href = "../index.html";
-
   });
+
 });

@@ -1,28 +1,39 @@
-import { loginUsuario } from "./auth.js";
+// login.js - Validación simple contra usuarios del localStorage
 
-const formLogin    = document.getElementById("formLogin");
-const inputUsuario = document.getElementById("loginUsuario");
-const inputPassword    = document.getElementById("loginPassword");
-const errorBox     = document.getElementById("loginError");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (formLogin) {
-  formLogin.addEventListener("submit", (e) => {
-    e.preventDefault(); 
+  const formLogin = document.getElementById("formLogin");
 
-    const usuario  = inputUsuario.value.trim();
-    const password = inputPassword.value.trim();
+  if (!formLogin) {
+    console.error("No se encontró el formulario (id=formLogin).");
+    return;
+  }
 
-    try {
-      loginUsuario(usuario, password);
+  formLogin.addEventListener("submit", function (evento) {
+    evento.preventDefault();
 
-      window.location.href = "../Pages/Inicio.html";
-    } catch (err) {
-      if (errorBox) {
-        errorBox.textContent = err.message || "Error al iniciar sesión.";
-        errorBox.style.display = "block";
-      } else {
-        alert(err.message || "Error al iniciar sesión.");
-      }
+    const usuarioIngresado = document.getElementById("loginUsuario").value.trim();
+    const passwordIngresado = document.getElementById("loginPassword").value;
+
+    if (usuarioIngresado === "" || passwordIngresado === "") {
+      alert("Completá usuario y contraseña.");
+      return;
     }
+
+    let listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    const usuarioEncontrado = listaUsuarios.find(function (u) {
+      return u.usuario === usuarioIngresado && u.password === passwordIngresado;
+    });
+
+    if (!usuarioEncontrado) {
+      alert("Usuario o contraseña incorrectos.");
+      return;
+    }
+
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
+
+    window.location.href = "Inicio.html";
   });
-}
+
+});
