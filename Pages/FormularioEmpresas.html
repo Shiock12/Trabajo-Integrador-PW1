@@ -10,12 +10,13 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
   <!-- Header -->
   <header>
-    <div class="logo"><img src="./../Images/logo.webp" alt="Logo"></div>
+    <a href="/Pages/Inicio.html" class="logo">
+      <img src="../Images/logo.webp" alt="Logo">
+    </a>
     <div class="search-bar">
       <div class="search-container">
         <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos">
@@ -37,93 +38,86 @@
       <span class="cart-count">0</span>
     </div>
   </header>
+  <nav class="navbar">  
+  <ul class="nav-links">
+    <li><a href="./Inicio.html">Inicio</a></li>
+    <li><a href="./VistaCalendario.html">Calendario</a></li>
+    <li><a href="./GiftCard.html">Haz un regalo</a></li>
+    <li><a href="./formularioDeContacto.html">Contacto</a></li>
+    <li><a href="./cursos.html">Cursos</a></li>
+    <li><a href="./FormularioEmpresas.html">Inscripción para empresas</a></li>
+  </ul>
 
-  <nav>
-    <ul class="nav-links">
-      <li><a href="./Inicio.html">Inicio</a></li>
-      <li><a href="./VistaCalendario.html">Calendario</a></li>
-      <li><a href="./GiftCard.html">Haz un regalo</a></li>
-      <li><a href="cursos.html">Cursos</a></li>
-      <li><a href="./formularioDeContacto.html">Contacto</a></li>
-      <li><a href="./VistaPerfil.html">Perfil</a></li>
-    </ul>
-  </nav>
+  <!-- 🔹 Versión invitado (NO logueado) -->
+  <div class="nav-acciones" data-seccion-invitado>
+    <a href="/Pages/VistaLogin.html" class="btn btn-login">Iniciar sesión</a>
+    <a href="/Pages/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
+  </div>
 
+  <!-- 🔹 Versión usuario logueado -->
+  <div class="nav-acciones" data-seccion-logueado>
+    <a href="/Pages/VistaPerfil.html" class="btn usuario-link" data-usuario-nombre></a>
+    <button class="btn btn-cerrarSesion" data-btn-logout>Cerrar sesión</button>
+  </div>
+</nav>
   <main class="ingresar">
 
-    <section class="selector-curso" style="margin-left:50px;margin-top:20px;">
-      <label for="curso">Curso:</label>
-      <select id="curso">
-        <option value="ux" data-precio="3000" data-titulo="Diseño UX/UI" data-desc="Interfaces y experiencia de usuario">Diseño UX/UI</option>
-        <option value="ds" data-precio="7650" data-titulo="Data Science"  data-desc="Python, estadística y ML">Data Science</option>
-        <option value="mk" data-precio="10000" data-titulo="Marketing Digital" data-desc="SEO, redes y performance">Marketing Digital</option>
-      </select>
-    </section>
-
+<section class="selector-curso" style="margin-left:50px;margin-top:20px;">
+  <label for="curso">Curso:</label>
+  <select id="curso">
+    <option value="ux" data-precio="3000" data-titulo="Diseño UX/UI" data-desc="Interfaces y experiencia de usuario">Diseño UX/UI</option>
+    <option value="ds" data-precio="7650" data-titulo="Data Science"  data-desc="Python, estadística y ML">Data Science</option>
+    <option value="mk" data-precio="10000" data-titulo="Marketing Digital" data-desc="SEO, redes y performance">Marketing Digital</option>
+  </select>
+</section>
     <section class="titulo-descripcion">
       <h2 id="tituloCurso">Título curso</h2>
       <h3 id="descripcion">Descripción</h3>
     </section>
-
-    <!-- Contenedor de inputs dinámicos -->
-    <section class="contenedor-inputs" id="contenedorInputs"></section>
-
+    <section class="contenedor-inputs" id="contenedorInputs">
+    </section>
     <section class="add-person">
       <img src="../Images/icons8-más-50.png" alt="Agregar persona" id="agregar">
       <h3>Agregar persona</h3>
     </section>
+<section class="inscribirse">
+  <h4 id="precioTotal">$0000.-</h4>
+  <button type="button" id="btnInscribirse">Inscribirse</button>
+</section>
 
-    <section class="inscribirse">
-      <h4 id="precioTotal">$0000.-</h4>
-      <button type="button" id="btnInscribirse">Inscribirse</button>
-    </section>
-
-    <!-- Modal -->
-    <div id="modalResumen" class="modal" aria-hidden="true" data-close>
-      <div class="modal-contenido">
-        <span class="modal-cerrar" data-close>X</span>
-        <div id="modalContenido"></div>
-        <button id="btnConfirmar">Confirmar</button>
-      </div>
-    </div>
-
-    <!-- Tarjeta que se muestra debajo -->
-    <section id="resumenInscripcion" class="resumen" style="display: none;">
-      <h3>Resumen de Inscripción</h3>
-      <p><strong>Curso:</strong> <span id="resumenCurso"></span></p>
-      <p><strong>Total:</strong> <span id="resumenPrecio"></span></p>
-      <hr>
-      <h4>Personas inscriptas:</h4>
-      <ul id="listaPersonas"></ul>
-    </section>
-
+<!-- Tarjeta que se muestra al inscribirse -->
+<section id="resumenInscripcion" class="resumen" style="display: none;">
+  <h3>Resumen de Inscripción</h3>
+  <p><strong>Curso:</strong> <span id="resumenCurso"></span></p>
+  <p><strong>Total:</strong> <span id="resumenPrecio"></span></p>
+  <hr>
+  <h4>Personas inscriptas:</h4>
+  <ul id="listaPersonas"></ul>
+</section>
   </main>
 
-    <footer>
-        <div>
-            <p>Isaac Rios - 42147287</p>
-            <p>Franco Varela - 40674420</p>
-            <p>Maas Nicolas Agustin - 46122160</p>
-            <p>Nahuel Esposito - 43862624</p>
-            <p>Juan Pablo Pfeiffer - 41454612</p>
-        </div>
-        <div>
-            <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
-        </div>
-        <div class="redes-sociales">
-            <ul>
-                <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a>
-                </li>
-                <li><a></a>Franco Varela</li>
-                <li><a></a>Nicolas Maas</li>
-                <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a>
-                </li>
-                <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-
-  <script src="../Javascript/inscripcion-empresa.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div>
+      <p>Isaac Rios - 42147287</p>
+      <p>Franco Varela - 40674420</p>
+      <p>Maas Nicolas Agustin - 46122160</p>
+      <p>Nahuel Esposito - 43862624</p>
+      <p>Juan Pablo Pfeiffer - 41454612</p>
+    </div>
+    <div>
+      <p>&copy; 2025 GrupoN. Todos los derechos reservados.</p>
+    </div>
+    <div class="redes-sociales">
+      <ul>
+        <li><a target="_blank" href="https://www.linkedin.com/in/isaac-rios-ovando-aa5b83213/">Isaac Rios</a></li>
+        <li><a>Franco Varela</a></li>
+        <li><a>Nicolas Maas</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/nahuel-esposito-82a868212/">Nahuel Esposito</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/juan-pablo-pfeiffer/">Pfeiffer Juan Pablo</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script type="module" src="/Javascript/inscripcion-empresa.js"></script>
 </body>
 </html>

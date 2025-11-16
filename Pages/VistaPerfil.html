@@ -15,9 +15,9 @@
 
   <!-- Header -->
   <header>
-    <div class="logo">
-      <img src="./../Images/logo.webp" alt="Logo">
-    </div>
+    <a href="/Pages/Inicio.html" class="logo">
+      <img src="../Images/logo.webp" alt="Logo">
+    </a>
 
     <div class="search-bar">
       <div class="search-container">
@@ -43,22 +43,28 @@
   </header>
 
   <!-- Navbar -->
-  <nav>
-    <ul class="nav-links">
-      <li><a href="Inicio.html">Inicio</a></li>
-      <li><a href="VistaCalendario.html">Calendario</a></li>
-      <li><a href="GiftCard.html">Haz un regalo</a></li>
-      <li><a href="cursos.html">Cursos</a></li>
-      <li><a href="formularioDeContacto.html">Contacto</a></li>
-      <li><a href="FormularioEmpresas.html">Inscripción para empresas</a></li>
-      <li>
-        <div class="logout">
-  <button class="btn-logout" id="btnLogout">Cerrar sesión</button>
-  <button class="btn-logout" id="btnDeleteAccount">Eliminar cuenta</button>
-</div>
-      </li>
-    </ul>
-  </nav>
+  <nav class="navbar">  
+  <ul class="nav-links">
+    <li><a href="./Inicio.html">Inicio</a></li>
+    <li><a href="./VistaCalendario.html">Calendario</a></li>
+    <li><a href="./GiftCard.html">Haz un regalo</a></li>
+    <li><a href="./formularioDeContacto.html">Contacto</a></li>
+    <li><a href="./cursos.html">Cursos</a></li>
+    <li><a href="./FormularioEmpresas.html">Inscripción para empresas</a></li>
+  </ul>
+
+  <!-- 🔹 Versión invitado (NO logueado) -->
+  <div class="nav-acciones" data-seccion-invitado>
+    <a href="/Pages/VistaLogin.html" class="btn btn-login">Iniciar sesión</a>
+    <a href="/Pages/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
+  </div>
+
+  <!-- 🔹 Versión usuario logueado -->
+  <div class="nav-acciones" data-seccion-logueado>
+    <a href="/Pages/VistaPerfil.html" class="btn usuario-link" data-usuario-nombre></a>
+    <button class="btn btn-cerrarSesion" data-btn-logout>Cerrar sesión</button>
+  </div>
+</nav>
 
   <!-- Contenido -->
   <div class="wrap">
@@ -78,10 +84,13 @@
           <span id="perfilMetodoTexto">Método de registro</span>
         </div>
       </header>
+      <h1>Agregar cursos que me inscribi/pague</h1>
 
-<h1>Agregar cursos que me inscribi/pague</h1>
+      <h1>Agregar la parte de cursos que me gustaron</h1>
+    </section>
+  </div>
 
-<h1>Agregar la parte de cursos que me gustaron</h1>
+
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -105,6 +114,6 @@
       </ul>
     </div>
   </footer>
-  <script src="../Javascript/perfil.js"></script>
+ <script type="module" src="/Javascript/perfilUsuario.js"></script>
 </body>
 </html>

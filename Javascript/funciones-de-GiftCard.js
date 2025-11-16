@@ -1,3 +1,5 @@
+import { getUsuarioActivo, logoutUsuario} from "./auth.js";
+
 document.addEventListener("DOMContentLoaded", function () {
 
   // -------------------------------
@@ -80,4 +82,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+});
+
+/* ---------------- NAVBAR ---------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = getUsuarioActivo(); 
+  const linkPerfil = document.querySelector("[data-usuario-nombre]");
+
+  const cajaInvitado = document.querySelector("[data-seccion-invitado]");
+  const cajaLogueado = document.querySelector("[data-seccion-logueado]");
+  const btnLogout    = document.querySelector("[data-btn-logout]");
+
+  if (usuario) {
+    // ✅ Usuario logueado
+    if (cajaInvitado) cajaInvitado.style.display = "none";
+    if (cajaLogueado) cajaLogueado.style.display = "flex";
+    if (linkPerfil)   linkPerfil.textContent = "Perfil" || "Usuario";
+  } else {
+    // 🚫 Nadie logueado
+    if (cajaInvitado) cajaInvitado.style.display = "flex";
+    if (cajaLogueado) cajaLogueado.style.display = "none";
+  }
+
+  if (btnLogout) {
+    btnLogout.addEventListener("click", () => {
+      logoutUsuario();
+      window.location.href = "Inicio.html"; 
+    });
+  }
 });
