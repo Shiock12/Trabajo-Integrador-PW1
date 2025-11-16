@@ -20,9 +20,9 @@
 
     <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="./../Images/logo.webp">
-        </div>
+        <a href="/Pages/Inicio.html" class="logo">
+            <img src="../Images/logo.webp" alt="Logo">
+        </a>
         <div class="search-bar">
             <div class="search-container">
                 <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
@@ -45,16 +45,28 @@
         </div>
     </header>
 
-    <nav>
-        <ul class="nav-links">
-            <li><a href="./../Pages/Inicio.html"><i class='bx bx-home'></i><span>Inicio</span></a></li>
-            <li><a href="./../Pages/VistaCalendario.html"><i class='bx bx-calendar'></i><span>Calendario</span></a></li>
-            <li><a href="./../Pages/GiftCard.html"><i class='bx bx-gift'></i><span>Haz un regalo</span></a></li>
-            <li><a href="./../Pages/formularioDeContacto.html"><i class='bx bx-phone'></i><span>Contacto</span></a></li>
-            <li><a href="./../Pages/FormularioEmpresas.html"><i class='bx bx-briefcase'></i><span>Inscripción para
-                        empresas</span></a></li>
-        </ul>
-    </nav>
+    <nav class="navbar">  
+  <ul class="nav-links">
+    <li><a href="./Inicio.html">Inicio</a></li>
+    <li><a href="./VistaCalendario.html">Calendario</a></li>
+    <li><a href="./GiftCard.html">Haz un regalo</a></li>
+    <li><a href="./formularioDeContacto.html">Contacto</a></li>
+    <li><a href="./cursos.html">Cursos</a></li>
+    <li><a href="./FormularioEmpresas.html">Inscripción para empresas</a></li>
+  </ul>
+
+  <!-- 🔹 Versión invitado (NO logueado) -->
+  <div class="nav-acciones" data-seccion-invitado>
+    <a href="/Pages/VistaLogin.html" class="btn btn-login">Iniciar sesión</a>
+    <a href="/Pages/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
+  </div>
+
+  <!-- 🔹 Versión usuario logueado -->
+  <div class="nav-acciones" data-seccion-logueado>
+    <a href="/Pages/VistaPerfil.html" class="btn usuario-link" data-usuario-nombre></a>
+    <button class="btn btn-cerrarSesion" data-btn-logout>Cerrar sesión</button>
+  </div>
+</nav>
 
     <main>
 
@@ -119,4 +131,5 @@
         </div>
     </footer>
 </body>
+<script type="module" src="/Javascript/vistaCalendario.js"></script>
 </html>

@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de contacto</title>
-    <link rel="stylesheet" href="../CSS/HeaderNav.css">
-    <link rel="stylesheet" href="../CSS/HeaderNav.css">
+    <link rel="stylesheet" href="../CSS/HeaderNav.css"">
     <link rel="stylesheet" href="../CSS/FormularioDeContacto.css">
     <link rel="stylesheet" href="../CSS/Footer.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
     <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="./../Images/logo.webp">
-        </div>
+        <a href="/Pages/Inicio.html" class="logo">
+            <img src="../Images/logo.webp" alt="Logo">
+        </a>
         <div class="search-bar">
             <div class="search-container">
                 <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
@@ -40,17 +41,28 @@
         </div>
     </header>
     <!-- Navbar -->
-    <nav>
-        <ul class="nav-links">
-            <li><a href="Inicio.html">Inicio</a></li>
-            <li><a href="#">Calendario</a></li>
-            <li><a href="GiftCard.html">Haz un regalo</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
-            <li><a href="FormularioEmpresas.html">Inscripción para empresas</a></li>
-            <li><a href="VistaPerfil.html">Perfil</a></li>
+<nav class="navbar">  
+  <ul class="nav-links">
+    <li><a href="./Inicio.html">Inicio</a></li>
+    <li><a href="./VistaCalendario.html">Calendario</a></li>
+    <li><a href="./GiftCard.html">Haz un regalo</a></li>
+    <li><a href="./formularioDeContacto.html">Contacto</a></li>
+    <li><a href="./cursos.html">Cursos</a></li>
+    <li><a href="./FormularioEmpresas.html">Inscripción para empresas</a></li>
+  </ul>
 
-        </ul>
-    </nav>
+  <!-- 🔹 Versión invitado (NO logueado) -->
+  <div class="nav-acciones" data-seccion-invitado>
+    <a href="/Pages/VistaLogin.html" class="btn btn-login">Iniciar sesión</a>
+    <a href="/Pages/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
+  </div>
+
+  <!-- 🔹 Versión usuario logueado -->
+  <div class="nav-acciones" data-seccion-logueado>
+    <a href="/Pages/VistaPerfil.html" class="btn usuario-link" data-usuario-nombre></a>
+    <button class="btn btn-cerrarSesion" data-btn-logout>Cerrar sesión</button>
+  </div>
+</nav>
     <!--Main-->
     <main>
         <!--Formulario-->
@@ -147,5 +159,6 @@
             </ul>
         </div>
     </footer>
+    <script type="module" src="/Javascript/formulario-de-contacto.js"></script>
 </body>
 </html>
