@@ -1,64 +1,83 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  //CAPTURAR ELEMENTOS DEL FORMULARIO
+  // -------------------------------
+  // CAPTURA DE ELEMENTOS DEL FORM
+
   const inputDestinatario = document.getElementById("destinatario");
   const inputMonto = document.getElementById("monto");
-  const inputColor = document.getElementById("color_fuente");
-  const selectTamano = document.getElementById("tamano_fuente");
-  const selectFondo = document.getElementById("fondo");
 
-  //CAPTURAR ELEMENTOS DE LA VISTA PREVIA
+  // Radio buttons (color, tamaño, fondo)
+  const radiosColor = document.querySelectorAll("input[name='color_fuente']");
+  const radiosTamano = document.querySelectorAll("input[name='tamano_fuente']");
+  const radiosFondo = document.querySelectorAll("input[name='fondo']");
+
+  // -------------------------------
+  // CAPTURA DE LA VISTA PREVIA
+
+
   const previewNombre = document.querySelector(".preview-nombre");
   const previewPrecio = document.querySelector(".preview-precio");
   const previewGiftcard = document.querySelector(".giftcard-preview");
 
-  //ACTUALIZAR NOMBRE
-  inputDestinatario.addEventListener("input", () => {
-    const nombre = inputDestinatario.value.trim();
+  // -------------------------------
+  // 1) ACTUALIZAR NOMBRE
+
+
+  inputDestinatario.addEventListener("input", function () {
+    let nombre = inputDestinatario.value.trim();
     previewNombre.textContent = nombre !== "" ? nombre : "Destinatario";
   });
 
-  //ACTUALIZAR MONTO
-  inputMonto.addEventListener("input", () => {
-    const valor = inputMonto.value;
-    previewPrecio.textContent = valor ? `$${valor}.-` : "$0000.-";
+  // -------------------------------
+  // 2) ACTUALIZAR MONTO
+
+
+  inputMonto.addEventListener("input", function () {
+    let valor = inputMonto.value.trim();
+    previewPrecio.textContent = valor !== "" ? `$${valor}.-` : "$0000.-";
   });
 
-  //ACTUALIZAR COLOR DE FUENTE
-  inputColor.addEventListener("input", () => {
-    previewNombre.style.color = inputColor.value;
+  // -------------------------------
+  // 3) ACTUALIZAR COLOR DEL NOMBRE
+
+
+  radiosColor.forEach(radio => {
+    radio.addEventListener("change", function () {
+      previewNombre.style.color = radio.value;
+    });
   });
 
-  //ACTUALIZAR TAMAÑO DE FUENTE
-  selectTamano.addEventListener("change", () => {
-    switch (selectTamano.value) {
-      case "small":
-        previewNombre.style.fontSize = "0.9em";
-        break;
-      case "medium":
-        previewNombre.style.fontSize = "1.2em";
-        break;
-      case "large":
-        previewNombre.style.fontSize = "1.5em";
-        break;
-    }
+  // -------------------------------
+  // 4) ACTUALIZAR TAMAÑO DEL NOMBRE
+
+
+  radiosTamano.forEach(radio => {
+    radio.addEventListener("change", function () {
+      let tamano = radio.value; // viene en "20", "28", "32", "48", "60"
+      previewNombre.style.fontSize = tamano + "px";
+    });
   });
 
-  //CAMBIAR FONDO DE LA GIFT CARD
-  selectFondo.addEventListener("change", () => {
-    switch (selectFondo.value) {
-      case "fondo1":
-        previewGiftcard.style.backgroundColor = "#FF0000"; // Rojo
-        break;
-      case "fondo2":
-        previewGiftcard.style.backgroundColor = "#00FF00"; // Verde
-        break;
-      case "fondo3":
-        previewGiftcard.style.backgroundColor = "#8B00FF"; // Morado
-        break;
-      default:
-        previewGiftcard.style.backgroundColor = "#6A9CF4";
-    }
+  // -------------------------------
+  // 5) CAMBIAR FONDO DE LA TARJETA
+
+  radiosFondo.forEach(radio => {
+    radio.addEventListener("change", function () {
+
+      // Cambia la imagen de fondo de la preview según el radio seleccionado
+      if (radio.value === "f1") {
+        previewGiftcard.style.backgroundImage = "url('../Images/fondo1.jpg')";
+      }
+      else if (radio.value === "f2") {
+        previewGiftcard.style.backgroundImage = "url('../Images/fondo3.jpg')";
+      }
+      else if (radio.value === "f3") {
+        previewGiftcard.style.backgroundImage = "url('../Images/fondo4.jpg')";
+      }
+
+      previewGiftcard.style.backgroundSize = "cover";
+      previewGiftcard.style.backgroundPosition = "center";
+    });
   });
 
 });

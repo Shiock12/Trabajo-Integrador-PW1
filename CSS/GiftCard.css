@@ -83,6 +83,8 @@ body {
     text-align: center;
     position: relative;
     font-size: 1.1em;
+    background-size: cover;       /* para fondos */
+    background-position: center;
 }
 
 /* Monto arriba a la derecha */
@@ -131,7 +133,7 @@ select {
 }
 
 /* =========================
-   OPCIONES DE COLOR (radios)
+   COLORES
 ========================= */
 
 .color-options {
@@ -149,7 +151,7 @@ select {
     cursor: pointer;
 }
 
-/* ocultamos el radio nativo */
+/* ocultar radio */
 .color-radio input {
     position: absolute;
     opacity: 0;
@@ -161,7 +163,6 @@ select {
     height: 28px;
     border-radius: 50%;
     border: 2px solid transparent;
-    display: inline-block;
 }
 
 /* borde cuando está seleccionado */
@@ -209,7 +210,6 @@ select {
 .ubicacion-radio input {
     position: absolute;
     opacity: 0;
-    pointer-events: none;
 }
 
 .ubicacion-box {
@@ -220,7 +220,7 @@ select {
     position: relative;
 }
 
-/* “bloque” gris que simula el monto */
+/* Bloque gris que simula el monto */
 .ubicacion-box::before {
     content: "";
     position: absolute;
@@ -230,62 +230,71 @@ select {
 }
 
 .ubicacion-izq::before {
-    top: 0;
     left: 0;
+    top: 0;
 }
 
 .ubicacion-centro::before {
-    top: 0;
     left: 50%;
+    top: 0;
     transform: translateX(-50%);
 }
 
 .ubicacion-der::before {
-    top: 0;
     right: 0;
+    top: 0;
 }
 
-/* borde al seleccionar */
+/* seleccionado */
 .ubicacion-radio input:checked + .ubicacion-box {
     border: 2px solid #343A40;
 }
 
 /* =========================
-   FONDOS (cuadraditos)
+   FONDOS (IMÁGENES MINIATURA)
 ========================= */
 
-.fondo-options {
+.fondo-image-options {
     display: flex;
-    gap: 10px;
-    margin-top: 4px;
+    gap: 14px;
+    margin-top: 6px;
 }
 
-.fondo-radio {
-    position: relative;
+.fondo-image-radio {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.fondo-radio input {
+/* ocultar radio */
+.fondo-image-radio input {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 }
 
-.fondo-swatch {
-    width: 28px;
-    height: 28px;
-    border-radius: 4px;
-    border: 1px solid #999;
-    background: #b3b3b3; /* gris base */
+/* miniatura */
+.fondo-image-radio img {
+    width: 75px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* distintos tonos */
-.fondo1 { background-image: url("../Images/4757-mercadopago.png"); }
-.fondo2 { background-image: url("../Images/4757-mercadopago.png"); }
-.fondo3 { background-image: url("../Images/4757-mercadopago.png"); }
+/* hover */
+.fondo-image-radio img:hover {
+    transform: scale(1.06);
+}
 
-.fondo-radio input:checked + .fondo-swatch {
-    border: 2px solid #343A40;
+/* seleccionado */
+.fondo-image-radio input:checked + img {
+    border-color: #343A40;
+    transform: scale(1.10);
+    box-shadow: 0 0 6px rgba(0,0,0,0.25);
 }
 
 /* BOTÓN CONFIRMAR */
@@ -315,11 +324,6 @@ select {
     justify-content: space-around; 
 }
 
-.site-footer h4 {
-    margin-bottom: 10px;
-    color: #6A9CF4;
-}
-
 .site-footer ul {
     list-style: none; 
 }
@@ -329,7 +333,7 @@ select {
     text-decoration: none;
 }
 
-/* RESPONSIVO (móvil) */
+/* RESPONSIVO */
 @media (max-width: 768px) {
     .giftcard-layout {
         flex-direction: column;
@@ -338,11 +342,23 @@ select {
 
     .vista-previa-contenedor,
     .personalizacion-form {
-        flex: 1 1 100%;
         width: 100%;
     }
 
     .giftcard-preview {
         max-width: 100%;
     }
+}
+.color-radio input {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50% !important;   /* asegura círculo */
+    border: 2px solid transparent;
+    display: inline-block;
+    object-fit: cover;
 }

@@ -1,200 +1,267 @@
-// inscripcion-empresa.js
-export function initEmpresaForm() {
+// =======================================================================
+//  inscripcion-empresa.js — versión JUNIOR FRIENDLY
+// =======================================================================
 
-  //variables
+document.addEventListener("DOMContentLoaded", function () {
+
+  // -------------------------------------------------------------------
+  // VARIABLES PRINCIPALES (traemos los elementos del HTML)
+  // -------------------------------------------------------------------
+
   const curso = document.getElementById("curso");
-  const tituloCurso= document.getElementById("tituloCurso");
-  const descripcion= document.getElementById("descripcion");
-  const precioTotal= document.getElementById("precioTotal");
+  const tituloCurso = document.getElementById("tituloCurso");
+  const descripcion = document.getElementById("descripcion");
+  const precioTotal = document.getElementById("precioTotal");
 
-  const contenedor  = document.getElementById('contenedorInputs');
-  const botonagregar  = document.getElementById('agregar'); //es la iamgen del +
+  const contenedor = document.getElementById("contenedorInputs");
+  const botonAgregar = document.getElementById("agregar");
+
+  const btnInscribirse = document.getElementById("btnInscribirse");
 
   // Modal
-  const btnInscribirse = document.getElementById('btnInscribirse');
-  const modal          = document.getElementById('modalResumen');
-  const modalContenido = document.getElementById('modalContenido');
-  const btnConfirmar   = document.getElementById('btnConfirmar');
+  const modal = document.getElementById("modalResumen");
+  const modalContenido = document.getElementById("modalContenido");
+  const btnConfirmar = document.getElementById("btnConfirmar");
+
+  // Tarjeta de resumen
+  const resumen = document.getElementById("resumenInscripcion");
+  const listaPersonas = document.getElementById("listaPersonas");
+  const resumenCurso = document.getElementById("resumenCurso");
+  const resumenPrecio = document.getElementById("resumenPrecio");
+
+  // Costo adicional por persona
+  const costoPersona = 20;
 
 
+  // -------------------------------------------------------------------
+  // FUNCIONES DE PRECIO
+  // -------------------------------------------------------------------
 
-  // --- Config ---
-  const costoPersona = 20; // $20 por persona
-
-  function getPrecioBase (){
+  // Obtiene el precio base según el curso seleccionado
+  function obtenerPrecioBase() {
     const opcion = curso.options[curso.selectedIndex];
-    const precio = opcion.dataset.precio || 0;
-    return Number(precio);
+    return Number(opcion.dataset.precio);
   }
 
-  function contadorPersonas (){
-    const filas = contenedor.querySelectorAll('.fila'); 
-    const cantidad = filas.length;
-    return cantidad;
+  // Cuenta cuántas filas de personas hay
+  function contarPersonas() {
+    const filas = contenedor.querySelectorAll(".fila");
+    return filas.length;
   }
 
-  function formatoMoneda (n){
-     const texto = `$${n}.-`;
-     return texto;
+  // Formatea el precio con el formato $0000.-
+  function formatearPrecio(n) {
+    return `$${n}.-`;
   }
 
-  // CalculoDeSumaPersonas+Curso
-  function devolverTotal() {
-    const base = getPrecioBase();
-    const personas = contadorPersonas();
-    const total = base + (costoPersona * personas);
-    precioTotal.textContent = formatoMoneda(total);
+  // Calcula el total del precio
+  function actualizarTotal() {
+    const precioBase = obtenerPrecioBase();
+    const totalPersonas = contarPersonas();
+    const total = precioBase + totalPersonas * costoPersona;
+
+    precioTotal.textContent = formatearPrecio(total);
   }
 
-  // Set título/desc desde el select y recalcular total
+
+  // -------------------------------------------------------------------
+  // MOSTRAR TITULO Y DESCRIPCIÓN SEGÚN CURSO SELECCIONADO
+  // -------------------------------------------------------------------
+
   function aplicarCursoDesdeSelect() {
-    const opt = curso.options[curso.selectedIndex];
-    const titulo = opt?.dataset.titulo || 'Curso';
-    const desc   = opt?.dataset.desc   || '';
-    tituloCurso.textContent = titulo;
-    descripcion.textContent   = desc;
-    devolverTotal();
+    const opcion = curso.options[curso.selectedIndex];
+    tituloCurso.textContent = opcion.dataset.titulo;
+    descripcion.textContent = opcion.dataset.desc;
+    actualizarTotal();
   }
 
-  function eliminarFila(imagen) {
-    imagen.addEventListener('click', () => {
-      const fila = imagen.closest('.fila'); //Busca para arriba si hay un elemento llamado .fila
-      if (fila) {
-        fila.remove();
-        devolverTotal();
-      }
+
+  // -------------------------------------------------------------------
+  // AGREGAR FILA DE PERSONA
+  // -------------------------------------------------------------------
+
+  function agregarFila() {
+    const fila = document.createElement("div");
+    fila.className = "fila";
+
+    fila.innerHTML = `
+      <input class="item" type="text" placeholder="Nombre y Apellido">
+      <input class="item" type="number" placeholder="DNI">
+      <input class="item" type="number" placeholder="Teléfono">
+      <img src="../Images/icons8-cancel-48.png" class="btn-eliminar" alt="Eliminar">
+    `;
+
+    // agregamos al contenedor
+    contenedor.appendChild(fila);
+
+    const botonEliminar = fila.querySelector(".btn-eliminar");
+    agregarFuncionEliminar(botonEliminar);
+
+    actualizarTotal();
+  }
+
+
+  // -------------------------------------------------------------------
+  // ELIMINAR FILA DE PERSONA
+  // -------------------------------------------------------------------
+
+  function agregarFuncionEliminar(boton) {
+    boton.addEventListener("click", function () {
+      const fila = boton.closest(".fila");
+      fila.remove();
+      actualizarTotal();
     });
   }
 
-  // Conectar X de filas iniciales (si hay)
-  contenedor.querySelectorAll('.btn-eliminar').forEach(eliminarFila);
 
-  function crearFila() {
-    const fila = document.createElement('div');
-    fila.className = 'fila';
+  // -------------------------------------------------------------------
+  // MODAL (ABRIR Y CERRAR)
+  // -------------------------------------------------------------------
 
-    const inpNombre = document.createElement('input');
-    inpNombre.className = 'item';
-    inpNombre.type = 'text';
-    inpNombre.placeholder = 'Nombre y Apellido';
-
-    const inpDni = document.createElement('input');
-    inpDni.className = 'item';
-    inpDni.type = 'number';
-    inpDni.placeholder = 'DNI';
-
-    const inpTel = document.createElement('input');
-    inpTel.className = 'item';
-    inpTel.type = 'number';
-    inpTel.placeholder = 'Telefono';
-
-    const btnEliminar = document.createElement('img');
-    btnEliminar.src = '../Images/icons8-cancel-48.png';
-    btnEliminar.alt = 'Eliminar';
-    btnEliminar.className = 'btn-eliminar';
-
-    fila.append(inpNombre, inpDni, inpTel, btnEliminar);
-    contenedor.appendChild(fila);
-
-    eliminarFila(btnEliminar);
-    inpNombre.focus();
-
-    devolverTotal();
+  function abrirModal() {
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
   }
 
-  function abrirModal(){
-    if(!modal) return;
-
-    modal.classList.add('show');
-    modal.setAttribute('aria-hidden','false');
-
-  }
-  function cerrarModal(){
-    if(!modal) return;
-     modal.classList.remove('show');
-     modal.setAttribute('aria-hidden', 'true');
+  function cerrarModal() {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
   }
 
-if (modal) {
-  modal.addEventListener('click', function (e) {
-    const elementoClickeado = e.target;
-    if (elementoClickeado && elementoClickeado.dataset && elementoClickeado.dataset.close !== undefined) {
+  // Cerrar cuando se hace click en algo con data-close
+  modal.addEventListener("click", function (e) {
+    if (e.target.dataset.close !== undefined) {
       cerrarModal();
     }
   });
-}
 
-  // Arma el resumen a partir de las filas actuales
+
+  // -------------------------------------------------------------------
+  // ABRIR RESUMEN (VALIDA Y ABRE EL MODAL)
+  // -------------------------------------------------------------------
+
   function abrirResumenInscripcion() {
-    const filas = contenedor.querySelectorAll('.fila');
+
+    const filas = contenedor.querySelectorAll(".fila");
     const personas = [];
-    filas.forEach((f) => {
-      const inputs = f.querySelectorAll('input');
-      const nombre = inputs[0]?.value.trim();
-      const dni    = inputs[1]?.value.trim();
-      const tel    = inputs[2]?.value.trim();
-      // Incluimos si hay al menos un dato cargado (o exigí nombre/dni si querés)
-      if (nombre || dni || tel) {
-        personas.push({ nombre, dni, tel });
+
+    let hayError = false;
+    let mensajeError = "";
+
+    filas.forEach((fila) => {
+      const inputs = fila.querySelectorAll("input");
+
+      // Tomamos valores
+      let nombre = inputs[0].value.trim();
+      let dni = inputs[1].value.trim();
+      let tel = inputs[2].value.trim();
+
+      // Si la fila está vacía, la ignoramos
+      if (nombre === "" && dni === "" && tel === "") {
+        return;
       }
+
+      // Validación obligatoria
+      if (nombre === "" || dni === "") {
+        hayError = true;
+        mensajeError = "Debes completar NOMBRE y DNI en todas las personas.";
+      }
+
+      personas.push({ nombre, dni, tel });
     });
 
-    if (personas.length === 0) {
-      modalContenido.innerHTML = `<p>No hay personas inscritas todavía.</p>`;
-    } else {
-      const items = personas.map((p, i) =>
-        `<li><strong>${i + 1}.</strong> ${p.nombre || '(sin nombre)'} — DNI: ${p.dni || '-'} — Tel: ${p.tel || '-'}</li>`
-      ).join('');
-
-      modalContenido.innerHTML = `
-        <p><strong>Curso:</strong> ${tituloCurso.textContent}</p>
-        <p><strong>Total:</strong> ${precioTotal.textContent}</p>
-        <hr>
-        <p><strong>Personas (${personas.length}):</strong></p>
-        <ol class="modal-lista">${items}</ol>
-      `;
+    // Si hay error → mostrar modal solo con error
+    if (hayError) {
+      modalContenido.innerHTML = `<p style="color:red;">${mensajeError}</p>`;
+      abrirModal();
+      return false;
     }
+
+    // Si no hay personas cargadas
+    if (personas.length === 0) {
+      modalContenido.innerHTML = "<p>No hay personas inscritas todavía.</p>";
+      abrirModal();
+      return false;
+    }
+
+    // Si todo está bien → armar lista
+    let items = "";
+
+    personas.forEach((p, i) => {
+      items += `
+        <li><strong>${i + 1}.</strong> 
+        ${p.nombre} — DNI: ${p.dni} — Tel: ${p.tel || "-"}</li>
+      `;
+    });
+
+    modalContenido.innerHTML = `
+      <p><strong>Curso:</strong> ${tituloCurso.textContent}</p>
+      <p><strong>Total:</strong> ${precioTotal.textContent}</p>
+      <hr>
+      <p><strong>Personas (${personas.length}):</strong></p>
+      <ol>${items}</ol>
+    `;
+
     abrirModal();
+    return true;
   }
 
-  curso.addEventListener('change', aplicarCursoDesdeSelect);
-  botonagregar?.addEventListener('click', crearFila);
-  btnInscribirse?.addEventListener('click', abrirResumenInscripcion);
-  btnConfirmar?.addEventListener('click', () => {
-    cerrarModal();
+
+  // -------------------------------------------------------------------
+  // TARJETA DE RESUMEN FIJA (ABAJO DEL FORMULARIO)
+  // -------------------------------------------------------------------
+
+  function actualizarTarjetaResumen() {
+
+    listaPersonas.innerHTML = "";
+
+    const filas = contenedor.querySelectorAll(".fila");
+
+    filas.forEach((fila, i) => {
+      const inputs = fila.querySelectorAll("input");
+
+      let nombre = inputs[0].value.trim() || "—";
+      let dni = inputs[1].value.trim() || "—";
+      let tel = inputs[2].value.trim() || "—";
+
+      // Si la fila está completamente vacía, no la muestro
+      if (nombre === "—" && dni === "—" && tel === "—") return;
+
+      const li = document.createElement("li");
+      li.textContent = `${i + 1}. ${nombre} — DNI: ${dni} — Tel: ${tel}`;
+      listaPersonas.appendChild(li);
+    });
+
+    resumenCurso.textContent = tituloCurso.textContent;
+    resumenPrecio.textContent = precioTotal.textContent;
+
+    resumen.style.display = "block";
+  }
+
+
+  // -------------------------------------------------------------------
+  // EVENTOS
+  // -------------------------------------------------------------------
+
+  curso.addEventListener("change", aplicarCursoDesdeSelect);
+  botonAgregar.addEventListener("click", agregarFila);
+
+  btnInscribirse.addEventListener("click", function () {
+    const estaTodoBien = abrirResumenInscripcion();
+
+    if (estaTodoBien) {
+      actualizarTarjetaResumen();
+    }
   });
+
+  btnConfirmar.addEventListener("click", cerrarModal);
+
+
+  // -------------------------------------------------------------------
+  // ESTADO INICIAL AL CARGAR LA PÁGINA
+  // -------------------------------------------------------------------
 
   aplicarCursoDesdeSelect();
-  devolverTotal();
+  actualizarTotal();
 
-const boton = document.getElementById('btnInscribirse');
-const resumen = document.getElementById('resumenInscripcion');
-const lista = document.getElementById('listaPersonas');
-const resumenCurso = document.getElementById('resumenCurso');
-const resumenPrecio = document.getElementById('resumenPrecio');
-
-boton.addEventListener('click', () => {
-  const filas = contenedor.querySelectorAll('.fila');
-  lista.innerHTML = ''; // limpiar resumen previo
-
-  filas.forEach((fila, i) => {
-    const inputs = fila.querySelectorAll('input');
-    const nombre = inputs[0]?.value.trim() || '—';
-    const dni = inputs[1]?.value.trim() || '—';
-    const tel = inputs[2]?.value.trim() || '—';
-
-    const li = document.createElement('li');
-    li.textContent = `${i + 1}. ${nombre} — DNI: ${dni} — Tel: ${tel}`;
-    lista.appendChild(li);
-  });
-
-  resumenCurso.textContent = tituloCurso.textContent;
-  resumenPrecio.textContent = precioTotal.textContent;
-
-  resumen.style.display = 'block'; // mostrar tarjeta
-  resumen.scrollIntoView({ behavior: 'smooth' });
 });
-  
-}
-
-
