@@ -41,19 +41,28 @@
   </header>
 
   <!-- Navbar -->
-  <nav>
-    <ul class="nav-links">
-      <li><a href="./Pages/VistaCalendario.html">Calendario</a></li>
-      <li><a href="./Pages/GiftCard.html">Haz un regalo</a></li>
-      <li><a href="./Pages/formularioDeContacto.html">Contacto</a></li>
-      <li><a href="./Pages/FormularioEmpresas.html">Inscripción para empresas</a></li>
-      <li><a href="./Pages/cursos.html">Cursos</a></li>
-    </ul>
-    <section class="botones-index">
-      <a href="./Pages/VistaLogin.html" class="btn btn-login">Iniciar Sesión</a>
-      <a href="./Pages/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
-    </section>
-  </nav>
+  <nav class="navbar">  
+  <ul class="nav-links">
+    <li><a href="./Pages/Inicio.html">Inicio</a></li>
+    <li><a href="./Pages/VistaCalendario.html">Calendario</a></li>
+    <li><a href="./Pages/GiftCard.html">Haz un regalo</a></li>
+    <li><a href="./Pages/formularioDeContacto.html">Contacto</a></li>
+    <li><a href="./Pages/cursos.html">Cursos</a></li>
+    <li><a href="./Pages/FormularioEmpresas.html">Inscripción para empresas</a></li>
+  </ul>
+
+  <!-- 🔹 Versión invitado (NO logueado) -->
+  <div class="nav-acciones" data-seccion-invitado>
+    <a href="./Pages/VistaLogin.html" class="btn btn-login">Iniciar sesión</a>
+    <a href="./Pages/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
+  </div>
+
+  <!-- 🔹 Versión usuario logueado -->
+  <div class="nav-acciones" data-seccion-logueado>
+    <a href="./Pages/VistaPerfil.html" class="btn usuario-link" data-usuario-nombre></a>
+    <button class="btn btn-cerrarSesion" data-btn-logout>Cerrar sesión</button>
+  </div>
+</nav>
 
 
    <!-- Slider -->
@@ -246,7 +255,6 @@
       </ul>
     </div>
   </footer>
-
+<script type="module" src="/Javascript/inicio.JS"></script>
 </body>
-
 </html>

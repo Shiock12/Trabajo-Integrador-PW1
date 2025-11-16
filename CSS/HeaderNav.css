@@ -144,6 +144,7 @@ nav {
   transform: scale(1.1);
 }
 
+
 /* Botones de acción (derecha) */
 .botones-index {
   display: flex;
@@ -177,6 +178,26 @@ nav {
 
 .btn-register:hover {
   background: #e6b800;
+}
+
+.usuario-link{
+  background: #ffcc00;
+  color: #333;
+  padding: 0.4em;
+}
+
+.usuario-link:hover {
+  background: #e6b800;
+}
+
+.btn-cerrarSesion {
+  background: #555;
+  color: white;
+  padding: 0.4em;
+}
+
+.btn-cerrarSesion:hover {
+  background: #777;
 }
 
 @media (max-width: 900px) {
