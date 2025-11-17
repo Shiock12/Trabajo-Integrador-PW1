@@ -52,9 +52,9 @@
       <li><a href="FormularioEmpresas.html">Inscripción para empresas</a></li>
       <li>
         <div class="logout">
-  <button class="btn-logout" id="btnLogout">Cerrar sesión</button>
-  <button class="btn-logout" id="btnDeleteAccount">Eliminar cuenta</button>
-</div>
+          <button class="btn-logout" id="btnLogout">Cerrar sesión</button>
+          <button class="btn-logout" id="btnDeleteAccount">Eliminar cuenta</button>
+        </div>
       </li>
     </ul>
   </nav>
@@ -79,36 +79,19 @@
       </header>
 
       <div class="perfil-grid">
+        <!-- Cursos inscriptos -->
         <div class="card listado">
           <h3>Cursos inscriptos</h3>
-          <article class="curso-item">
-            <img src="../Images/ciberseguridad.jpg" alt="ImagenCyberSeguridad">
-            <div>
-              <div class="title">Ciberseguridad & Hacking Ético</div>
-              <div class="meta">90h · Nivel inicial</div>
-            </div>
-            <a href="detalle-ciberSeguridad.html" class="btn">Ir al curso</a>
-          </article>
+          <div id="cursosInscriptos">
+
+          </div>
         </div>
 
+        <!-- Cursos que me gustaron -->
         <div class="card listado">
           <h3>Cursos que me gustaron</h3>
-          <article class="curso-item">
-            <img src="https://picsum.photos/seed/data/160/160" alt="ImagenCurso">
-            <div>
-              <div class="title">Introducción a Data Science</div>
-              <div class="meta">100h · Proyectos</div>
-            </div>
-            <a href="#" class="btn">Ver detalle</a>
-          </article>
-          <article class="curso-item">
-            <img src="https://picsum.photos/seed/marketing/160/160" alt="ImagenCurso">
-            <div>
-              <div class="title">Marketing Digital</div>
-              <div class="meta">80h · Redes</div>
-            </div>
-            <a href="#" class="btn">Ver detalle</a>
-          </article>
+
+          </div>
         </div>
       </div>
     </section>
@@ -137,6 +120,14 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script type="module" src="../Javascript/inicio.JS"></script>
+  <script type="module" src="../Javascript/cart.js"></script>
+  <script type="module" src="../Javascript/detalleCurso.js"></script>
+  <script type="module" src="../Javascript/perfil.js"></script>
+  
+
+
 </body>
 </html>
+

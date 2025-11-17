@@ -398,7 +398,7 @@ export const CourseService = (() => {
         return COURSES_DATA;
     }
 
-   
+
     function getCourseById(id) {
         return COURSES_DATA.find(course => course.id === id);
     }
@@ -410,6 +410,129 @@ export const CourseService = (() => {
 })();
 
 
+export function showConfirmationModal(options) {
+    // Valores por defecto
+    const config = {
+        modalTitle: options.modalTitle || "¡Compra exitosa!",
+        courseTitle: "Tu selección",
+        message: options.message || "Tu operación se completó. Has adquirido el curso correctamente.",
+        valor: options.valor 
+    };
+
+    const modal = document.getElementById('miModal');
+    if (!modal) {
+        alert(config.modalTitle + "\n" + config.message); 
+        return;
+    }
+
+
+    
+    document.getElementById('modal-titulo').textContent = config.modalTitle;
+    document.getElementById('modal-mensaje').textContent = config.message;
+    document.getElementById('resumen-curso-nombre').textContent = config.courseTitle;
+
+ 
+    const valorContainer = document.getElementById('resumen-curso-valor');
+    if (config.valor !== undefined && config.valor > 0) {
+        valorContainer.textContent = `$${config.valor.toLocaleString('es-AR')}`;
+     
+        valorContainer.parentElement.style.display = 'block'; 
+    } else {
+      
+        valorContainer.textContent = '';
+        valorContainer.parentElement.style.display = 'none';
+    }
+    
+
+    const tipoContainer = document.getElementById('resumen-curso-tipo');
+    if (tipoContainer) {
+        tipoContainer.parentElement.style.display = 'none';
+    }
+
+    modal.style.display = 'block';
+}
+
+
+
+export const ProfileService = (() => {
+    const LIKED_KEY = 'likedCourses';
+    const PURCHASED_KEY = 'purchasedCourses';
+
+
+    function getData(key) {
+        try {
+            const data = localStorage.getItem(key);
+            return data ? JSON.parse(data) : [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function saveData(key, data) {
+        localStorage.setItem(key, JSON.stringify(data));
+    }
+
+
+    function purchaseCart() {
+        const sessionCartIds = CartService.getCartItems();
+        if (sessionCartIds.length === 0) return;
+
+        const purchasedCourses = getData(PURCHASED_KEY);
+
+
+        const purchasedSet = new Set([...purchasedCourses, ...sessionCartIds]);
+
+        saveData(PURCHASED_KEY, Array.from(purchasedSet));
+
+
+        CartService.clearCart();
+    }
+
+
+    function likeCourse(courseId) {
+        const likedCourses = getData(LIKED_KEY);
+        if (!likedCourses.includes(courseId)) {
+            likedCourses.push(courseId);
+            saveData(LIKED_KEY, likedCourses);
+        }
+    }
+
+    function unlikeCourse(courseId) {
+        let likedCourses = getData(LIKED_KEY);
+        likedCourses = likedCourses.filter(id => id !== courseId);
+        saveData(LIKED_KEY, likedCourses);
+    }
+
+
+    function isCoursePurchased(courseId) {
+        return getData(PURCHASED_KEY).includes(courseId);
+    }
+
+    function isCourseLiked(courseId) {
+        return getData(LIKED_KEY).includes(courseId);
+    }
+
+    function getUser() {
+    return {
+        likedCourses: getData(LIKED_KEY),
+        purchasedCourses: getData(PURCHASED_KEY)
+    };
+}
+
+
+    return {
+        purchaseCart,
+        likeCourse,
+        unlikeCourse,
+        isCoursePurchased,
+        isCourseLiked,
+        getUser,
+    
+    };
+})();
+
+
+
 const CartService = (() => {
     const CART_KEY = 'cartItems';
     let cartCountElement = null;
@@ -417,19 +540,10 @@ const CartService = (() => {
     function getCartItems() {
         const items = sessionStorage.getItem(CART_KEY);
         if (!items) return [];
-
         try {
             const parsedItems = JSON.parse(items);
-            if (Array.isArray(parsedItems)) {
-                return parsedItems; // Devuelve array de IDs
-            } else {
-                console.warn("Dato de carrito inválido encontrado. Limpiando sessionStorage.");
-                sessionStorage.removeItem(CART_KEY);
-                return [];
-            }
-        } catch (event) {
-            console.error("Error al leer el carrito. Limpiando sessionStorage.", event);
-            sessionStorage.removeItem(CART_KEY);
+            return Array.isArray(parsedItems) ? parsedItems : [];
+        } catch (e) {
             return [];
         }
     }
@@ -437,6 +551,13 @@ const CartService = (() => {
     function saveCartItems(cartIds) {
         sessionStorage.setItem(CART_KEY, JSON.stringify(cartIds));
         updateCartUI();
+        document.dispatchEvent(new CustomEvent('cartUpdated'));
+    }
+
+    function clearCart() {
+        sessionStorage.removeItem(CART_KEY);
+        updateCartUI();
+         document.dispatchEvent(new CustomEvent('cartUpdated'));
     }
 
     function updateCartUI() {
@@ -450,30 +571,30 @@ const CartService = (() => {
     }
 
     function addCourseToCart(course) {
+
+        if (ProfileService.isCoursePurchased(course.id)) {
+            console.log("Este curso ya fue comprado, no se puede añadir al carrito.");
+
+            showConfirmationModal({
+                ...course,
+                modalidad: "¡Ya posees este curso!",
+                title: "Curso ya comprado"
+            });
+            return;
+        }
         let cartIds = getCartItems();
-        
         if (!cartIds.includes(course.id)) {
             cartIds.push(course.id);
             saveCartItems(cartIds);
         }
     }
 
-    /**
-     * @returns {number}
-     */
     function getCartTotal() {
         const cartIds = getCartItems();
-
-        
         const cartCourses = cartIds
             .map(id => CourseService.getCourseById(id))
-            .filter(course => course && typeof course.valor === 'number'); 
-
-   
-        const total = cartCourses.reduce((sum, course) => {
-            return sum + course.valor;
-        }, 0);
-
+            .filter(course => course && typeof course.valor === 'number');
+        const total = cartCourses.reduce((sum, course) => sum + course.valor, 0);
         return total;
     }
 
@@ -493,49 +614,63 @@ const CartService = (() => {
         getCartItems,
         isCourseInCart,
         updateCartUI,
-   
-        getCartTotal
+        getCartTotal,
+        clearCart
     };
 })();
 
 
+// 5. CART MODAL CONTROLLER (Modificado)
 const CartModalController = (() => {
     let modalOverlay = null;
     let modalContent = null;
 
     function createModal() {
         if (modalOverlay) return;
-
         modalOverlay = document.createElement('div');
         modalOverlay.className = 'cart-modal-overlay';
         document.body.appendChild(modalOverlay);
-
         modalContent = document.createElement('div');
         modalContent.className = 'cart-modal-content';
         document.body.appendChild(modalContent);
-
-        
         const style = document.createElement('style');
-        style.textContent = `
+            style.textContent = `
             .cart-modal-overlay {
-                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(0, 0, 0, 0.6); z-index: 199;
-                display: none; opacity: 0; transition: opacity 0.3s ease;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                background: rgba(0, 0, 0, 0.6);
+                z-index: 199 !important;
+                display: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
             }
             .cart-modal-content {
-                position: fixed; top: 40%; left: 50%;
+                position: fixed !important;
+                top: 40%;
+                left: 50%;
                 transform: translate(-50%, -50%) scale(0.9);
-                background: #fff; border-radius: 0.5em; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                z-index: 200; width: 90%; max-width: 600px;
-                display: none; opacity: 0; transition: all 0.3s ease;
-                max-height: 70vh; overflow-y: auto;
+                background: #fff;
+                border-radius: 0.5em;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                z-index: 200 !important;
+                width: 90%;
+                max-width: 600px;
+                display: none;
+                opacity: 0;
+                transition: all 0.3s ease;
+                max-height: 70vh;
+                overflow-y: auto;
             }
             .cart-modal-overlay.visible, .cart-modal-content.visible {
-                display: block; opacity: 1;
+                display: block !important;
+                opacity: 1;
             }
             .cart-modal-content.visible {
-                top: 50%;
-                transform: translate(-50%, -50%) scale(1);
+                top: 50% !important;
+                transform: translate(-50%, -50%) scale(1) !important;
             }
             .cart-modal-header {
                 display: flex; justify-content: space-between; align-items: center;
@@ -554,11 +689,8 @@ const CartModalController = (() => {
             .cart-item-details h3 { margin: 0 0 0.25em 0; font-size: 1.1em; color: #333; }
             .cart-item-details p { margin: 0; font-size: 0.9em; color: #777; }
             .cart-item-price {
-              font-weight: bold;
-              color: #2980b9;
-              font-size: 1em;
-              margin-left: auto; 
-              text-align: right; 
+                font-weight: bold; color: #2980b9; font-size: 1em;
+                margin-left: auto; text-align: right; 
             }
             .cart-item-remove-btn {
                 background: #e74c3c; color: white; border: none;
@@ -571,19 +703,34 @@ const CartModalController = (() => {
             .cart-empty-message {
                 text-align: center; color: #777; padding: 2em 0;
             }
-            /* Estilo para el Total */
             .cart-total-display {
                 margin-top: 1.5em; 
                 padding-top: 1em; 
-                border-top: 2px solid #3498db; /* Línea de separación */
+                border-top: 2px solid #3498db;
                 font-size: 1.3em;
                 font-weight: bold;
-                text-align: right;
                 color: #2C3E50;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .cart-buy-btn {
+                background-color: #28a745;
+                color: white;
+                border: none;
+                padding: 0.8em 1.5em;
+                font-size: 1em;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .cart-buy-btn:hover {
+                background-color: #218838;
             }
         `;
+        
         document.head.appendChild(style);
-
         modalOverlay.addEventListener('click', close);
     }
 
@@ -595,10 +742,11 @@ const CartModalController = (() => {
 
     function renderItems() {
         const cartIds = CartService.getCartItems();
-        const total = CartService.getCartTotal(); // <-- OBTENEMOS EL TOTAL
+        const total = CartService.getCartTotal();
         const formattedTotal = `$${total.toLocaleString('es-AR')}`;
 
         let itemsHtml = '';
+        let footerHtml = '';
 
         if (cartIds.length === 0) {
             itemsHtml = '<p class="cart-empty-message">Tu carrito de cursos está vacío.</p>';
@@ -606,34 +754,37 @@ const CartModalController = (() => {
             itemsHtml = cartIds.map(id => {
                 const course = CourseService.getCourseById(id);
                 if (!course) return '';
-
-                const valorItem = `$${course.valor.toLocaleString('es-AR')}`; // Valor de cada item
-
+                const valorItem = `$${course.valor.toLocaleString('es-AR')}`;
                 return `
-                    <div class="cart-item">
-                        <div class="cart-item-details">
-                            <h3>${course.title}</h3>
-                            <p>Inicia: ${course.dateText}</p>
-                        </div>
-                        <p class="cart-item-price">${valorItem}</p>
-                        <button class="cart-item-remove-btn" data-course-id="${id}" title="Eliminar curso">&times;</button>
-                    </div>
-                `;
+ <div class="cart-item">
+ <div class="cart-item-details">
+ <h3>${course.title}</h3>
+ <p>Inicia: ${course.dateText}</p>
+</div>
+<p class="cart-item-price">${valorItem}</p>
+ <button class="cart-item-remove-btn" data-course-id="${id}" title="Eliminar curso">&times;</button>
+ </div>
+`;
             }).join('');
 
-            // Agregamos el total después de los items
-            itemsHtml += `<p class="cart-total-display">TOTAL: ${formattedTotal}</p>`;
+            footerHtml = `
+                <div class="cart-total-display">
+                    <span>TOTAL: ${formattedTotal}</span>
+                    <button class="cart-buy-btn" id="cart-buy-now-btn">Comprar Ahora</button>
+                </div>
+            `;
         }
 
         modalContent.innerHTML = `
-            <div class="cart-modal-header">
-                <h2>Mis Cursos Inscriptos (${cartIds.length})</h2>
-                <span class="cart-modal-close-btn">&times;</span>
-            </div>
-            <div class="cart-modal-body">
-                ${itemsHtml}
-            </div>
-        `;
+<div class="cart-modal-header">
+<h2>Mis Cursos Inscriptos (${cartIds.length})</h2>
+<span class="cart-modal-close-btn">&times;</span>
+</div>
+<div class="cart-modal-body">
+${itemsHtml}
+                ${footerHtml} 
+</div>
+`;
 
         modalContent.querySelector('.cart-modal-close-btn').addEventListener('click', close);
 
@@ -643,11 +794,36 @@ const CartModalController = (() => {
                 handleRemoveClick(courseId);
             });
         });
+
+const buyButton = modalContent.querySelector('#cart-buy-now-btn');
+        if (buyButton) {
+            buyButton.addEventListener('click', () => {
+                
+
+                const totalDeLaCompra = CartService.getCartTotal();
+
+
+                ProfileService.purchaseCart();
+                
+               
+                showConfirmationModal({
+                    modalidad: "¡Compra Exitosa!",
+                    
+                    title: "¡Cursos Adquiridos!",
+                    valor: totalDeLaCompra 
+                });
+
+                renderItems();
+                
+
+                close();
+            });
+        }
     }
 
     function handleRemoveClick(courseId) {
         CartService.removeCourseFromCart(courseId);
-        renderItems(); // Vuelve a renderizar para actualizar la lista Y EL TOTAL
+        renderItems();
     }
 
     function open() {
@@ -671,12 +847,22 @@ const CartModalController = (() => {
 
 
 
-export const initCart = CartModalController.init;
-
 
 export const getCourses = CourseService.getCourses;
 export const getCourseById = CourseService.getCourseById;
 export const addCourseToCart = CartService.addCourseToCart;
 export const isCourseInCart = CartService.isCourseInCart;
-
 export const getCartTotal = CartService.getCartTotal;
+
+
+export const isCoursePurchased = ProfileService.isCoursePurchased;
+export const isCourseLiked = ProfileService.isCourseLiked;
+export const likeCourse = ProfileService.likeCourse;
+export const unlikeCourse = ProfileService.unlikeCourse;
+
+
+// 7. INICIALIZACIÓN (Simplificada)
+document.addEventListener('DOMContentLoaded', () => {
+    
+    CartModalController.init();
+});

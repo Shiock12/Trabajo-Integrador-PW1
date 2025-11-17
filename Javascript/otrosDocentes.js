@@ -27,6 +27,35 @@ const otrosDocentes = [
         titulo: "Analista de Datos",
         imagen: "./../Images/myAvatar_Perfil.png",
         rating: 4.9
+    },
+
+        {   
+        id: 5,
+        nombre: "Martín Herrera",
+        titulo: "Especialista en Ciberseguridad",
+        imagen: "./../Images/myAvatar_Perfil.png", 
+        rating: 4.9
+    },
+    {   
+        id: 6,
+        nombre: "Laura Fernández",
+        titulo: "Manager de Proyectos Ágiles",
+        imagen: "./../Images/myAvatar_PerfilF.png",
+        rating: 4.8
+    },
+    {   
+        id: 7,
+        nombre: "Javier Torres",
+        titulo: "Arquitecto Cloud (AWS)",
+        imagen: "./../Images/myAvatar_Perfil.png",
+        rating: 4.6
+    },
+    {   
+        id: 8,
+        nombre: "Valentina Díaz",
+        titulo: "Diseñadora Gráfica Senior",
+        imagen: "./../Images/myAvatar_PerfilF.png",
+        rating: 5.0
     }
 
 ];
@@ -65,5 +94,3 @@ export function renderDocentesRelacionados() {
     });
 }
 
-
-document.addEventListener('DOMContentLoaded', renderDocentesRelacionados);

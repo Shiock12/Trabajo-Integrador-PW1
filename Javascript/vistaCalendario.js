@@ -1,6 +1,4 @@
-
 import { getCourses, getCourseById, addCourseToCart, isCourseInCart } from './../Javascript/cart.js';
-
 
 const ModalController = (() => {
     let modalOverlay = null;
@@ -58,8 +56,6 @@ const ModalController = (() => {
                 border: none; padding: 0.75em 1.25em; border-radius: 0.3em;
                 font-size: 0.9em; font-weight: bold; cursor: pointer;
                 transition: all 0.3s ease;
-                
-                
                 text-decoration: none; 
                 display: inline-block;
             }
@@ -143,21 +139,29 @@ const ModalController = (() => {
     };
 })();
 
-
 const CalendarGenerator = (() => {
     let currentMonth = new Date().getMonth();
     let currentYear = new Date().getFullYear();
-
-
     let calendarGrid;
     let calendarTitle;
     let prevMonthBtn;
     let nextMonthBtn;
     let courses = [];
 
+    function isCourseInThePast(courseDate) {
+        const today = new Date();
+        const courseStartDate = new Date(courseDate);
+        return courseStartDate < today;
+    }
+
+    function getDaysUntilCourse(courseDate) {
+        const today = new Date();
+        const courseStartDate = new Date(courseDate);
+        const diffTime = courseStartDate - today;
+        return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    }
 
     function render() {
-
         calendarGrid.innerHTML = '';
 
         const monthName = new Date(currentYear, currentMonth).toLocaleString('es-ES', { month: 'long' });
@@ -207,7 +211,6 @@ const CalendarGenerator = (() => {
                 const imgEl = document.createElement('img');
                 imgEl.src = course.imageURL;
                 imgEl.alt = course.title;
-                // Estilos simples para que el icono sea pequeño
                 imgEl.style.width = '25px';
                 imgEl.style.height = '25px';
                 imgEl.style.marginTop = '5px';
@@ -215,8 +218,18 @@ const CalendarGenerator = (() => {
                 dayCell.appendChild(imgEl);
             }
 
+            if (isCourseInThePast(course.dateString)) {
+
+                dayCell.style.pointerEvents = 'none';
+                dayCell.style.color = 'grey';
+                dayCell.style.backgroundImage = 'linear-gradient(to bottom, #dcdcdc)';
+                // Deshabilita la acción de clic en días pasados
+            } 
+
             dayCell.addEventListener('click', () => {
-                handleCourseClick(course);
+                if (!isCourseInThePast(course.dateString)) {
+                    handleCourseClick(course);
+                }
             });
         }
 
@@ -225,7 +238,6 @@ const CalendarGenerator = (() => {
 
     function findCourseForDay(day) {
         const dateString = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-
         return courses.find(course => course.dateString === dateString);
     }
 
@@ -253,7 +265,6 @@ const CalendarGenerator = (() => {
 
     return {
         init: () => {
-
             calendarGrid = document.getElementById('calendar-grid');
             calendarTitle = document.getElementById('calendar-title');
             prevMonthBtn = document.getElementById('prev-month-btn');
@@ -264,9 +275,7 @@ const CalendarGenerator = (() => {
                 return;
             }
 
-
             courses = getCourses();
-
             render();
 
             prevMonthBtn.addEventListener('click', prevMonth);
@@ -283,5 +292,9 @@ const CalendarApp = (() => {
     };
 })();
 
-
-export const initCalendar = CalendarApp.init;
+document.addEventListener('DOMContentLoaded', () => {
+    const calendarGrid = document.getElementById('calendar-grid');
+    if (calendarGrid) {
+        CalendarApp.init();
+    }
+});
