@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // 1) Capturamos elementos del formulario
+
   const inputDestinatario = document.getElementById("destinatario");
   const inputMonto        = document.getElementById("monto");
 
@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const radiosTamano = document.querySelectorAll('input[name="tamano_fuente"]');
   const radiosFondo  = document.querySelectorAll('input[name="fondo"]');
 
-  // 2) Capturamos elementos de la vista previa
+
   const previewNombre   = document.querySelector(".preview-nombre");
   const previewPrecio   = document.querySelector(".preview-precio");
   const previewGiftcard = document.querySelector(".giftcard-preview");
 
-  // 3) Actualizar nombre
+
   if (inputDestinatario && previewNombre) {
     inputDestinatario.addEventListener("input", function () {
       const nombre = inputDestinatario.value.trim();
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 5) Actualizar color del nombre
+  
   radiosColor.forEach(function (radio) {
     radio.addEventListener("change", function () {
       if (previewNombre) {
@@ -40,23 +40,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 6) Actualizar tamaño del nombre (en px)
+
   radiosTamano.forEach(function (radio) {
     radio.addEventListener("change", function () {
       if (previewNombre) {
-        const tamano = radio.value; // por ejemplo "20", "28", etc.
+        const tamano = radio.value; 
         previewNombre.style.fontSize = tamano + "px";
       }
     });
   });
 
-  // 7) Cambiar fondo de la giftcard según el radio seleccionado
+
   radiosFondo.forEach(function (radio) {
     radio.addEventListener("change", function () {
       if (!previewGiftcard) return;
 
-      // Suponemos que los value son "f1", "f2", "f3"
-      // y las imágenes son fondo1.jpg, fondo2.jpg, fondo3.jpg
       let url = "";
 
       if (radio.value === "f1") {
@@ -72,5 +70,27 @@ document.addEventListener("DOMContentLoaded", function () {
       previewGiftcard.style.backgroundPosition = "center";
     });
   });
+
+
+  const form = document.getElementById("giftcardForm");
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      const usuarioActivoStr = localStorage.getItem("usuarioActivo");
+
+      if (!usuarioActivoStr) {
+        // Frenamos el envío del formulario
+        e.preventDefault();
+
+        // Aviso al usuario
+        alert("Tenés que iniciar sesión para confirmar tu Gift Card.");
+
+        // Opcional: redirigir al login
+        window.location.href = "./VistaLogin.html"; // misma carpeta /Pages/
+      }
+      alert("Compra generada correctamente, te enviaremos un mail con la informacion a seguir");
+      // Si sí hay usuarioActivo, el submit sigue normalmente
+    });
+  }
 
 });

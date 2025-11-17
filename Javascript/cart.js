@@ -796,23 +796,37 @@ export const ProfileService = (() => {
     }
 
     function purchaseCart() {
-        const sessionCartIds = CartService.getCartItems();
-        if (sessionCartIds.length === 0) return;
-
-        const purchasedCourses = getData(PURCHASED_KEY);
-        const purchasedSet = new Set([...purchasedCourses, ...sessionCartIds]);
-
-        saveData(PURCHASED_KEY, Array.from(purchasedSet));
-        CartService.clearCart();
+    const usuarioActivoStr = localStorage.getItem("usuarioActivo");
+    if (!usuarioActivoStr) {
+        alert("Tenés que iniciar sesión para completar la compra de tus cursos.");
+        window.location.href = "/Pages/VistaLogin.html";
+        return;
     }
+
+    const sessionCartIds = CartService.getCartItems();
+    if (sessionCartIds.length === 0) return;
+
+    const purchasedCourses = getData(PURCHASED_KEY);
+    const purchasedSet = new Set([...purchasedCourses, ...sessionCartIds]);
+
+    saveData(PURCHASED_KEY, Array.from(purchasedSet));
+    CartService.clearCart();
+}
 
     function likeCourse(courseId) {
-        const likedCourses = getData(LIKED_KEY);
-        if (!likedCourses.includes(courseId)) {
-            likedCourses.push(courseId);
-            saveData(LIKED_KEY, likedCourses);
-        }
+    const usuarioActivoStr = localStorage.getItem("usuarioActivo");
+    if (!usuarioActivoStr) {
+        alert("Tenés que iniciar sesión para guardar cursos en favoritos.");
+        window.location.href = "/Pages/VistaLogin.html";
+        return;
     }
+
+    const likedCourses = getData(LIKED_KEY);
+    if (!likedCourses.includes(courseId)) {
+        likedCourses.push(courseId);
+        saveData(LIKED_KEY, likedCourses);
+    }
+}
 
     function unlikeCourse(courseId) {
         let likedCourses = getData(LIKED_KEY);
@@ -884,23 +898,30 @@ const CartService = (() => {
     }
 
     function addCourseToCart(course) {
-        if (ProfileService.isCoursePurchased(course.id)) {
-            console.log("Este curso ya fue comprado, no se puede añadir al carrito.");
-            showConfirmationModal({
-                modalTitle: "Curso ya comprado",
-                courseTitle: course.title,
-                message: "Ya tienes este curso en tu perfil.",
-                valor: course.valor
-            });
-            return;
-        }
-
-        let cartIds = getCartItems();
-        if (!cartIds.includes(course.id)) {
-            cartIds.push(course.id);
-            saveCartItems(cartIds);
-        }
+    const usuarioActivoStr = localStorage.getItem("usuarioActivo");
+    if (!usuarioActivoStr) {
+        alert("Tenés que iniciar sesión para inscribirte en este curso.");
+        window.location.href = "/Pages/VistaLogin.html";
+        return;
     }
+
+    if (ProfileService.isCoursePurchased(course.id)) {
+        console.log("Este curso ya fue comprado, no se puede añadir al carrito.");
+        showConfirmationModal({
+            modalTitle: "Curso ya comprado",
+            courseTitle: course.title,
+            message: "Ya tienes este curso en tu perfil.",
+            valor: course.valor
+        });
+        return;
+    }
+
+    let cartIds = getCartItems();
+    if (!cartIds.includes(course.id)) {
+        cartIds.push(course.id);
+        saveCartItems(cartIds);
+    }
+}
 
     function getCartTotal() {
         const cartIds = getCartItems();

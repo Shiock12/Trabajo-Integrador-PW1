@@ -1,54 +1,56 @@
-// perfil.js - usa localStorage.usuarioActivo y getCourseById
 
-import { getCourseById } from './cart.js';
+import { getCourseById, ProfileService } from "./cart.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 1) Obtener usuario activo desde localStorage
   const usuarioActivoStr = localStorage.getItem("usuarioActivo");
 
   if (!usuarioActivoStr) {
-    // Si no hay usuario logueado, mandamos al login (o donde quieras)
+    // Si no hay usuario logueado, mandamos al login
     window.location.href = "VistaLogin.html";
     return;
   }
 
-  let user;
+  let userLogin;
   try {
-    user = JSON.parse(usuarioActivoStr);
+    userLogin = JSON.parse(usuarioActivoStr);
   } catch (e) {
     console.error("Error al parsear usuarioActivo:", e);
     window.location.href = "VistaLogin.html";
     return;
   }
 
-  // 2) Mostrar nombre y mail en el perfil
+  // Rellenar datos básicos del perfil
   const perfilUsuario = document.getElementById("perfilUsuario");
   const perfilEmail   = document.getElementById("perfilEmail");
   const perfilMetodo  = document.getElementById("perfilMetodoTexto");
 
   if (perfilUsuario) {
-    // Probar distintas propiedades por si el objeto viene con otro nombre
-    perfilUsuario.textContent = user.usuario || user.name || "Usuario";
+    perfilUsuario.textContent = userLogin.usuario || userLogin.name || "Usuario";
   }
 
   if (perfilEmail) {
-    perfilEmail.textContent = user.email || "usuario@mail.com";
+    perfilEmail.textContent = userLogin.email || "usuario@mail.com";
   }
 
   if (perfilMetodo) {
-    // Si en el usuario guardaste el método de pago/registro
-    perfilMetodo.textContent = user.metodo || "Método de registro";
+    perfilMetodo.textContent = userLogin.metodo || "Método de registro";
   }
 
-  // 3) Cursos inscriptos (comprados)
+
+  const profileData = ProfileService.getUser();
+  const purchased   = Array.isArray(profileData.purchasedCourses)
+    ? profileData.purchasedCourses
+    : [];
+  const liked       = Array.isArray(profileData.likedCourses)
+    ? profileData.likedCourses
+    : [];
+
+
   const inscriptosContainer = document.getElementById("cursosInscriptos");
+
   if (inscriptosContainer) {
     inscriptosContainer.innerHTML = "";
-
-    const purchased = Array.isArray(user.purchasedCourses)
-      ? user.purchasedCourses
-      : (Array.isArray(user.cursos) ? user.cursos : []); // fallback
 
     if (purchased.length === 0) {
       inscriptosContainer.innerHTML = "<p>No has comprado ningún curso aún.</p>";
@@ -71,20 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 4) Cursos que me gustaron (segunda card.listado)
-  const segundaCard = document.querySelector(".perfil-grid .card.listado:nth-of-type(2)");
-  let likedContainer = null;
-
-  if (segundaCard) {
-    likedContainer = document.createElement("div");
-    likedContainer.id = "cursosGustados";
-    segundaCard.appendChild(likedContainer);
-  }
+  const likedContainer = document.getElementById("cursosGustados");
 
   if (likedContainer) {
     likedContainer.innerHTML = "";
-
-    const liked = Array.isArray(user.likedCourses) ? user.likedCourses : [];
 
     if (liked.length === 0) {
       likedContainer.innerHTML = "<p>No tienes cursos en favoritos.</p>";
@@ -107,25 +99,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 5) Eliminar cuenta
   const btnDeleteAccount = document.getElementById("btnDeleteAccount");
 
   if (btnDeleteAccount) {
     btnDeleteAccount.addEventListener("click", () => {
-
-      const confirmar = confirm("¿Seguro que querés eliminar tu cuenta? Esta acción no se puede deshacer.");
+      const confirmar = confirm(
+        "¿Seguro que querés eliminar tu cuenta? Esta acción no se puede deshacer."
+      );
 
       if (!confirmar) return;
 
-      // a) Eliminar de la lista "usuarios" (si la usás)
+
       try {
         const usuariosStr = localStorage.getItem("usuarios");
         if (usuariosStr) {
           const lista = JSON.parse(usuariosStr);
           const nuevaLista = Array.isArray(lista)
             ? lista.filter((u) => {
-                const mismoEmail   = u.email === user.email;
-                const mismoUsuario = u.usuario === (user.usuario || user.name);
+                const mismoEmail   = u.email === userLogin.email;
+                const mismoUsuario = u.usuario === (userLogin.usuario || userLogin.name);
                 return !(mismoEmail || mismoUsuario);
               })
             : [];
@@ -135,7 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error al actualizar 'usuarios' en localStorage:", err);
       }
 
-      // b) Eliminar usuarioActivo
+
+      localStorage.removeItem("likedCourses");
+      localStorage.removeItem("purchasedCourses");
+
       localStorage.removeItem("usuarioActivo");
 
       alert("Tu cuenta fue eliminada correctamente.");

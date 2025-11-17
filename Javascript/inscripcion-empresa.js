@@ -2,7 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // 1) Capturamos elementos del DOM
   const selectCurso    = document.getElementById("curso");
   const tituloCurso    = document.getElementById("tituloCurso");
   const descripcion    = document.getElementById("descripcion");
@@ -22,30 +21,27 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // 2) Config
+
   const COSTO_PERSONA = 20; // $20 por persona
 
-  // 3) Funciones helpers
 
-  // Precio base según el curso elegido
   function obtenerPrecioBase() {
     const opcion = selectCurso.options[selectCurso.selectedIndex];
     const precio = opcion?.dataset.precio || 0;
     return Number(precio);
   }
 
-  // Cantidad de filas de personas
+
   function contarPersonas() {
     const filas = contenedor.querySelectorAll(".fila");
     return filas.length;
   }
 
-  // Formato $0000.-
+  // Formato $0000.- 
   function formatoMoneda(numero) {
     return `$${numero}.-`;
   }
 
-  // Total = precio base + (cantidad personas * COSTO_PERSONA)
   function actualizarTotal() {
     const base = obtenerPrecioBase();
     const personas = contarPersonas();
@@ -130,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // ✅ Si NO hay ninguna persona válida → mostramos cartel y NO mostramos resumen
+    // Si NO hay ninguna persona válida → mostramos cartel y NO mostramos resumen
     if (personasValidas.length === 0) {
       alert("No hay personas inscriptas. Agregá al menos una persona con todos los datos antes de inscribirte.");
       return;
@@ -152,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
     resumen.scrollIntoView({ behavior: "smooth" });
   }
 
-  // 6) Eventos
+
 
   selectCurso.addEventListener("change", aplicarCursoDesdeSelect);
 
@@ -161,10 +157,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (btnInscribirse) {
-    btnInscribirse.addEventListener("click", mostrarResumenInscripcion);
+    btnInscribirse.addEventListener("click", () => {
+      const usuarioActivoStr = localStorage.getItem("usuarioActivo");
+
+      if (!usuarioActivoStr) {
+        alert("Tenés que iniciar sesión para inscribir personas a este curso para tu empresa.");
+        window.location.href = "./VistaLogin.html";
+        return;
+      }
+
+      mostrarResumenInscripcion();
+    });
   }
 
-  // 7) Estado inicial
   aplicarCursoDesdeSelect();
   actualizarTotal();
 });
