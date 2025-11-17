@@ -33,14 +33,14 @@ body {
 /* MAIN CONTENT */
 .giftcard-content {
     padding: 20px;
-    max-width: 1000px; /* más ancho para acomodar 50/50 */
+    max-width: 1000px;
     margin: 20px auto; 
     background-color: white; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* === DISTRIBUCIÓN PRINCIPAL === */
+/* DISTRIBUCIÓN PRINCIPAL */
 .giftcard-layout {
     display: flex;
     justify-content: space-between;
@@ -54,12 +54,16 @@ body {
     flex: 1 1 50%;
 }
 
-/* === VISTA PREVIA === */
+/* VISTA PREVIA */
 .vista-previa-contenedor {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.vista-previa-contenedor h4 {
+    font-weight: 600;
 }
 
 .giftcard-preview {
@@ -79,6 +83,8 @@ body {
     text-align: center;
     position: relative;
     font-size: 1.1em;
+    background-size: cover;       /* para fondos */
+    background-position: center;
 }
 
 /* Monto arriba a la derecha */
@@ -93,7 +99,7 @@ body {
     font-weight: bold;
 }
 
-/* === FORMULARIO DE PERSONALIZACIÓN === */
+/* FORMULARIO DE PERSONALIZACIÓN */
 .personalizacion-form {
     background-color: #f7f9fc;
     border-radius: 8px;
@@ -107,12 +113,13 @@ body {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+    font-size: 14px;
 }
 
 .form-group label {
     display: block; 
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     font-weight: 600;
 }
 
@@ -125,7 +132,172 @@ select {
     border-radius: 5px;
 }
 
-/* === BOTÓN CONFIRMAR === */
+/* =========================
+   COLORES
+========================= */
+
+.color-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.color-radio {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+/* ocultar radio */
+.color-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+/* borde cuando está seleccionado */
+.color-radio input:checked + .color-swatch {
+    border-color: #343A40;
+}
+
+/* =========================
+   TAMAÑO DE FUENTE
+========================= */
+
+.size-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.size-radio {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.size-radio input {
+    margin-bottom: 2px;
+}
+
+/* =========================
+   UBICACIÓN DEL MONTO
+========================= */
+
+.ubicacion-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.ubicacion-radio {
+    position: relative;
+    cursor: pointer;
+}
+
+.ubicacion-radio input {
+    position: absolute;
+    opacity: 0;
+}
+
+.ubicacion-box {
+    width: 36px;
+    height: 28px;
+    border: 1px solid #999;
+    background: #f5f5f5;
+    position: relative;
+}
+
+/* Bloque gris que simula el monto */
+.ubicacion-box::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 10px;
+    background: #999;
+}
+
+.ubicacion-izq::before {
+    left: 0;
+    top: 0;
+}
+
+.ubicacion-centro::before {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.ubicacion-der::before {
+    right: 0;
+    top: 0;
+}
+
+/* seleccionado */
+.ubicacion-radio input:checked + .ubicacion-box {
+    border: 2px solid #343A40;
+}
+
+/* =========================
+   FONDOS (IMÁGENES MINIATURA)
+========================= */
+
+.fondo-image-options {
+    display: flex;
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.fondo-image-radio {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* ocultar radio */
+.fondo-image-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* miniatura */
+.fondo-image-radio img {
+    width: 75px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* hover */
+.fondo-image-radio img:hover {
+    transform: scale(1.06);
+}
+
+/* seleccionado */
+.fondo-image-radio input:checked + img {
+    border-color: #343A40;
+    transform: scale(1.10);
+    box-shadow: 0 0 6px rgba(0,0,0,0.25);
+}
+
+/* BOTÓN CONFIRMAR */
 .btn-continuar {
     display: block;
     width: 100%;
@@ -152,11 +324,6 @@ select {
     justify-content: space-around; 
 }
 
-.site-footer h4 {
-    margin-bottom: 10px;
-    color: #6A9CF4;
-}
-
 .site-footer ul {
     list-style: none; 
 }
@@ -166,7 +333,7 @@ select {
     text-decoration: none;
 }
 
-/* === RESPONSIVO (móvil) === */
+/* RESPONSIVO */
 @media (max-width: 768px) {
     .giftcard-layout {
         flex-direction: column;
@@ -175,11 +342,23 @@ select {
 
     .vista-previa-contenedor,
     .personalizacion-form {
-        flex: 1 1 100%;
         width: 100%;
     }
 
     .giftcard-preview {
         max-width: 100%;
     }
+}
+.color-radio input {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50% !important;   /* asegura círculo */
+    border: 2px solid transparent;
+    display: inline-block;
+    object-fit: cover;
 }

@@ -1,6 +1,6 @@
 // auth.js
 const usuario = "usuarios";
-const usuarioActivo = "usuario_activo";
+const usuarioActivo = "usuarioActivo";
 
 /* ------------------- UTILITARIAS ------------------- */
 function loadUsers() {
@@ -92,7 +92,7 @@ export function loginUsuario(usuario, password) {
   for (let i = 0; i < users.length; i++) {
     const u = users[i];
 
-    if (u.usuario === usuario && u.password === password) {
+    if (u.usuario === usuario && u.pass === password) {
       encontrado = u;
       break;
     }
@@ -101,6 +101,7 @@ export function loginUsuario(usuario, password) {
   if (!encontrado) {
     throw new Error("Usuario o contraseña inválidos.");
   }
+   setUsuarioActivo(encontrado);
 
   return encontrado;
 }

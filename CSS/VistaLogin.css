@@ -84,6 +84,13 @@ button:active {
   color: #333;
 }
 
+.formulario p{
+  margin-top: 4px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: #e53935;
+  display: none; 
+}
 
 @media (max-width: 480px) {
   .campos {

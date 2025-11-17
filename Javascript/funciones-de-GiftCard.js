@@ -1,64 +1,76 @@
+// funciones-de-GiftCard.js
+
 document.addEventListener("DOMContentLoaded", function () {
 
-  //CAPTURAR ELEMENTOS DEL FORMULARIO
+  // 1) Capturamos elementos del formulario
   const inputDestinatario = document.getElementById("destinatario");
-  const inputMonto = document.getElementById("monto");
-  const inputColor = document.getElementById("color_fuente");
-  const selectTamano = document.getElementById("tamano_fuente");
-  const selectFondo = document.getElementById("fondo");
+  const inputMonto        = document.getElementById("monto");
 
-  //CAPTURAR ELEMENTOS DE LA VISTA PREVIA
-  const previewNombre = document.querySelector(".preview-nombre");
-  const previewPrecio = document.querySelector(".preview-precio");
+  const radiosColor  = document.querySelectorAll('input[name="color_fuente"]');
+  const radiosTamano = document.querySelectorAll('input[name="tamano_fuente"]');
+  const radiosFondo  = document.querySelectorAll('input[name="fondo"]');
+
+  // 2) Capturamos elementos de la vista previa
+  const previewNombre   = document.querySelector(".preview-nombre");
+  const previewPrecio   = document.querySelector(".preview-precio");
   const previewGiftcard = document.querySelector(".giftcard-preview");
 
-  //ACTUALIZAR NOMBRE
-  inputDestinatario.addEventListener("input", () => {
-    const nombre = inputDestinatario.value.trim();
-    previewNombre.textContent = nombre !== "" ? nombre : "Destinatario";
+  // 3) Actualizar nombre
+  if (inputDestinatario && previewNombre) {
+    inputDestinatario.addEventListener("input", function () {
+      const nombre = inputDestinatario.value.trim();
+      previewNombre.textContent = nombre !== "" ? nombre : "Destinatario";
+    });
+  }
+
+  // 4) Actualizar monto
+  if (inputMonto && previewPrecio) {
+    inputMonto.addEventListener("input", function () {
+      const valor = inputMonto.value.trim();
+      previewPrecio.textContent = valor !== "" ? `$${valor}.-` : "$0000.-";
+    });
+  }
+
+  // 5) Actualizar color del nombre
+  radiosColor.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      if (previewNombre) {
+        previewNombre.style.color = radio.value;
+      }
+    });
   });
 
-  //ACTUALIZAR MONTO
-  inputMonto.addEventListener("input", () => {
-    const valor = inputMonto.value;
-    previewPrecio.textContent = valor ? `$${valor}.-` : "$0000.-";
+  // 6) Actualizar tamaño del nombre (en px)
+  radiosTamano.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      if (previewNombre) {
+        const tamano = radio.value; // por ejemplo "20", "28", etc.
+        previewNombre.style.fontSize = tamano + "px";
+      }
+    });
   });
 
-  //ACTUALIZAR COLOR DE FUENTE
-  inputColor.addEventListener("input", () => {
-    previewNombre.style.color = inputColor.value;
-  });
+  // 7) Cambiar fondo de la giftcard según el radio seleccionado
+  radiosFondo.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      if (!previewGiftcard) return;
 
-  //ACTUALIZAR TAMAÑO DE FUENTE
-  selectTamano.addEventListener("change", () => {
-    switch (selectTamano.value) {
-      case "small":
-        previewNombre.style.fontSize = "0.9em";
-        break;
-      case "medium":
-        previewNombre.style.fontSize = "1.2em";
-        break;
-      case "large":
-        previewNombre.style.fontSize = "1.5em";
-        break;
-    }
-  });
+      // Suponemos que los value son "f1", "f2", "f3"
+      // y las imágenes son fondo1.jpg, fondo2.jpg, fondo3.jpg
+      let url = "";
 
-  //CAMBIAR FONDO DE LA GIFT CARD
-  selectFondo.addEventListener("change", () => {
-    switch (selectFondo.value) {
-      case "fondo1":
-        previewGiftcard.style.backgroundColor = "#FF0000"; // Rojo
-        break;
-      case "fondo2":
-        previewGiftcard.style.backgroundColor = "#00FF00"; // Verde
-        break;
-      case "fondo3":
-        previewGiftcard.style.backgroundColor = "#8B00FF"; // Morado
-        break;
-      default:
-        previewGiftcard.style.backgroundColor = "#6A9CF4";
-    }
+      if (radio.value === "f1") {
+        url = "../Images/fondo1.jpg";
+      } else if (radio.value === "f2") {
+        url = "../Images/fondo3.jpg";
+      } else if (radio.value === "f3") {
+        url = "../Images/fondo4.jpg";
+      }
+
+      previewGiftcard.style.backgroundImage = url ? `url('${url}')` : "none";
+      previewGiftcard.style.backgroundSize = "cover";
+      previewGiftcard.style.backgroundPosition = "center";
+    });
   });
 
 });

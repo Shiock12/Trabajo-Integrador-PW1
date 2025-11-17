@@ -1,14 +1,3 @@
-// main.js
-import { initEmpresaForm } from "./inscripcion-empresa.js";
-import {
-  registrarUsuario,
-  loginUsuario,
-  getUsuarioActivo,
-  setUsuarioActivo,
-  logoutUsuario,
-  deleteCurrentUser
-} from "./auth.js";
-
 /* ---------------- SLIDER ---------------- */
 function initSlider() {
   const slider = document.querySelector(".slider");
@@ -37,6 +26,7 @@ function initSlider() {
   });
 
   let index = 0;
+
   function show(i) {
     index = (i + images.length) % images.length;
     imgEl.src = images[index];
@@ -46,142 +36,70 @@ function initSlider() {
   prevBtn?.addEventListener("click", () => show(index - 1));
   nextBtn?.addEventListener("click", () => show(index + 1));
   setInterval(() => show(index + 1), 4000);
+
   show(0);
 }
 
+/* ---------------- NAVBAR ---------------- */
 
-function initEmpresas() {
+// Helpers sencillos para manejar el usuario activo
+function getUsuarioActivo() {
+  const data = localStorage.getItem("usuarioActivo");
+  if (!data) return null;
 
-
-  const formEmpresas = document.getElementById("contenedorInputs");
-  if (!formEmpresas) return;
-
-
-  initEmpresaForm();
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    console.error("Error al parsear usuarioActivo:", e);
+    return null;
+  }
 }
 
-/* ---------------- REGISTRO ---------------- */
-function initRegistro() {
-  const form = document.getElementById("formRegistro");
-  if (!form) return;
-
-  const usuario = document.getElementById("registroUsuario") || document.getElementById("nombre");
-  const email = document.getElementById("registroEmail") || document.getElementById("email");
-  const password = document.getElementById("registroPassword") || document.getElementById("password");
-  const repetir = document.getElementById("registroPassword2");
-  const metodo = document.getElementById("metodo");
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    if (repetir && password.value !== repetir.value) {
-      alert("❌ Las contraseñas no coinciden");
-      return;
-    }
-
-    try {
-     const nuevo = registrarUsuario(
-  usuario.value.trim(),
-  email.value.trim(),
-  password.value,
-  metodo ? metodo.value : ""
-);
-      setUsuarioActivo(nuevo);
-      alert("Usuario registrado correctamente ✅");
-      window.location.href = "Inicio.html";
-    } catch (err) {
-      alert(err.message || "Error al registrar usuario.");
-    }
-  });
+function logoutUsuario() {
+  localStorage.removeItem("usuarioActivo");
 }
 
-/* ---------------- LOGIN ---------------- */
-function initLogin() {
-  const form = document.getElementById("formLogin");
-  if (!form) return;
+// Inicializa el estado de la navbar según si hay usuario logueado o no
+function initNavbar() {
+  const usuario = getUsuarioActivo(); 
 
-  const user = document.getElementById("loginUsuario");
-  const pass = document.getElementById("loginPassword");
+  // Elementos del DOM (acordate de tener estas secciones en el HTML)
+  const linkPerfil   = document.querySelector("[data-usuario-nombre]");
+  const cajaInvitado = document.querySelector("[data-seccion-invitado]");  // Iniciar sesión / Registrarse
+  const cajaLogueado = document.querySelector("[data-seccion-logueado]");  // Perfil / Cerrar sesión
+  const btnLogout    = document.querySelector("[data-btn-logout]");
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  // Opcional: saber si existen usuarios guardados (pero no es obligatorio)
+  const hayUsuariosGuardados = !!localStorage.getItem("usuarios");
 
-    try {
-const usr = loginUsuario(
-  user.value.trim(),
-  pass.value
-);
-      setUsuarioActivo(usr);
-      alert("Inicio de sesión exitoso ✅");
-      window.location.href = "Inicio.html";
-    } catch (err) {
-      alert(err.message || "Usuario o contraseña inválidos.");
+  if (usuario) {
+    // ✅ Caso A: HAY usuario logueado (usuarioActivo existe)
+    if (cajaInvitado) cajaInvitado.style.display = "none";
+    if (cajaLogueado) cajaLogueado.style.display = "flex";
+
+    if (linkPerfil) {
+      // Mostramos el nombre de usuario; si por alguna razón no tiene, mostramos "Perfil"
+      linkPerfil.textContent = usuario.usuario || "Perfil";
     }
-  });
-}
-
-/* ---------------- PERFIL ---------------- */
-function initPerfil() {
-  const usuarioEl = document.getElementById("perfilUsuario");
-  if (!usuarioEl) return;
-
-  const emailEl = document.getElementById("perfilEmail");
-  const metodoTxt = document.getElementById("perfilMetodoTexto");
-  const metodoImg = document.getElementById("perfilMetodoImg");
-  const btnLogout = document.getElementById("btnLogout");
-
-  const activo = getUsuarioActivo();
-  if (!activo) {
-    window.location.href = "VistaLogin.html";
-    return;
+  } else {
+    // 🚫 Caso B/C: NO hay usuario logueado (usuarioActivo no existe)
+    // Da igual que haya usuarios guardados o no: mostramos la parte de invitado
+    if (cajaInvitado) cajaInvitado.style.display = "flex";
+    if (cajaLogueado) cajaLogueado.style.display = "none";
   }
 
-  usuarioEl.textContent = activo.usuario || "(sin usuario)";
-  emailEl.textContent = activo.email || "(sin email)";
-  metodoTxt.textContent = activo.metodo || "Sin método";
-
-  const iconos = {
-    "Mercado Pago": "../Images/mercadopago.png",
-    "PayPal": "../Images/paypal.png",
-    "Tarjeta de crédito": "../Images/tarjeta.png",
-    "Transferencia": "../Images/transferencia.png",
-  };
-  if (iconos[activo.metodo]) {
-    metodoImg.src = iconos[activo.metodo];
-    metodoImg.alt = activo.metodo;
-  }
-
-  // Logout
-  btnLogout?.addEventListener("click", () => {
-    logoutUsuario();
-    window.location.href = "VistaLogin.html";
-  });
-
-
-  const btnDelete =
-    document.getElementById("btnDeleteAccount") ||
-    document.querySelector('[data-action="delete-account"]');
-
-  if (btnDelete) {
-    btnDelete.addEventListener("click", () => {
-      const seguro = confirm(
-        "⚠️ Esta acción eliminará tu cuenta y tus datos locales. ¿Querés continuar?"
-      );
-      if (!seguro) return;
-
-      const res = deleteCurrentUser();
-      alert(res.mensaje || "Cuenta eliminada.");
-
-      // Redirigimos al inicio (o al login)
-      window.location.href = "../index.html";
+  // Evento de cerrar sesión
+  if (btnLogout) {
+    btnLogout.addEventListener("click", () => {
+      logoutUsuario();
+      window.location.href = "Inicio.html";
     });
   }
 }
 
+/* ---------------- INIT GENERAL ---------------- */
+
 document.addEventListener("DOMContentLoaded", () => {
-  initSlider();    
-  initEmpresas();   
-  initRegistro();   
-  initLogin();      
-  initPerfil();    
+  initSlider();
+  initNavbar();
 });
