@@ -1,203 +1,792 @@
-.detalle-curso {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 2em 1em;
-    border-radius: 1em;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.curso-detalle-principal {
-    max-width: 700px;
-    background-color: white;
-    border-radius: 0.8em;
-    padding: 2em;
-    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
-    text-align: center;
+body {
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background: #A7D8FF;
+    color: #333;
 }
 
-.curso-detalle-principal h1 {
-    font-size: 2em;
-    margin-bottom: 1em;
-    color: #3D6FA5;
+h1,
+h2,
+h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
 }
 
-.curso-detalle-principal img {
+img {
     max-width: 100%;
-    border-radius: 0.5em;
-    margin: 1em 0;
-    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.1);
+    display: block;
 }
 
-.curso-detalle-principal p {
-    font-size: 1.05em;
-    margin: 0.6em 0;
-    color: #444;
-    line-height: 1.6;
-}
-
-.curso-detalle-principal button {
-    margin-top: 1.5em;
-    padding: 0.8em 2em;
-    background-color: #3D6FA5;
-    color: white;
-    font-size: 1em;
-    font-weight: bold;
-    border: none;
-    border-radius: 0.5em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.curso-detalle-principal button:hover {
-    background-color: #2C3E50;
-    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.3);
-}
-
-.curso-layout {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2em;
-    max-width: 1200px;
-    width: 100%;
-    padding: 2em;
-    flex-wrap: nowrap;
-}
-
-.curso-detalle-principal {
-    flex: 2;
-    background-color: white;
-    border-radius: 0.8em;
-    padding: 2em;
-    box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
-    text-align: center;
-
-}
-
-.curso-detalle-principal h1 {
-    font-size: 2em;
-    margin-bottom: 1em;
-    color: #3D6FA5;
-}
-
-.curso-detalle-principal img {
-    width: 100%;
-    border-radius: 0.5em;
-    margin: 1em 0;
-    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.1);
-}
-
-.curso-detalle-principal p {
-    font-size: 1.05em;
-    margin: 0.6em 0;
-    color: #444;
-    line-height: 1.6;
-}
-
-.curso-detalle-principal button {
-    margin-top: 1.5em;
-    padding: 0.8em 2em;
-    background-color: #3D6FA5;
-    color: white;
-    font-size: 1em;
-    font-weight: bold;
-    border: none;
-    border-radius: 0.5em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.curso-detalle-principal button:hover {
-    background-color: #2C3E50;
-    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.3);
-}
-
-.beneficios-curso {
+.search-bar {
     flex: 1;
-    background: white;
+    margin: 0 3em;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 5px;
+    font-size: 1em;
+}
+
+.cart {
+    text-align: right;
+    font-size: 1.5em;
+}
+
+main {
+    max-width: 75em;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 0 2em;
+}
+
+
+.curso-info {
+    display: grid;
+    grid-template-columns: 15em 1fr;
+    gap: 2em;
+    background: #fff;
+    padding: 2em;
+    border-radius: 0.5em;
+}
+
+.curso-info .foto {
+    background: #f0f0f0;
+    width: 100%;
+    height: 12em;
+    border: 0.1em solid #004D6D;
+    border-radius: 0.3em;
+
+    object-position: center;
+}
+
+.curso-detalles h1 {
+    margin-top: 0;
+}
+
+.curso-detalles p {
+    margin: 0.3em 0;
+}
+
+.curso-detalles button {
+    margin-top: 1em;
+    padding: 0.6em 1.5em;
+    background: #004D6D;
+    color: #fff;
+    border: none;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+
+.curso-detalles button:hover {
+    background-color: #00628A;
+}
+
+.curso-card .valor {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    border-radius: 0.5em;
+    background: black;
+    color: white;
+    padding: 0.3em 0.6em;
+    font-size: 0.8em;
+
+}
+
+
+
+.contenidos {
+    background: #fff;
     padding: 1.5em;
-    border-radius: 0.8em;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    height: fit-content;
-    position: sticky;
-    top: 2em;
+    border-radius: 0.5em;
+
+    /* 30px */
 }
 
-.beneficios-curso h3 {
-    font-size: 1.3em;
-    margin-bottom: 1em;
-    color: #2a527f;
-    border-bottom: 2px solid #3D6FA5;
-    padding-bottom: 0.3em;
+.contenidos h2 {
+    color: #004D6D;
+    font-size: 1.6rem;
+
+    margin-bottom: 0.9375em;
+    /* 15px */
 }
 
-.beneficios-curso ul {
+
+.contenidos details {
+    border: 0.0625em solid #ddd;
+    /* 1px */
+    border-radius: 0.375em;
+    /* 6px */
+    margin-bottom: 0.625em;
+    /* 10px */
+    background-color: #f9f9f9;
+}
+
+
+.contenidos summary {
+    display: block;
+    padding: 0.9375em;
+    /* 15px */
+    font-weight: bold;
+    color: #333;
+    background-color: #eef4f7;
+    cursor: pointer;
+    list-style: none;
+    transition: background-color 0.2s;
+}
+
+.contenidos summary:hover {
+    background-color: #e0e8eb;
+}
+
+.contenidos summary::after {
+    content: '\25B8';
+    float: right;
+    transition: transform 0.2s;
+    font-size: 1.2em;
+    color: #004D6D;
+}
+
+
+.contenidos details[open]>summary::after {
+    content: '\25BE';
+    /* Flecha hacia abajo */
+    transform: rotate(0deg);
+}
+
+
+.contenidos ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 1.3em;
-    margin-bottom: 1em;
-    color: #2a527f;
-    padding-bottom: 0.3em;
+    border-top: 0.0625em solid #ddd;
 }
 
-.beneficios-curso li {
-    margin-bottom: 0.8em;
+.contenidos li {
     display: flex;
     align-items: center;
-    gap: 0.5em;
-    background-color: #f9f9f9;
-    padding: 0.6em;
+    justify-content: space-between;
+    padding: 0.75em 0.9375em;
+    /* 12px 15px */
+    border-bottom: 0.0625em solid #eee;
+}
+
+.contenidos li:last-child {
+    border-bottom: none;
+}
+
+.contenidos li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Icono (Boxicons) */
+.contenidos .icono {
+    color: #004D6D;
+    font-size: 1.2em;
+    margin-right: 0.625em;
+    /* 10px */
+}
+
+
+.contenidos .info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenidos .titulo {
+    font-weight: 500;
+    color: #333;
+}
+
+.contenidos .duracion {
+    font-size: 0.9em;
+    color: #777;
+    margin-left: 1.25em;
+    /* 20px */
+}
+
+
+.contenidos input[type="radio"] {
+    display: none;
+
+}
+
+.contenidos label {
+    width: 1.25em;
+    /* 20px */
+    height: 1.25em;
+    border: 0.125em solid #aaa;
+    /* 2px */
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+}
+
+.contenidos input[type="radio"]:checked+label {
+    border-color: #004D6D;
+    background-color: #004D6D;
+}
+
+.contenidos input[type="radio"]:checked+label:hover {
+    background-color: #00628A;
+    border-color: #00628A;
+}
+
+.contenidos input[type="radio"]:checked+label::after {
+    content: '✔';
+    color: #fff;
+    font-size: 0.8em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contenidos ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+.docente {
+    display: flex;
+
+    background: #fff;
+    border: 0.0625em solid #e0e6eb;
+
+
+    padding: 1.5em;
+    /* 24px */
     border-radius: 0.5em;
-    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s, transform 0.2s;
+    gap: 1.5em;
+
+    align-items: flex-start;
+
+    box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.05);
+
+
+
+}
+
+.docente-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+
+    width: 8em;
+
+}
+
+.docente-foto {
+    width: 6.25em;
+    /* 100px */
+    height: 6.25em;
+    /* 100px */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.125em solid #004D6D;
+    /* Borde de color */
+    margin-bottom: 0.5em;
+}
+
+.docente-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.docente-rating {
+    margin: 0;
+    line-height: 1;
+
+    font-size: 0.9em;
+}
+
+.docente-rating .rating-numero {
+    font-weight: bold;
+    color: #444;
+}
+
+.docente-info h3 {
+    margin: 0 0 0.25em 0;
+    /* 4px */
+    color: #004D6D;
+}
+
+.docente-info .docente-titulo {
+    font-weight: 600;
+    font-style: italic;
+    color: #3D6FA5;
+    margin-bottom: 1em;
+}
+
+.docente-info p {
+    margin: 0.5em 0;
+    line-height: 1.5;
+}
+
+
+.relacionados {
+
+    margin-top: 2.5em;
+    /* 40px */
+    padding-top: 1.25em;
+    /* 20px */
+}
+
+.relacionados h2 {
+    color: #004D6D;
+    font-size: 1.6rem;
+    margin-bottom: 1.5625em;
+    /* 25px */
+    text-align: center;
+}
+
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+    gap: 1.5em;
+
+}
+
+
+
+.curso-card {
+    background: #fff;
+    padding: 1em;
+    border-radius: 0.5em;
+
+
+    display: grid;
+
+    grid-template-rows: auto auto 1fr auto auto;
+    align-content: end;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0.125em 0.375em rgba(0, 0, 0, 0.1);
+}
+
+
+.curso-card:hover {
+    transform: translateY(-0.375em);
+    box-shadow: 0 0.5em 1.25em rgba(0, 0, 0, 0.2);
+}
+
+.curso-card .imagen {
+    position: relative;
+    width: 100%;
+    height: 8em;
+    margin-bottom: 0.8em;
+    overflow: hidden;
+    border-radius: 0.5em;
+}
+
+.curso-card .imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.curso-card button {
+    margin-top: 0.5em;
+    background: #004D6D;
+    color: #fff;
+    border: none;
+    padding: 0.5em 5em;
+    border-radius: 0.3em;
     cursor: pointer;
 }
 
-.beneficios-curso li:hover {
-    background-color: #eef6ff;
-    transform: translateX(5px);
+.curso-card button:hover {
+    background-color: #00628A;
 }
 
-.beneficios-curso i {
-    color: green;
-    font-size: 1.2em;
-}
+.curso-card a {
 
-.btn-volver {
-    position: fixed;
-    bottom: 2em;
-    left: 2em;
+    margin-top: auto;
+
+    display: inline-block;
+    padding: 0.4em 1em;
     background-color: #3D6FA5;
     color: white;
-    padding: 0.8em 1.5em;
-    border-radius: 50px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
+    text-align: center;
+    border-radius: 0.4em;
+    font-weight: 500;
+    font-size: 0.69em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-volver:hover {
+.curso-card a:hover {
     background-color: #2C3E50;
-    transform: translateY(-3px);
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 48em) {
-    .curso-layout {
-        flex-direction: column;
-        padding: 1em;
-    }
 
-    .beneficios-curso {
-        position: static;
-        margin-top: 2em;
-    }
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+
+.modal-contenido {
+    background-color: #fefefe;
+    margin: 15% auto;
+
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+
+    max-width: 500px;
+
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    text-align: center;
+
+}
+
+
+.cerrar-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar-modal:hover,
+.cerrar-modal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#modal-resumen {
+    padding: 10px;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: left;
+}
+
+#btn-cerrar-modal {
+    background-color: #007bff;
+
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#btn-cerrar-modal:hover {
+    background-color: #0056b3;
+}
+
+
+
+.docentes-relacionados {
+    margin-top: 2.5em;
+    /* 40px */
+    padding-top: 1.25em;
+    /* 20px */
+
+}
+
+.docentes-relacionados h2 {
+    color: #004D6D;
+    font-size: 1.6rem;
+    margin-bottom: 1.5625em;
+    /* 25px */
+    text-align: center;
+}
+
+
+.docentes-relacionados .docentes-cards-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1.25em;
+
+    padding: 0.625em 0;
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.docentes-relacionados .docentes-cards-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+
+.docentes-relacionados .docente-card {
+    min-width: 12em;
+
+    max-width: 12em;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    background: #ffffff;
+    border: 0.0625em solid #eee;
+    border-radius: 0.5em;
+    padding: 1em;
+    box-shadow: 0 0.25em 0.75em rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.docentes-relacionados .docente-card:hover {
+    transform: translateY(-0.3125em);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+}
+
+.docentes-relacionados .docente-foto-peque {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.125em solid #3D6FA5;
+    margin: 0 auto 0.5em auto;
+}
+
+.docentes-relacionados .docente-foto-peque img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.docentes-relacionados .docente-card h4 {
+    margin: 0 0 0.3em 0;
+    font-size: 1.1em;
+    color: #004D6D;
+}
+
+.docentes-relacionados .docente-titulo {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 0.8em;
+}
+
+.docentes-relacionados .docente-rating-peque {
+    font-size: 1em;
+    color: gold;
+    /* Color para las estrellas */
+    margin-bottom: 0.8em;
+}
+
+.docentes-relacionados .docente-card button {
+    background-color: #004D6D;
+    color: white;
+    border: none;
+    padding: 0.6em 1em;
+    border-radius: 0.3em;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+
+/* Vista Móvil (Menor a 600px) */
+@media screen and (max-width: 600px) { /* Menor a 600px */
+
+      main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2em 1.5em; /* Más espaciado */
+  }
+   .curso-info {
+    display: grid;
+    grid-template-columns: 1fr; /* Columna de imagen más ancha */
+    gap: 2.5em;
+    align-items: flex-start;
+
+  }
+
+  .curso-info .foto {
+    width: 100%;
+    height: auto; /* Altura libre */
+    max-height: 13em;
+  }
+
+  .cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .curso-acciones-row {
+    flex-direction: column; /* Botones debajo de la imagen */
+    gap: 1em;
+  }
+
+  .curso-detalles button {
+    width: 100%; /* Botones ocupan todo el ancho */
+  }
+
+  .cards-wrapper,
+  .docentes-relacionados {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Mostrar las tarjetas en bloque */
+  }
+
+  .curso-card,
+  .docente-card {
+    width: 100%; /* Hacer que las tarjetas ocupen todo el ancho */
+  }
+
+}
+
+/* Vista para Dispositivos Medianos (600px - 767px) */
+@media screen and (min-width: 600px) and (max-width: 767px) { /* 600px - 767px */
+  .curso-info {
+    display: block; /* No utilizar grid en pantallas más pequeñas */
+  }
+
+  .curso-info .foto {
+    max-height: 350px; /* Limitar la altura de las imágenes */
+  }
+
+  .curso-acciones-row {
+    flex-direction: column; /* Mostrar los botones uno debajo del otro */
+    gap: 1em;
+  }
+
+  .curso-detalles button {
+    width: 100%; /* Botones ocupan todo el ancho */
+  }
+}
+
+/* Vista de Escritorio (768px y más) */
+@media screen and (min-width: 600px) { /* 768px y más */
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2em 1.5em; /* Más espaciado */
+  }
+
+  /* Curso Info: 2 Columnas (Grid) */
+  .curso-info {
+    display: grid;
+    grid-template-columns: 1fr; /* Columna de imagen más ancha */
+    gap: 2.5em;
+    align-items: flex-start;
+
+  }
+
+  .curso-info .foto {
+    width: 100%;
+    height: auto; /* Altura libre */
+    max-height: 13em;
+  }
+
+  .cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Botones: Lado a Lado */
+  .curso-acciones-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .curso-detalles button {
+    width: auto; /* Ancho automático */
+  }
+
+  /* Docente: 2 Columnas (Flex) */
+  .docente {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .docente-perfil {
+    align-items: center; /* Perfil centrado */
+  }
+
+  .docente-info h3,
+  .docente-info .docente-titulo {
+    text-align: left; /* Info alineada a la izquierda */
+  }
+
+  .docentes-relacionados h2,
+  .relacionados h2 {
+    text-align: left; /* Títulos alineados a la izquierda */
+  }
+}
+
+/* 2. Escritorio (1024px y más) */
+@media screen and (min-width: 1024px) { /* 1024px y más */
+  main {
+    padding: 1em 2em; /* Más padding */
+    width: 100%;
+  }
+
+  .curso-info {
+    grid-template-columns: 25em 1fr; 
+  }
+
+  .curso-detalles h1 {
+    font-size: 2.8em;
+  }
+
+  .cards-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .curso-card {
+    width:100%;
+  }
 }

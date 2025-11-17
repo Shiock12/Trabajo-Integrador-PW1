@@ -1,302 +1,253 @@
-   * {
-       padding: 0;
-       margin: 0;
-       box-sizing: border-box;
-   }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-   html {
-       width: 100%;
-       height: 100%;
-       font-size: 100%;
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+}
 
-   }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background-color: #A7D8FF;
+}
 
-   body {
-       margin: 0;
-       padding: 0;
-       display: flex;
-       flex-direction: column;
-       font-family: 'Inter', sans-serif;
-       min-height: 100vh;
-       background-color: #A7D8FF;
-   }
+h1 {
+  font-size: 1.8em;
+}
 
-   h1 {
-       font-size: 1.8em;
-   }
+main {
+  position: relative;
+  flex-grow: 1;
+  max-width: 43.75em;
+  margin: 2em auto 0 auto;
+  background: white;
+  padding: 1.25em;
+  border-radius: 0.5em;
+}
 
-   main {
-       position: relative;
-       flex-grow: 1;
-       max-width: 43.75em;
-       margin: 2em auto 0 auto;
-       background: white;
-       padding: 1.25em;
-       border-radius: 0.5em;
+/* CABECERA DÍAS DE LA SEMANA */
+nav.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.625em;
+}
 
-   }
+/* GRID DEL CALENDARIO */
+section.calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.3125em;
+  min-height: 25em;
+}
 
-   nav.weekdays {
-       display: grid;
-       grid-template-columns: repeat(7, 1fr);
-       text-align: center;
-       font-weight: bold;
-       margin-bottom: 0.625em;
-   }
+/* CELDA DE DÍA */
+.day {
+  border: 0.0625em solid #ddd;
+  background-color: #fafafa;
+  padding: 0.625em;
+  text-align: center;
+  min-height: 3.75em;
+  position: relative;
+}
 
-   section.calendario {
-       display: grid;
-       grid-template-columns: repeat(7, 1fr);
-       gap: 0.3125em;
-   }
+/* DÍA CON CURSO */
+.day.course {
+  background-color: #e0f4ff;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-   .day {
-       border: 0.0625em solid #ddd;
-       background-color: #fafafa;
-       padding: 0.625em;
-       text-align: center;
-       min-height: 3.75em;
-       position: relative;
-   }
+.day.course:hover {
+  background-color: #e0f4ff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
 
-   .day.course {
-       background-color: #e0f4ff;
-   }
+.day a {
+  color: #0077aa;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-   .day a {
-       color: #0077aa;
-       text-decoration: none;
-       font-weight: bold;
-   }
+.day a:hover {
+  text-decoration: underline;
+}
 
-   .day a:hover {
-       text-decoration: underline;
-   }
+/* CONTENEDOR DETALLES */
+.detalles-container {
+  max-width: 44.5em;
+  transition: min-height 0.3s ease-in-out;
+}
 
+/* BLOQUE DE DETALLES */
+.detalles {
+  display: none;
+  background: #fff8e1;
+  padding: 0.9375em;
+  margin-top: 0.9375em;
+  border: 1px solid #e0c97f;
+  border-radius: 0.3125em;
+  max-height: 25em;
+  overflow-y: auto;
+  scroll-margin-top: 6.25em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* transition: all 0.3s ease-in-out; */
+}
 
-   .detalles-container {
-       max-width: 44.5em;
-       transition: min-height 0.3s ease-in-out;
-   }
+.detalles:target {
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
+.detalles a {
+  display: inline-block;
+  margin-top: 0.625em;
+  color: #444;
+  text-decoration: none;
+}
 
-   .detalles {
-       display: none;
-       background: #fff8e1;
-       padding: 0.9375em;
-       margin-top: 0.9375em;
-       border: 1px solid #e0c97f;
-       border-radius: 0.3125em;
-       max-height: 25em;
-       overflow-y: auto;
-       scroll-margin-top: 6.25em;
-       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-       /*transition: all 0.3s ease-in-out;*/
-   }
+section.detalles {
+  margin-bottom: 1.875em;
+}
 
-   .detalles:target {
-       display: block;
-       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-   }
+time {
+  font-weight: bold;
+}
 
-   .detalles a {
-       display: inline-block;
-       margin-top: 0.625em;
-       color: #444;
-       text-decoration: none;
-   }
+/* NAV DEL CALENDARIO (anterior / siguiente) */
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 0;
+}
 
-   section.detalles {
-       margin-bottom: 1.875em;
-   }
+.calendar-nav button {
+  background: #3D6FA5;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
 
-   time {
-       font-weight: bold;
-   }
+.calendar-nav button:hover {
+  background: #2C3E50;
+}
 
-   .calendar-nav {
-       display: flex;
-       justify-content: space-between;
-       margin: 1em 0;
-   }
+/* ESTILOS ESPECÍFICOS PARA CELDAS DE CURSO SI USAS .calendar-grid */
+.calendar-grid .day.course {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #3498db;
+  padding: 5px;
+}
 
-   .calendar-nav button {
-       background: #3D6FA5;
-       color: white;
-       border: none;
-       padding: 0.5em 1em;
-       border-radius: 0.3em;
-       cursor: pointer;
-       font-weight: bold;
-       transition: background 0.3s ease;
-   }
+.calendar-grid .day.course img {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  border-radius: 5px;
+  object-fit: contain;
+}
 
-   .calendar-nav button:hover {
-       background: #2C3E50;
-   }
+/* ====== RESPONSIVE ====== */
 
-   .day.course {
-       cursor: pointer;
-       /* Añade el cursor de puntero */
-       position: relative;
-       /* Para que el z-index y transform funcionen */
-       transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-   }
+/* MÓVIL PEQUEÑO: < 30em (~480px) => 2 columnas */
+@media screen and (max-width: 30em) {
+  nav.weekdays,
+  section.calendario {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-   .day.course:hover {
-       background-color: #e0f4ff;
-       /* Mantenemos el color que tenías */
-       transform: scale(1.05);
-       /* "Algo más interactivo" */
-       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-       z-index: 10;
-       /* Para que aparezca por encima de otros días */
-   }
+  .day {
+    font-size: 0.8em;
+    padding: 0.5em;
+  }
 
-   section.calendario {
-       min-height: 25em;
-   }
+  main {
+    padding: 1em;
+    margin: 2em 1em 1em 1em;
+  }
 
-   /* Estilos para las celdas de días que contienen un curso */
-   .calendar-grid .day.course {
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       /* Centra el contenido (número del día e imagen) */
-       justify-content: center;
-       border: 2px solid #3498db;
-       /* Destaca el día con un borde azul */
-       cursor: pointer;
-       padding: 5px;
-       /* Pequeño padding para que no se pegue al borde */
-   }
+  h1 {
+    font-size: 1.2em;
+  }
+}
 
-   /* Estilos para las imágenes/íconos dentro de las celdas del curso */
-   .calendar-grid .day.course img {
-       width: 30px;
-       /* Tamaño consistente con lo que definiste en JS */
-       height: 30px;
-       margin-top: 5px;
-       /* Espacio entre el número del día y la imagen */
-       border-radius: 5px;
-       object-fit: contain;
-       /* Asegura que la imagen se vea bien sin distorsión */
-   }
+/* TABLET PEQUEÑA: 30em–48em (~480px–768px) => 4 columnas */
+@media screen and (min-width: 30em) and (max-width: 48em) {
+  nav.weekdays,
+  section.calendario {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-   @media screen and (max-width: 30em) {
+  main {
+    padding: 1em;
+    margin: 2em 1em 1em 1em;
+  }
 
-       nav.weekdays,
-       section.calendario {
-           grid-template-columns: repeat(2, 1fr);
-       }
+  h1 {
+    font-size: 1.5em;
+  }
 
-       .day {
-           font-size: 0.8em;
-           padding: 0.5em;
-       }
+  .day {
+    min-height: 4.5em;
+    font-size: 0.85em;
+  }
+}
 
-       main {
-           padding: 1em;
-           margin: 2em 1em 1em 1em;
-       }
+/* TABLET / DESKTOP MEDIO: 48em–64em (~768px–1024px) => 5 columnas */
+@media screen and (min-width: 48em) and (max-width: 64em) {
+  nav.weekdays,
+  section.calendario {
+    grid-template-columns: repeat(5, 1fr);
+  }
 
-       h1 {
-           font-size: 1.2em;
-       }
-   }
+  main {
+    max-width: 50em;
+    margin: 2em auto 2em auto;
+    padding: 1em;
+  }
 
-   @media screen and (max-width: 48em) {
+  .day {
+    min-height: 7em;
+    font-size: 0.9em;
+  }
+}
 
-       nav.weekdays,
-       section.calendario {
-           grid-template-columns: repeat(4, 1fr);
-       }
+/* DESKTOP GRANDE: > 75em (~1200px) */
+@media screen and (min-width: 75em) {
+  main {
+    max-width: 56.25em;
+    font-size: 1.1em;
+  }
 
-       main {
-           padding: 1em;
-           margin: 2em 1em 1em 1em;
-       }
+  h1 {
+    font-size: 2em;
+  }
 
-       h1 {
-           font-size: 1.5em;
-       }
+  .day {
+    min-height: 5em;
+  }
 
-       .day {
-           min-height: 4.5em;
-           font-size: 0.85em;
-       }
-   }
-
-
-   @media screen and (min-width: 51.25em) and (max-width: 64em) {
-
-       nav.weekdays,
-       section.calendario {
-           grid-template-columns: repeat(5, 1fr);
-       }
-
-       main {
-           max-width: 50em;
-           margin: 2em auto 2em auto;
-           padding: 1em;
-       }
-
-       .day {
-           min-height: 7em;
-           font-size: 0.9em;
-       }
-
-   }
-
-
-   @media screen and (min-width: 48em) and (max-width: 60em) {
-
-       nav.weekdays,
-       section.calendario {
-           grid-template-columns: repeat(5, 1fr);
-       }
-
-       main {
-           max-width: 70em;
-           margin: 3em 3em 3em 3em;
-           padding: 1em;
-       }
-   }
-
-   @media screen and (min-width: 75em) {
-       main {
-           max-width: 56.25em;
-           font-size: 1.1em;
-       }
-
-       h1 {
-           font-size: 2em;
-       }
-
-       .day {
-           min-height: 5em;
-       }
-
-       footer {
-           font-size: 1.1em;
-       }
-   }
-
-         @media screen and (min-width: 55em){
-       main {
-           max-width: 56.25em;
-           font-size: 1.1em;
-       }
-
-       h1 {
-           font-size: 2em;
-       }
-
-       .day {
-           min-height: 5em;
-       }
-
-       footer {
-           font-size: 1.1em;
-       }
-   }
+  footer {
+    font-size: 1.1em;
+  }
+}

@@ -1,4 +1,3 @@
-
 export const CourseService = (() => {
     // Definición de los cursos (DATOS CENTRALIZADOS)
     const COURSES_DATA = [
@@ -391,14 +390,337 @@ export const CourseService = (() => {
                     ]
                 }
             ]
-        }
+        },
+        {
+            id: 'docker-kubernetes',
+            title: 'Docker & Kubernetes Básico',
+            valor: 17000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-12-10',
+            dateText: '10 de Diciembre',
+            description: 'Aprende a crear, ejecutar y gestionar contenedores con Docker y da tus primeros pasos en la orquestación con Kubernetes.',
+            imageURL: './../Images/docker.png',
+            dedicacion: '24 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Que es Docker',
+                    items: [
+                        { title: 'Introduccion a Docker', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Porque Docker?', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Que es Kubernetes',
+                    items: [
+                        { title: 'Fundamentos', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Primeros pasos', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'scrum',
+            title: 'Scrum & Metodologías Ágiles',
+            valor: 10000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-12-11',
+            dateText: '11 de Diciembre',
+            description: 'Conoce los roles, eventos y artefactos de Scrum y cómo aplicar metodologías ágiles en proyectos reales.',
+            imageURL: './../Images/scrum.jpg',
+            dedicacion: '15 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Que es Scrum & Metodologías Ágiles',
+                    items: [
+                        { title: 'Introduccion a Scrum & Metodologías Ágiles', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Porque Scrum & Metodologías Ágiles?', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Que es Github',
+                    items: [
+                        { title: 'Fundamentos', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Primeros pasos', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+         {
+            id: 'ml-basico',
+            title: 'Machine Learning Inicial',
+            valor: 20000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-12-11',
+            dateText: '11 de Diciembre',
+            description: 'Descubre los conceptos básicos del aprendizaje automático y crea tus primeros modelos con Python.',
+            imageURL: './../Images/machine.jpg',
+            dedicacion: '12 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Que es Machine Learning Inicial',
+                    items: [
+                        { title: 'Introduccion a Machine Learning Inicial', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Porque Machine Learning Inicial?', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Que es Github',
+                    items: [
+                        { title: 'Fundamentos', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Primeros pasos', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+         {
+            id: 'git-github',
+            title: 'Git y Github',
+            valor: 9000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-12-13',
+            dateText: '13 de Diciembre',
+            description: 'Gestiona versiones de tus proyectos, trabaja en equipo y domina ramas, merge, pull requests y buenas prácticas.',
+            imageURL: './../Images/git.png',
+            dedicacion: '12 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Que es Git',
+                    items: [
+                        { title: 'Introduccion a Git', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Porque Git?', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Que es Github',
+                    items: [
+                        { title: 'Lo basico de Github', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Primeros pasos en Github', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'excel-avanzado',
+            title: 'Excel-avanzado',
+            valor: 11000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-12-13',
+            dateText: '13 de Diciembre',
+            description: 'Domina fórmulas, tablas dinámicas, gráficos y automatización básica para análisis de datos en Excel',
+            imageURL: './../Images/excel.jpg',
+            dedicacion: '16 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Que es Excel',
+                    items: [
+                        { title: 'Introduccion a Excel', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Porque Excel?', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Fundamentos',
+                    items: [
+                        { title: 'Lo basico', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Primeros pasos', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'react',
+            title: 'React',
+            valor: 18000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-11-29',
+            dateText: '22 de Noviembre',
+            description: 'Aprende a analizar y generar reportes interactivos a partir de diversas fuentes de datos con Power BI',
+            imageURL: './../Images/react.png',
+            dedicacion: '30 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Que es React',
+                    items: [
+                        { title: 'Introduccion a React', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Porque React?', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Fundamentos',
+                    items: [
+                        { title: 'Lo basico', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Primeros pasos', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'powerbi',
+            title: 'Power Bi',
+            valor: 100000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-11-22',
+            dateText: '22 de Noviembre',
+            description: 'Aprende a analizar y generar reportes interactivos a partir de diversas fuentes de datos con Power BI',
+            imageURL: './../Images/powerbi.jpg',
+            dedicacion: '20 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Que es powerBi',
+                    items: [
+                        { title: 'Introduccion a Powerbi', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Porque PowerBi?', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Fundamentos',
+                    items: [
+                        { title: 'Lo basico', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Primeros pasos', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'python',
+            title: 'Python',
+            valor: 100000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-11-24',
+            dateText: '24 de Noviembre',
+            description: 'Python es un gran lenguaje de programación para aprender, y puedes usarlo en una variedad de áreas en el desarrollo de software',
+            imageURL: './../Images/python.jpg',
+            dedicacion: '100 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Que es python',
+                    items: [
+                        { title: 'Introduccion a python', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Porque python?', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Fundamentos',
+                    items: [
+                        { title: 'Lo basico', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Primeros pasos', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'node',
+            title: 'node',
+            valor: 33000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-12-09',
+            dateText: '9 de Diciembre',
+            description: 'Aprende las prácticas de integración y despliegue continuo (CI/CD) usando servicios en la nube (AWS/Azure).',
+            imageURL: './../Images/node.jpg',
+            dedicacion: '50 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Fundamentos de Cloud e Infraestructura',
+                    items: [
+                        { title: 'Introducción a la Nube (IaaS, PaaS, SaaS)', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Uso básico de servicios de AWS/Azure', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Automatización y CI/CD',
+                    items: [
+                        { title: 'Introducción a Docker y Contenedores', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Pipelines de Integración Continua (Jenkins/GitHub Actions)', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'backend',
+            title: 'Backend',
+            valor: 120000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-12-25',
+            dateText: '25 de Diciembre',
+            description: 'Lance su carrera como desarrollador back-end. Construya habilidades listas para el trabajo para una carrera en demanda',
+            imageURL: './../Images/backend.jpg',
+            dedicacion: '50 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Programacion',
+                    items: [
+                        { title: 'Que es el backend?', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Elegi tu lenguaje', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Fundamentos',
+                    items: [
+                        { title: 'Librerias necesarias', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Porque el backend?', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'dataengineer',
+            title: 'Data-Engineer',
+            valor: 50000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-12-09',
+            dateText: '12 de Diciembre',
+            description: 'Aprende todo lo necesario para poder convertirte en ese Data engineer que tanto deseas',
+            imageURL: './../Images/dataengineer.jpg',
+            dedicacion: '50 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Bases de datos',
+                    items: [
+                        { title: 'Introducción a Bases de datos ', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'Tipos de bases de datos', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: SQL',
+                    items: [
+                        { title: 'Lenguaje SQL', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'SubConsultas', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'html-css-javascript',
+            title: 'Html-Css-Javascript',
+            valor: 20000,
+            modalidad: 'Online Sincrónico',
+            dateString: '2025-11-09',
+            dateText: '9 de Noviembre',
+            description: 'Domina los fundamentos de la programación web: HTML, CSS, diseño responsivo y JavaScript',
+            imageURL: './../Images/htmlcssjs.png',
+            dedicacion: '20 horas',
+            contents: [
+                {
+                    title: 'UNIDAD 1: Fundamentos HTML y CSS',
+                    items: [
+                        { title: 'Introducción a HTML ', duration: '30 min', icon: 'bx-cloud-drizzle' },
+                        { title: 'CSS', duration: '40 min', icon: 'bx-server' }
+                    ]
+                },
+                {
+                    title: 'UNIDAD 2: Javascript',
+                    items: [
+                        { title: 'Introducción a Javascript', duration: '45 min', icon: 'bx-cube-alt' },
+                        { title: 'Integracion de los 3 temas', duration: '50 min', icon: 'bx-loader' }
+                    ]
+                }
+            ]
+        },
     ];
 
     function getCourses() {
         return COURSES_DATA;
     }
 
-   
     function getCourseById(id) {
         return COURSES_DATA.find(course => course.id === id);
     }
@@ -409,7 +731,121 @@ export const CourseService = (() => {
     };
 })();
 
+// MODAL DE CONFIRMACIÓN
+export function showConfirmationModal(options = {}) {
+    const config = {
+        modalTitle: options.modalTitle || "¡Compra exitosa!",
+        courseTitle: options.courseTitle || options.title || "Tu selección",
+        message: options.message || "Tu operación se completó. Has adquirido el curso correctamente.",
+        valor: options.valor
+    };
 
+    const modal = document.getElementById('miModal');
+    if (!modal) {
+        alert(config.modalTitle + "\n" + config.message);
+        return;
+    }
+
+    const tituloEl = document.getElementById('modal-titulo');
+    const mensajeEl = document.getElementById('modal-mensaje');
+    const nombreEl = document.getElementById('resumen-curso-nombre');
+    const valorContainer = document.getElementById('resumen-curso-valor');
+    const tipoContainer = document.getElementById('resumen-curso-tipo');
+
+    if (tituloEl) tituloEl.textContent = config.modalTitle;
+    if (mensajeEl) mensajeEl.textContent = config.message;
+    if (nombreEl) nombreEl.textContent = config.courseTitle;
+
+    if (valorContainer) {
+        if (config.valor !== undefined && config.valor > 0) {
+            valorContainer.textContent = '$' + config.valor.toLocaleString('es-AR');
+            if (valorContainer.parentElement) {
+                valorContainer.parentElement.style.display = 'block';
+            }
+        } else {
+            valorContainer.textContent = '';
+            if (valorContainer.parentElement) {
+                valorContainer.parentElement.style.display = 'none';
+            }
+        }
+    }
+
+    if (tipoContainer && tipoContainer.parentElement) {
+        tipoContainer.parentElement.style.display = 'none';
+    }
+
+    modal.style.display = 'block';
+}
+
+// PROFILE SERVICE
+export const ProfileService = (() => {
+    const LIKED_KEY = 'likedCourses';
+    const PURCHASED_KEY = 'purchasedCourses';
+
+    function getData(key) {
+        try {
+            const data = localStorage.getItem(key);
+            return data ? JSON.parse(data) : [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function saveData(key, data) {
+        localStorage.setItem(key, JSON.stringify(data));
+    }
+
+    function purchaseCart() {
+        const sessionCartIds = CartService.getCartItems();
+        if (sessionCartIds.length === 0) return;
+
+        const purchasedCourses = getData(PURCHASED_KEY);
+        const purchasedSet = new Set([...purchasedCourses, ...sessionCartIds]);
+
+        saveData(PURCHASED_KEY, Array.from(purchasedSet));
+        CartService.clearCart();
+    }
+
+    function likeCourse(courseId) {
+        const likedCourses = getData(LIKED_KEY);
+        if (!likedCourses.includes(courseId)) {
+            likedCourses.push(courseId);
+            saveData(LIKED_KEY, likedCourses);
+        }
+    }
+
+    function unlikeCourse(courseId) {
+        let likedCourses = getData(LIKED_KEY);
+        likedCourses = likedCourses.filter(id => id !== courseId);
+        saveData(LIKED_KEY, likedCourses);
+    }
+
+    function isCoursePurchased(courseId) {
+        return getData(PURCHASED_KEY).includes(courseId);
+    }
+
+    function isCourseLiked(courseId) {
+        return getData(LIKED_KEY).includes(courseId);
+    }
+
+    function getUser() {
+        return {
+            likedCourses: getData(LIKED_KEY),
+            purchasedCourses: getData(PURCHASED_KEY)
+        };
+    }
+
+    return {
+        purchaseCart,
+        likeCourse,
+        unlikeCourse,
+        isCoursePurchased,
+        isCourseLiked,
+        getUser
+    };
+})();
+
+// CART SERVICE
 const CartService = (() => {
     const CART_KEY = 'cartItems';
     let cartCountElement = null;
@@ -417,19 +853,10 @@ const CartService = (() => {
     function getCartItems() {
         const items = sessionStorage.getItem(CART_KEY);
         if (!items) return [];
-
         try {
             const parsedItems = JSON.parse(items);
-            if (Array.isArray(parsedItems)) {
-                return parsedItems; // Devuelve array de IDs
-            } else {
-                console.warn("Dato de carrito inválido encontrado. Limpiando sessionStorage.");
-                sessionStorage.removeItem(CART_KEY);
-                return [];
-            }
-        } catch (event) {
-            console.error("Error al leer el carrito. Limpiando sessionStorage.", event);
-            sessionStorage.removeItem(CART_KEY);
+            return Array.isArray(parsedItems) ? parsedItems : [];
+        } catch (e) {
             return [];
         }
     }
@@ -437,6 +864,13 @@ const CartService = (() => {
     function saveCartItems(cartIds) {
         sessionStorage.setItem(CART_KEY, JSON.stringify(cartIds));
         updateCartUI();
+        document.dispatchEvent(new CustomEvent('cartUpdated'));
+    }
+
+    function clearCart() {
+        sessionStorage.removeItem(CART_KEY);
+        updateCartUI();
+        document.dispatchEvent(new CustomEvent('cartUpdated'));
     }
 
     function updateCartUI() {
@@ -450,30 +884,30 @@ const CartService = (() => {
     }
 
     function addCourseToCart(course) {
+        if (ProfileService.isCoursePurchased(course.id)) {
+            console.log("Este curso ya fue comprado, no se puede añadir al carrito.");
+            showConfirmationModal({
+                modalTitle: "Curso ya comprado",
+                courseTitle: course.title,
+                message: "Ya tienes este curso en tu perfil.",
+                valor: course.valor
+            });
+            return;
+        }
+
         let cartIds = getCartItems();
-        
         if (!cartIds.includes(course.id)) {
             cartIds.push(course.id);
             saveCartItems(cartIds);
         }
     }
 
-    /**
-     * @returns {number}
-     */
     function getCartTotal() {
         const cartIds = getCartItems();
-
-        
         const cartCourses = cartIds
             .map(id => CourseService.getCourseById(id))
-            .filter(course => course && typeof course.valor === 'number'); 
-
-   
-        const total = cartCourses.reduce((sum, course) => {
-            return sum + course.valor;
-        }, 0);
-
+            .filter(course => course && typeof course.valor === 'number');
+        const total = cartCourses.reduce((sum, course) => sum + course.valor, 0);
         return total;
     }
 
@@ -493,12 +927,12 @@ const CartService = (() => {
         getCartItems,
         isCourseInCart,
         updateCartUI,
-   
-        getCartTotal
+        getCartTotal,
+        clearCart
     };
 })();
 
-
+// CART MODAL CONTROLLER
 const CartModalController = (() => {
     let modalOverlay = null;
     let modalContent = null;
@@ -514,28 +948,44 @@ const CartModalController = (() => {
         modalContent.className = 'cart-modal-content';
         document.body.appendChild(modalContent);
 
-        
         const style = document.createElement('style');
         style.textContent = `
             .cart-modal-overlay {
-                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(0, 0, 0, 0.6); z-index: 199;
-                display: none; opacity: 0; transition: opacity 0.3s ease;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                background: rgba(0, 0, 0, 0.6);
+                z-index: 199 !important;
+                display: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
             }
             .cart-modal-content {
-                position: fixed; top: 40%; left: 50%;
+                position: fixed !important;
+                top: 40%;
+                left: 50%;
                 transform: translate(-50%, -50%) scale(0.9);
-                background: #fff; border-radius: 0.5em; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                z-index: 200; width: 90%; max-width: 600px;
-                display: none; opacity: 0; transition: all 0.3s ease;
-                max-height: 70vh; overflow-y: auto;
+                background: #fff;
+                border-radius: 0.5em;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                z-index: 200 !important;
+                width: 90%;
+                max-width: 600px;
+                display: none;
+                opacity: 0;
+                transition: all 0.3s ease;
+                max-height: 70vh;
+                overflow-y: auto;
             }
             .cart-modal-overlay.visible, .cart-modal-content.visible {
-                display: block; opacity: 1;
+                display: block !important;
+                opacity: 1;
             }
             .cart-modal-content.visible {
-                top: 50%;
-                transform: translate(-50%, -50%) scale(1);
+                top: 50% !important;
+                transform: translate(-50%, -50%) scale(1) !important;
             }
             .cart-modal-header {
                 display: flex; justify-content: space-between; align-items: center;
@@ -554,11 +1004,8 @@ const CartModalController = (() => {
             .cart-item-details h3 { margin: 0 0 0.25em 0; font-size: 1.1em; color: #333; }
             .cart-item-details p { margin: 0; font-size: 0.9em; color: #777; }
             .cart-item-price {
-              font-weight: bold;
-              color: #2980b9;
-              font-size: 1em;
-              margin-left: auto; 
-              text-align: right; 
+                font-weight: bold; color: #2980b9; font-size: 1em;
+                margin-left: auto; text-align: right; 
             }
             .cart-item-remove-btn {
                 background: #e74c3c; color: white; border: none;
@@ -571,15 +1018,30 @@ const CartModalController = (() => {
             .cart-empty-message {
                 text-align: center; color: #777; padding: 2em 0;
             }
-            /* Estilo para el Total */
             .cart-total-display {
                 margin-top: 1.5em; 
                 padding-top: 1em; 
-                border-top: 2px solid #3498db; /* Línea de separación */
+                border-top: 2px solid #3498db;
                 font-size: 1.3em;
                 font-weight: bold;
-                text-align: right;
                 color: #2C3E50;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .cart-buy-btn {
+                background-color: #28a745;
+                color: white;
+                border: none;
+                padding: 0.8em 1.5em;
+                font-size: 1em;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .cart-buy-btn:hover {
+                background-color: #218838;
             }
         `;
         document.head.appendChild(style);
@@ -593,12 +1055,18 @@ const CartModalController = (() => {
         modalContent.classList.remove('visible');
     }
 
+    function handleRemoveClick(courseId) {
+        CartService.removeCourseFromCart(courseId);
+        renderItems();
+    }
+
     function renderItems() {
         const cartIds = CartService.getCartItems();
-        const total = CartService.getCartTotal(); // <-- OBTENEMOS EL TOTAL
-        const formattedTotal = `$${total.toLocaleString('es-AR')}`;
+        const total = CartService.getCartTotal();
+        const formattedTotal = '$' + total.toLocaleString('es-AR');
 
         let itemsHtml = '';
+        let footerHtml = '';
 
         if (cartIds.length === 0) {
             itemsHtml = '<p class="cart-empty-message">Tu carrito de cursos está vacío.</p>';
@@ -606,9 +1074,7 @@ const CartModalController = (() => {
             itemsHtml = cartIds.map(id => {
                 const course = CourseService.getCourseById(id);
                 if (!course) return '';
-
-                const valorItem = `$${course.valor.toLocaleString('es-AR')}`; // Valor de cada item
-
+                const valorItem = '$' + course.valor.toLocaleString('es-AR');
                 return `
                     <div class="cart-item">
                         <div class="cart-item-details">
@@ -621,8 +1087,12 @@ const CartModalController = (() => {
                 `;
             }).join('');
 
-            // Agregamos el total después de los items
-            itemsHtml += `<p class="cart-total-display">TOTAL: ${formattedTotal}</p>`;
+            footerHtml = `
+                <div class="cart-total-display">
+                    <span>TOTAL: ${formattedTotal}</span>
+                    <button class="cart-buy-btn" id="cart-buy-now-btn">Comprar Ahora</button>
+                </div>
+            `;
         }
 
         modalContent.innerHTML = `
@@ -632,10 +1102,12 @@ const CartModalController = (() => {
             </div>
             <div class="cart-modal-body">
                 ${itemsHtml}
+                ${footerHtml}
             </div>
         `;
 
-        modalContent.querySelector('.cart-modal-close-btn').addEventListener('click', close);
+        const closeBtn = modalContent.querySelector('.cart-modal-close-btn');
+        if (closeBtn) closeBtn.addEventListener('click', close);
 
         modalContent.querySelectorAll('.cart-item-remove-btn').forEach(btn => {
             btn.addEventListener('click', (event) => {
@@ -643,11 +1115,25 @@ const CartModalController = (() => {
                 handleRemoveClick(courseId);
             });
         });
-    }
 
-    function handleRemoveClick(courseId) {
-        CartService.removeCourseFromCart(courseId);
-        renderItems(); // Vuelve a renderizar para actualizar la lista Y EL TOTAL
+        const buyButton = modalContent.querySelector('#cart-buy-now-btn');
+        if (buyButton) {
+            buyButton.addEventListener('click', () => {
+                const totalDeLaCompra = CartService.getCartTotal();
+
+                ProfileService.purchaseCart();
+
+                showConfirmationModal({
+                    modalTitle: "¡Cursos adquiridos!",
+                    courseTitle: "Tus cursos",
+                    message: "La compra se realizó correctamente.",
+                    valor: totalDeLaCompra
+                });
+
+                renderItems();
+                close();
+            });
+        }
     }
 
     function open() {
@@ -668,15 +1154,19 @@ const CartModalController = (() => {
     };
 })();
 
-
-
-
-export const initCart = CartModalController.init;
-
-
+// EXPORTS SIMPLES PARA OTROS MÓDULOS
 export const getCourses = CourseService.getCourses;
 export const getCourseById = CourseService.getCourseById;
 export const addCourseToCart = CartService.addCourseToCart;
 export const isCourseInCart = CartService.isCourseInCart;
-
 export const getCartTotal = CartService.getCartTotal;
+
+export const isCoursePurchased = ProfileService.isCoursePurchased;
+export const isCourseLiked = ProfileService.isCourseLiked;
+export const likeCourse = ProfileService.likeCourse;
+export const unlikeCourse = ProfileService.unlikeCourse;
+
+// INICIALIZACIÓN
+document.addEventListener('DOMContentLoaded', () => {
+    CartModalController.init();
+});

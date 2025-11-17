@@ -21,9 +21,9 @@
 
     <!-- Header -->
     <header>
-        <a href="/Pages/Inicio.html" class="logo">
-            <img src="../Images/logo.webp" alt="Logo">
-        </a>
+        <div class="logo">
+            <img src="./../Images/logo.webp">
+        </div>
         <div class="search-bar">
             <div class="search-container">
                 <input list="lista-cursos" id="buscar" name="buscar" placeholder="Buscar cursos...">
@@ -32,8 +32,8 @@
                     <option value="Marketing Digital y Redes Sociales">
                     <option value="Diseño UX/UI para Principiantes">
                     <option value="Introducción a Data Science">
-                    <option value="Ciberseguridad y Hacking Ético">
-                    <option value="Inversión en Criptomonedas">
+                    <option value="Ciberseguridad & Hacking Ético">
+                    <option value="Inversión en Cryptomonedas">
                     <option value="Fotografía Profesional">
                     <option value="Inglés para Profesionales">
                 </datalist>
@@ -46,28 +46,22 @@
         </div>
     </header>
 
-    <nav class="navbar">  
-  <ul class="nav-links">
-    <li><a href="./Inicio.html">Inicio</a></li>
-    <li><a href="./VistaCalendario.html">Calendario</a></li>
-    <li><a href="./GiftCard.html">Haz un regalo</a></li>
-    <li><a href="./formularioDeContacto.html">Contacto</a></li>
-    <li><a href="./cursos.html">Cursos</a></li>
-    <li><a href="./FormularioEmpresas.html">Inscripción para empresas</a></li>
-  </ul>
 
-  <!-- 🔹 Versión invitado (NO logueado) -->
-  <div class="nav-acciones" data-seccion-invitado>
-    <a href="/Pages/VistaLogin.html" class="btn btn-login">Iniciar sesión</a>
-    <a href="/Pages/VistaRegistrarse.html" class="btn btn-register">Registrarse</a>
-  </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="./../Pages/Inicio.html"><i class='bx bx-home'></i><span>Inicio</span></a></li>
+            <li><a href="./../Pages/VistaCalendario.html"><i class='bx bx-calendar'></i><span>Calendario</span></a></li>
+            <li><a href="./../Pages/GiftCard.html"><i class='bx bx-gift'></i><span>Haz un regalo</span></a></li>
+            <li><a href="./../Pages/cursos.html"><i class='bx bx-gift'></i><span>Cursos</span></a></li>
+            <li><a href="./../Pages/formularioDeContacto.html"><i class='bx bx-phone'></i><span>Contacto</span></a></li>
+            <li><a href="./../Pages/FormularioEmpresas.html"><i class='bx bx-briefcase'></i><span>Inscripción para
+                        empresas</span></a></li>
+            <li><a href="./../Pages/VistaPerfil.html"><i class='bx bx-user'></i><span>Perfil</span></a></li>
 
-  <!-- 🔹 Versión usuario logueado -->
-  <div class="nav-acciones" data-seccion-logueado>
-    <a href="/Pages/VistaPerfil.html" class="btn usuario-link" data-usuario-nombre></a>
-    <button class="btn btn-cerrarSesion" data-btn-logout>Cerrar sesión</button>
-  </div>
-</nav>
+        </ul>
+    </nav>
+
+
     <main>
 
         <!-- Info del curso -->
@@ -96,114 +90,9 @@
         <!-- Contenidos por clase -->
         <section class="contenidos">
             <h2>CONTENIDOS POR CLASE</h2>
-
-            <details>
-                <summary>INTRODUCCIÓN</summary>
-                <ul>
-                    <li>
-                        <span class="icono"><i class='bx bx-volume-full'></i></span>
-                        <div class="info">
-                            <span class="titulo">Definición de UX/UI</span>
-                            <span class="duracion">12 min</span>
-                        </div>
-                        <input type="radio" name="intro" id="definicion">
-                        <label for="definicion"></label>
-                    </li>
-
-                    <li>
-                        <span class="icono"><i class='bx bxs-file-import'></i></span>
-                        <div class="info">
-                            <span class="titulo">Importancia del UX/UI</span>
-                            <span class="duracion">18 min</span>
-                        </div>
-                        <input type="radio" name="intro" id="importancia">
-                        <label for="importancia"></label>
-                    </li>
-
-                    <li>
-                        <span class="icono"><i class='bx bx-paint-roll'></i></span>
-                        <div class="info">
-                            <span class="titulo">Rol del diseñador UX/UI</span>
-                            <span class="duracion">8 min</span>
-                        </div>
-                        <input type="radio" name="intro" id="rol-diseñador">
-                        <label for="rol-diseñador"></label>
-                    </li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>UNIDAD 2 - Investigación UX</summary>
-                <ul>
-                    <li>
-                        <span class="icono"><i class='bx bx-search'></i></span>
-                        <div class="info">
-                            <span class="titulo">Tipos de investigación</span>
-                            <span class="duracion">15 min</span>
-                        </div>
-                        <input type="radio" name="unidad2" id="u2-investigacion">
-                        <label for="u2-investigacion"></label>
-                    </li>
-                    <li>
-                        <span class="icono"><i class='bx bx-group'></i></span>
-                        <div class="info">
-                            <span class="titulo">Entrevistas y encuestas</span>
-                            <span class="duracion">17 min</span>
-                        </div>
-                        <input type="radio" name="unidad2" id="u2-entrevistas">
-                        <label for="u2-entrevistas"></label>
-                    </li>
-
-                    <li>
-                        <span class="icono"><i class='bx bx-line-chart'></i></span>
-                        <div class="info">
-                            <span class="titulo">Análisis de resultados</span>
-                            <span class="duracion">11 min</span>
-                        </div>
-                        <input type="radio" name="unidad2" id="u2-analisis">
-                        <label for="u2-analisis"></label>
-                    </li>
-
-                </ul>
-            </details>
-
-
-            <details>
-                <summary>UNIDAD 3 - Arquitectura de la información</summary>
-                <ul>
-                    <li>
-                        <span class="icono"><i class='bx bx-sitemap'></i></span>
-                        <div class="info">
-                            <span class="titulo">Mapa de sitio</span>
-                            <span class="duracion">10 min</span>
-                        </div>
-                        <input type="radio" name="unidad3" id="u3-mapa">
-                        <label for="u3-mapa"></label>
-                    </li>
-                    <li>
-                        <span class="icono"><i class='bx bx-category'></i></span>
-                        <div class="info">
-                            <span class="titulo">Jerarquía y navegación</span>
-                            <span class="duracion">13 min</span>
-                        </div>
-                        <input type="radio" name="unidad3" id="u3-jerarquia">
-                        <label for="u3-jerarquia"></label>
-                    </li>
-
-                    <li>
-                        <span class="icono"><i class='bx bx-notepad'></i></span>
-                        <div class="info">
-                            <span class="titulo">Wireframes básicos</span>
-                            <span class="duracion">16 min</span>
-                        </div>
-                        <input type="radio" name="unidad3" id="u3-wireframes">
-                        <label for="u3-wireframes"></label>
-
-                    </li>
-                </ul>
-
-            </details>
         </section>
+
+        
         <section class="docente">
             <div class="docente-perfil">
                 <div class="docente-foto">
@@ -222,7 +111,7 @@
                     Web y Análisis de Datos**, 10 años de experiencia.</p>
 
                 <p id="docente-bio-p1" class="docente-bio">
-                    Soy un **especialista certificado** con 10 años de experiencia en la industria de **Desarrollo
+                    Soy un *especialista certificado* con 10 años de experiencia en la industria de **Desarrollo
                     Web y Análisis de Datos**. Mi enfoque se centra en transferir habilidades prácticas y actualizadas
                     que los estudiantes puedan aplicar inmediatamente en el entorno laboral.
                 </p>
@@ -231,9 +120,9 @@
                     logrando optimizar la eficiencia y el rendimiento del 100% en
                     procesos operativos. Soy un apasionado de la educación continua.
                 </p>
-                </p>
+
                 <p id="docente-bio-p3" class="docente-bio">
-                    Mi metodología de enseñanza combina la teoría fundamental con **ejercicios reales y simulaciones**
+                    Mi metodología de enseñanza combina la teoría fundamental con *ejercicios reales y simulaciones*
                     de casos empresariales. ¡Espero que mi experiencia te ayude a dar el salto profesional que estás
                     buscando!
                 </p>
@@ -245,10 +134,7 @@
             <div class="docentes-cards-wrapper">
             </div>
         </section>
-
-        <section class="relacionados" id="cursos-relacionados-container">
-
-        </section>
+        <section class="relacionados" id="cursos-relacionados-container"></section>
         <!-- Cursos relacionados -->
 
     </main>
@@ -292,6 +178,7 @@
             <button id="btn-cerrar-modal">Aceptar</button>
         </div>
     </div>
-    <script src="../Javascript/detalleCurso.js"></script>
+    <script type="module" src="../Javascript/cart.js"></script>
+    <script type="module" src="../Javascript/detalleCurso.js"></script>
 </body>
 </html>
