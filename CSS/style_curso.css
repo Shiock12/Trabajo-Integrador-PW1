@@ -773,7 +773,7 @@ main {
   }
 
   .curso-info {
-    grid-template-columns: 25em 1fr; /* Columna de imagen aún más ancha */
+    grid-template-columns: 25em 1fr; 
   }
 
   .curso-detalles h1 {
