@@ -2,14 +2,12 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
   const inputDestinatario = document.getElementById("destinatario");
   const inputMonto        = document.getElementById("monto");
 
   const radiosColor  = document.querySelectorAll('input[name="color_fuente"]');
   const radiosTamano = document.querySelectorAll('input[name="tamano_fuente"]');
   const radiosFondo  = document.querySelectorAll('input[name="fondo"]');
-
 
   const previewNombre   = document.querySelector(".preview-nombre");
   const previewPrecio   = document.querySelector(".preview-precio");
@@ -23,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 4) Actualizar monto
+
   if (inputMonto && previewPrecio) {
     inputMonto.addEventListener("input", function () {
       const valor = inputMonto.value.trim();
@@ -31,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  
   radiosColor.forEach(function (radio) {
     radio.addEventListener("change", function () {
       if (previewNombre) {
@@ -44,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   radiosTamano.forEach(function (radio) {
     radio.addEventListener("change", function () {
       if (previewNombre) {
-        const tamano = radio.value; 
+        const tamano = radio.value;
         previewNombre.style.fontSize = tamano + "px";
       }
     });
@@ -79,18 +76,47 @@ document.addEventListener("DOMContentLoaded", function () {
       const usuarioActivoStr = localStorage.getItem("usuarioActivo");
 
       if (!usuarioActivoStr) {
-        // Frenamos el envío del formulario
         e.preventDefault();
-
-        // Aviso al usuario
         alert("Tenés que iniciar sesión para confirmar tu Gift Card.");
-
-        // Opcional: redirigir al login
-        window.location.href = "./VistaLogin.html"; // misma carpeta /Pages/
+        window.location.href = "./VistaLogin.html";
+        return; // importante
       }
-      alert("Compra generada correctamente, te enviaremos un mail con la informacion a seguir");
+
+      alert("Compra generada correctamente, te enviaremos un mail con la información a seguir");
       // Si sí hay usuarioActivo, el submit sigue normalmente
     });
+  }
+
+  const radiosUbicacion = document.querySelectorAll('input[name="ubicacion"]');
+
+  function actualizarUbicacion(valor) {
+    if (!previewPrecio) return;
+
+    // Reseteamos primero
+    previewPrecio.style.left = "";
+    previewPrecio.style.right = "";
+    previewPrecio.style.transform = "";
+
+    if (valor === "left") {
+      previewPrecio.style.left = "10px";
+    } else if (valor === "center") {
+      previewPrecio.style.left = "50%";
+      previewPrecio.style.transform = "translateX(-50%)";
+    } else if (valor === "right") {
+      previewPrecio.style.right = "10px";
+    }
+  }
+
+  // Escuchamos cambios en los radios
+  radiosUbicacion.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      actualizarUbicacion(radio.value);
+    });
+  });
+
+  const seleccionado = document.querySelector('input[name="ubicacion"]:checked');
+  if (seleccionado) {
+    actualizarUbicacion(seleccionado.value);
   }
 
 });
